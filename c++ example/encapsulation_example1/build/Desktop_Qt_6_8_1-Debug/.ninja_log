@@ -1,0 +1,8 @@
+# ninja log v6
+1	234	1738308133917678620	CMakeFiles/encapsulation_example1.dir/main.cpp.o	4be97cc28c3f0df4
+1	236	1738308133917678620	CMakeFiles/encapsulation_example1.dir/car.cpp.o	3cc0fde7dfb8c6b2
+236	287	1738308134152672794	encapsulation_example1	8acd6503080a5506
+2	219	1738308274473195149	CMakeFiles/encapsulation_example1.dir/main.cpp.o	4be97cc28c3f0df4
+219	270	1738308274690189771	encapsulation_example1	8acd6503080a5506
+2	228	1738308281079031432	CMakeFiles/encapsulation_example1.dir/main.cpp.o	4be97cc28c3f0df4
+228	279	1738308281305025831	encapsulation_example1	8acd6503080a5506
