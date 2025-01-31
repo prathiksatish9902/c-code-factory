@@ -1,0 +1,27 @@
+# ninja log v6
+1	305	1738241683313014642	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+305	392	1738241683617008723	inheritance_Task1	5f6ff7521869661e
+2	338	1738261231387314682	CMakeFiles/inheritance_Task1.dir/vehicle.cpp.o	2d7ea906cab0625a
+2	429	1738261231387314682	CMakeFiles/inheritance_Task1.dir/car.cpp.o	c4ce9d2de99e2d0a
+2	260	1738261269848757416	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+1	274	1738261269847757480	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+2	265	1738261486047588687	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	270	1738261510200622788	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+1	275	1738261510200622788	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	270	1738261634725348909	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+1	246	1738261974031139440	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	253	1738262150804084802	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+2	254	1738262398163389909	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+2	262	1738262398163389909	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	242	1738305435334560364	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	278	1738313640142214475	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+1	293	1738313640142214475	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	269	1738313906100623073	CMakeFiles/inheritance_Task1.dir/car.cpp.o	c4ce9d2de99e2d0a
+1	258	1738313919789283818	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	252	1738314483543311972	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	346	1738314815052095991	CMakeFiles/inheritance_Task1.dir/main.cpp.o	29742d13dfe2f24a
+1	375	1738314815052095991	CMakeFiles/inheritance_Task1.dir/bike.cpp.o	5e9c070925f1cedc
+1	385	1738314815052095991	CMakeFiles/inheritance_Task1.dir/car.cpp.o	c4ce9d2de99e2d0a
+1	437	1738314815052095991	CMakeFiles/inheritance_Task1.dir/vehicle.cpp.o	2d7ea906cab0625a
+2	441	1738314815053095967	CMakeFiles/inheritance_Task1.dir/hybridvehicle.cpp.o	701ec856dd080497
+441	502	1738314815492085087	inheritance_Task1	a4bffaeee647ae73

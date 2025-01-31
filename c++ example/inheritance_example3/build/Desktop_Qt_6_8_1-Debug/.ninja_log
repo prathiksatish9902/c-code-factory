@@ -1,0 +1,17 @@
+# ninja log v6
+1	258	1738303984810527441	CMakeFiles/inheritance_example3.dir/person.cpp.o	8bf83ef9f53b5b89
+1	261	1738303984810527441	CMakeFiles/inheritance_example3.dir/student.cpp.o	54b83639c9e083a0
+1	265	1738303984810527441	CMakeFiles/inheritance_example3.dir/main.cpp.o	b6a6961f9c2ad1c8
+265	334	1738303985074520889	inheritance_example3	6276f2df3a08fa8a
+1	259	1738304172203877343	CMakeFiles/inheritance_example3.dir/student.cpp.o	54b83639c9e083a0
+259	310	1738304172461870942	inheritance_example3	6276f2df3a08fa8a
+2	258	1738304359049242615	CMakeFiles/inheritance_example3.dir/person.cpp.o	8bf83ef9f53b5b89
+1	253	1738304398892254478	CMakeFiles/inheritance_example3.dir/main.cpp.o	b6a6961f9c2ad1c8
+2	265	1738304600487255475	CMakeFiles/inheritance_example3.dir/main.cpp.o	b6a6961f9c2ad1c8
+2	273	1738304600487255475	CMakeFiles/inheritance_example3.dir/person.cpp.o	8bf83ef9f53b5b89
+2	278	1738304600487255475	CMakeFiles/inheritance_example3.dir/student.cpp.o	54b83639c9e083a0
+278	343	1738304600763248632	inheritance_example3	6276f2df3a08fa8a
+2	378	1738315693226331656	CMakeFiles/inheritance_example3.dir/student.cpp.o	54b83639c9e083a0
+2	390	1738315693226331656	CMakeFiles/inheritance_example3.dir/person.cpp.o	8bf83ef9f53b5b89
+2	392	1738315693226331656	CMakeFiles/inheritance_example3.dir/main.cpp.o	b6a6961f9c2ad1c8
+392	464	1738315693616321990	inheritance_example3	6276f2df3a08fa8a

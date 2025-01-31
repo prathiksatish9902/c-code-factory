@@ -1,0 +1,7 @@
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/task-2.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/edit_cache.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/rebuild_cache.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/list_install_components.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/install.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/install/local.dir
+/home/prathik/CodeFactoryC++/task-2/build/Desktop_Qt_6_8_1-Debug/CMakeFiles/install/strip.dir

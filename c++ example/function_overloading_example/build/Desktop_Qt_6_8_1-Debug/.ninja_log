@@ -1,0 +1,5 @@
+# ninja log v6
+1	409	1738169909262931081	CMakeFiles/function_overloading_example.dir/main.cpp.o	6921b76157814b43
+409	498	1738169909671059147	function_overloading_example	5a1ad29803d255ec
+2	386	1738169952380774911	CMakeFiles/function_overloading_example.dir/main.cpp.o	6921b76157814b43
+386	472	1738169952764451379	function_overloading_example	5a1ad29803d255ec
