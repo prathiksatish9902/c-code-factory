@@ -1,3 +1,4 @@
+
 #include "switch.h"
 
 Switch::Switch(Wire *wire) {
