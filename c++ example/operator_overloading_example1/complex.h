@@ -10,6 +10,7 @@ public:
     Complex(int real,int imaginary);
     ~Complex();
     Complex operator+(const Complex &obj);
+    Complex operator-(const Complex&obj);
     void print();
 };
 

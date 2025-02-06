@@ -12,8 +12,8 @@ public:
     ElectronicItem();
     ~ElectronicItem();
     int getPrice();
-    virtual void setPrice(float itemPrice);
-    virtual void display();
+    /*virtual*/ void setPrice(float itemPrice);
+    /*virtual*/ void display();
 
 };
 
