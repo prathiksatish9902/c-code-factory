@@ -15,7 +15,8 @@ int main()
     n2.setNum(4);
     std::cout<<"set value 2"<< n2.getNum() <<std::endl;
 
-    Number n3 = n1.getNum() + n2.getNum();
+    Number n3 ;
+    n3.setNum(n1.getNum()+n2.getNum());
     std::cout<<"final value "<< n3.getNum() <<std::endl;
 
 

@@ -12,7 +12,7 @@ public:
     ~ACVents();
     void powerON();
     void powerOFF();
-    void checkPower(Wire *wire);
+    // void checkPower(Wire *wire);
 
 };
 

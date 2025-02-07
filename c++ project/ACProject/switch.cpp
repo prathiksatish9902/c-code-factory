@@ -13,20 +13,22 @@ Switch::~Switch()
 
 }
 
-void Switch::turnON()
+void Switch::turnON(ACVents &ac)
 {
     std::cout<<"turnOn function is called"<<std::endl;
 
     if(wire){
         wire->connect();
+        ac.powerON();
     }
 }
 
-void Switch::turnOFF()
+void Switch::turnOFF(ACVents &ac)
 {
     std::cout<<"turnOFF function is called"<<std::endl;
 
     if(wire){
         wire->disconnect();
+        ac.powerOFF();
     }
 }

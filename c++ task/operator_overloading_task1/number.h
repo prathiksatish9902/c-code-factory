@@ -4,6 +4,7 @@
 class Number
 {
     int m_num;
+    std::string name;
 public:
     Number(int num);
     Number();

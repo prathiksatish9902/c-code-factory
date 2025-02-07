@@ -25,14 +25,14 @@ void ACVents::powerOFF()
     m_state = "off";
 }
 
-void ACVents::checkPower(Wire *wire)
-{
-    std::cout<<"checkPower function is called"<<std::endl;
+// void ACVents::checkPower(Wire *wire)
+// {
+//     std::cout<<"checkPower function is called"<<std::endl;
 
-    if(wire && wire->m_status == "on"){
-        powerON();
-    }
-    else{
-        powerOFF();
-    }
-}
+//     if(wire && wire->m_status == "on"){
+//         powerON();
+//     }
+//     else{
+//         powerOFF();
+//     }
+// }
