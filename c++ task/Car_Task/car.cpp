@@ -1,5 +1,5 @@
 #include "car.h"
-
+#include "engine.h"
 Car::Car() {
     std::cout<<"car constructor called"<<std::endl;
     m_keystatus = false;
@@ -30,7 +30,7 @@ void Car::Car_Move(Engine *e ,  Wheel *w){
     e1 = e;
     w1 = w;
 
-    e1->Engine_On(&c1);
+    e1->Engine_On();
     w1->Wheel_Move();
 }
 
@@ -40,7 +40,7 @@ void Car::Car_Stop(Wheel *w, Engine *e){
     w1 = w;
     e1 = e;
     w1->Wheel_Stop();
-    e1->Engine_Off(&c1);
+    e1->Engine_Off();
 
 }
 

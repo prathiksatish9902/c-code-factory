@@ -3,8 +3,10 @@
 #include<iostream>
 #include"accelarator.h"
 #include"brake.h"
-#include"engine.h"
-#include"wheel.h"
+// #include"engine.h"
+// #include"wheel.h"
+class Engine;
+class Wheel;
 class Car
 {
     bool m_keystatus;

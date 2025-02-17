@@ -10,14 +10,14 @@ Engine::~Engine(){
 }
 
 
-void Engine::Engine_On(Car *c){
+void Engine::Engine_On(){
     std::cout<<"engine on function called"<<std::endl;
-    c1 = c;
+    // c1 = c;
     c1->Key_Insert();
 }
 
-void Engine::Engine_Off(Car *c){
+void Engine::Engine_Off(){
     std::cout<<"engine off function called"<<std::endl;
-    c1 = c;
+    // c1 = c;
     c1->Key_Remove();
 }

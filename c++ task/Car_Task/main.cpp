@@ -1,5 +1,6 @@
 #include <iostream>
 #include"car.h"
+#include"engine.h"
 using namespace std;
 
 int main()
@@ -9,6 +10,7 @@ int main()
     Engine e1;
     Wheel w1;
     Car c1;
+    e1.c1=&c1;
     c1.Key_Insert();
     a1.Accelarator_Applied(&w1);
     c1.Car_Move(&e1,&w1);
