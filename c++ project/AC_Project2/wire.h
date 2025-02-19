@@ -7,8 +7,8 @@ class Wire
 public:
     Wire();
     ~Wire();
-    void W_on();
-    void setac(AC *a1);
+   virtual void W_on()=0;
+   virtual void setac(AC *a1)=0;
 };
 
 #endif // WIRE_H

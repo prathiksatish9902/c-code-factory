@@ -24,3 +24,5 @@ void AC::Setwire(Wire *w)
     w1 = w;
     w1->setac(this);
 }
+
+

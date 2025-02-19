@@ -7,8 +7,10 @@ class Switch
 public:
     Switch();
     ~Switch();
-    void S_on();
-    void Setwire(    Wire *w);
+    void Switch_on();
+    void Setwire(Wire *w);
+
+
 };
 
 #endif // SWITCH_H

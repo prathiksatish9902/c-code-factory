@@ -2,7 +2,6 @@
 #define AC_H
 //#include"wire.h"
 #include<iostream>
-
 class Wire;
 class AC
 {
@@ -13,6 +12,9 @@ public:
     ~AC();
     void AC_on();
     void Setwire(Wire *w);
+
+
+
 };
 
 #endif // AC_H
