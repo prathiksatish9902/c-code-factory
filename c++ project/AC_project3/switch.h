@@ -12,7 +12,9 @@ class Switch
 public:
     Switch();
     ~Switch();
-    void Switch_on();
+    void P_Switch_on();
+    void F_Switch_on();
+    void H_Switch_on();
     void SetPolycabWire(PolycabWire *pw);
     void SetFinolexWire(FinolexWire *fw);
     void SetHavellsWire(HavellsWire *hw);

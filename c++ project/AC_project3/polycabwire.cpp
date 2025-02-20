@@ -24,6 +24,8 @@ void PolycabWire::polycabsetac(AC *a1)
 {
          std::cout<<"polycab setac function called"<<std::endl;
     ac = a1;
+         std::cout<<"polycab setac function called"<<std::endl;
+
 
 }
 

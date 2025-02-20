@@ -24,20 +24,20 @@ int main()
         {
             AC ac1;
             Switch s1;
-            PolycabWire *pw1;
-            s1.SetPolycabWire(pw1);
-            ac1.SetPolycabWire(pw1);
-            s1.Switch_on();
+            PolycabWire pw1;
+            s1.SetPolycabWire(&pw1);
+            ac1.SetPolycabWire(&pw1);
+            s1.P_Switch_on();
             break;
         }
         case finolexWire:
         {
             AC ac1;
             Switch s1;
-            FinolexWire *fw1;
-            s1.SetFinolexWire(fw1);
-            ac1.SetFinolexWire(fw1);
-            s1.Switch_on();
+            FinolexWire fw1;
+            s1.SetFinolexWire(&fw1);
+            ac1.SetFinolexWire(&fw1);
+            s1.F_Switch_on();
             break;
         }
         case havellsWire:
@@ -45,10 +45,10 @@ int main()
 
             AC ac1;
             Switch s1;
-            HavellsWire *hw1;
-            s1.SetHavellsWire(hw1);
-            ac1.SetHavellsWire(hw1);
-            s1.Switch_on();
+            HavellsWire hw1;
+            s1.SetHavellsWire(&hw1);
+            ac1.SetHavellsWire(&hw1);
+            s1.H_Switch_on();
             break;
         }
         default:

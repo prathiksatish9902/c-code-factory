@@ -10,10 +10,22 @@ Switch::~Switch(){
 
 }
 
-void Switch::Switch_on(){
-    std::cout<<"switch on"<<std::endl;
+void Switch::P_Switch_on(){
+    std::cout<<"P switch on"<<std::endl;
     pw1->PolycabWire_on();
 
+}
+
+void Switch::F_Switch_on()
+{
+    std::cout<<"F switch on"<<std::endl;
+    fw1->FinolexWire_on();
+}
+
+void Switch::H_Switch_on()
+{
+    std::cout<<"H switch on"<<std::endl;
+    hw1->HavellsWire_on();
 }
 
 void Switch::SetPolycabWire(PolycabWire *pw)
