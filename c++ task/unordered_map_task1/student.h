@@ -20,7 +20,6 @@ public:
 
 
 
-    // Template operator<< declaration
     template<typename T>
     friend T& operator<<(T& os, const Student& student);
 };
@@ -28,7 +27,6 @@ public:
 
 
 
-// Template operator<< definition
 template<typename T>
 T& operator<<(T& os, const Student& student) {
     os << "Student Details:\n"

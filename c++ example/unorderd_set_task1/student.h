@@ -22,7 +22,6 @@ public:
 
 
 
-    // Template operator<< for flexible output formatting
     template<typename T>
     friend T& operator<<(T& os, const Student& student) {
         os << "Name: " << student.m_name
@@ -34,7 +33,6 @@ public:
 };
 
 
-// Hash function for Student class (required for unordered_set)
 namespace std {
 template<>
 struct hash<Student> {

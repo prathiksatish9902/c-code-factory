@@ -55,7 +55,7 @@ int main()
     s1.Setwire(w1);
     ac1.Setwire(w1);
     s1.Switch_on();
-    //delete w1;
+    delete w1;
     return 0;
 }
 }

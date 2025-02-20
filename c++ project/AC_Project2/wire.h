@@ -6,7 +6,7 @@ class Wire
     AC *ac;
 public:
     Wire();
-    ~Wire();
+    virtual ~Wire();
    virtual void W_on()=0;
    virtual void setac(AC *a1)=0;
 };
