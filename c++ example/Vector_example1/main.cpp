@@ -87,6 +87,7 @@ int main()
     v1.erase(v1.begin()+3);
     for(int i=0;i<size(v1);i++){
         std::cout<<9<<v1[i]<<std::endl;
+        std::cout<<10<<sizeof(v1)<<v1.capacity()<<std::endl;
     }
     return 0;
 }
