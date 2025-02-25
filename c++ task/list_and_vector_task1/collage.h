@@ -15,9 +15,11 @@ public:
     void addStaff(const Staff &staff);
     void deleteStaff(int id);
     void updateStaff(int id, const std::string &newName, const std::string &newDepartment);
+    void searchStaff(std::string name);
     void addStudent(const Student &student);
     void deleteStudent(int id);
     void updateStudent(int id, const std::string &newName, const std::string &newdepartment);
+    void searchStudent(int id);
     void printStaff();
     void printStudents();
 };
