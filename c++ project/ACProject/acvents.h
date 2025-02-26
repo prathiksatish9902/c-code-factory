@@ -1,3 +1,4 @@
+
 #ifndef ACVENTS_H
 #define ACVENTS_H
 #include<iostream>
@@ -11,7 +12,7 @@ public:
     ~ACVents();
     void powerON();
     void powerOFF();
-    void checkPower(Wire *wire);
+    // void checkPower(Wire *wire);
 
 };
 

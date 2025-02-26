@@ -1,3 +1,4 @@
+
 #include "wire.h"
 
 Wire::Wire() {
@@ -27,5 +28,3 @@ void Wire::disconnect()
     m_status = "off";
 
 }
-
-
