@@ -6,7 +6,7 @@ class UI:public FileOperation
 public:
     UI();
     ~UI();
-    void readData()override;
+    std::vector<Student> readData()override;
 
 };
 

@@ -6,7 +6,7 @@ class Readcsv:public FileOperation
 public:
     Readcsv();
     ~Readcsv();
-    void readData()override;
+    std::vector<Student> readData()override;
 };
 
 #endif // READCSV_H

@@ -41,6 +41,7 @@ int main()
     // {
     //     std::cout<<"data \n"<<studentvector[i]<<std::endl;
     // }
+    studentvector.shrink_to_fit();
     for(auto &value : studentvector)
     {
         std::cout<<"id :"<<value.m_id<<"name :"<<value.m_name<<"std :"<<value.m_stnd<<std::endl;

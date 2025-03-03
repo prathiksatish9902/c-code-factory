@@ -6,7 +6,7 @@ class Readjson:public FileOperation
 public:
     Readjson();
     ~Readjson();
-    void readData()override;
+    std::vector<Student> readData()override;
 };
 
 #endif // READJSON_H

@@ -6,7 +6,7 @@ class Readxml:public FileOperation
 public:
     Readxml();
     ~Readxml();
-    void readData()override;
+    std::vector<Student>  readData()override;
 };
 
 #endif // READXML_H
