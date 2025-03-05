@@ -20,3 +20,13 @@ m_departmentName.push_back(departmentName);
 std::string Department::getDepartment(){
     return m_departmentName;
 }
+
+std::string Department::departmentName() const
+{
+    return m_departmentName;
+}
+
+void Department::setDepartmentName(const std::string &newDepartmentName)
+{
+    m_departmentName = newDepartmentName;
+}

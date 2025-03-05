@@ -8,7 +8,7 @@ class Collage
 private:
     int m_id;
     std::string m_name;
-    std::vector<Department> m_departmentName;
+    std::vector<Department> m_departmentVector;
 public:
     Collage(int id, std::string name, std::string department);
     ~Collage();
