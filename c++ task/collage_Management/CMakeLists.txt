@@ -9,7 +9,8 @@ add_executable(collage_Management main.cpp
     person.h person.cpp
     student.h student.cpp
     staff.h staff.cpp
-    management.h management.cpp)
+    management.h management.cpp
+    collage.h collage.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS collage_Management
