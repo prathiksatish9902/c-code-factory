@@ -13,3 +13,27 @@ Student::~Student()
     std::cout<<"student destructor called"<<std::endl;
 
 }
+
+// std::string Student::getname()
+// {
+//     std::cout<<"get name function called"<<std::endl;
+//     return m_name;
+// }
+
+// int Student::getage()
+// {
+//     std::cout<<"get age function called"<<std::endl;
+//     return m_age;
+// }
+
+// std::string Student::getusn()
+// {
+//     std::cout<<"get usn function called"<<std::endl;
+//     return m_usn;
+// }
+
+// std::string Student::getmobile()
+// {
+//     std::cout<<"get mobile function called"<<std::endl;
+//     return m_mobile;
+// }

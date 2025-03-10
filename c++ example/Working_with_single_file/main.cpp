@@ -154,15 +154,15 @@ int main()
 
 
 
-    string filename = "students.txt";
+    string filename = "students.csv";
 
     Student s1("prathik",3,2);
     Student s2("harsha",2,3);
     Student s3("darshan",4,5);
 
     s1.writedata(filename);
-    s2.writedata(filename);
-    s3.writedata(filename);
+    // s2.writedata(filename);
+    // s3.writedata(filename);
 
     s1.readdata(filename);
     // s2.readdata(filename);

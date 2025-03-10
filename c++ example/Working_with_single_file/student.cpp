@@ -29,7 +29,7 @@ void Student::writedata(const std::string &filename)
     std::ofstream out(filename,ios::app);
     if(out.is_open())
     {
-        out<<m_name<<" "<<m_id<<" "<<m_standard<<std::endl;
+        out<<m_name<<","<<m_id<<","<<m_standard<<std::endl;
         out.close();
         std::cout<<"data written successfully"<<std::endl;
     }
@@ -54,7 +54,7 @@ void Student::readdata(const std::string &filename)
             int standard;
             getline(data,name);
             data>>id;
-            data.ignore();
+            //data.ignore();
             data>>standard;
             std::cout<<"data read successfully.........................................................................."<<std::endl;
             std::cout<<"name :"<<m_name<<" " <<"id :"<<m_id<<" "<<"standard :"<<m_standard<<std::endl;

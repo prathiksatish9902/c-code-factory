@@ -2,8 +2,8 @@
 #include<vector>
 StudentManager::StudentManager() {
     std::cout<<"student manager constructor called"<<std::endl;
-    m_fileOperation = new Readcsv;
-    m_studentDataVector = m_fileOperation->readData();
+    //m_fileOperation = new Readcsv;
+   // m_studentDataVector = m_fileOperation->readData();
 
 }
 

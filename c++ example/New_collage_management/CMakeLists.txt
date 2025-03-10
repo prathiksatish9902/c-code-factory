@@ -6,7 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(New_collage_management main.cpp
-    collage.h collage.cpp)
+    collage.h collage.cpp
+    personaldetails.h personaldetails.cpp
+    university.h university.cpp
+    management.h management.cpp
+    student.h student.cpp
+    staff.h staff.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS New_collage_management

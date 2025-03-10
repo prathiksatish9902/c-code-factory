@@ -10,33 +10,31 @@ Readcsv::~Readcsv()
 
 }
 
-std::vector<Student> Readcsv::readData()
+void Readcsv::readData(const string &filename)
 {
-    std::cout<<"csv read data function called"<<std::endl;
+    std::cout<<"csv read data function called: "<< filename << std::endl;
 
-    //std::cout<<"init student function called"<<std::endl;
-    Student s1("abc",18,"1ab25cs001","1234567890");
-    Student s2("abc",18,"1ab25cs001","1234567890");
-    Student s3("abc",18,"1ab25cs001","1234567890");
-    Student s4("abc",18,"1ab25cs001","1234567890");
-    Student s5("abc",18,"1ab25cs001","1234567890");
-    Student s6("abc",18,"1ab25cs001","1234567890");
-    Student s7("abc",18,"1ab25cs001","1234567890");
-    Student s8("abc",18,"1ab25cs001","1234567890");
-    Student s9("abc",18,"1ab25cs001","1234567890");
-    Student s10("abc",18,"1ab25cs001","1234567890");
-    std::vector<Student>studentlist;
-    studentlist.reserve(10);
-    studentlist.push_back(s1);
-    studentlist.push_back(s2);
-    studentlist.push_back(s3);
-    studentlist.push_back(s4);
-    studentlist.push_back(s5);
-    studentlist.push_back(s6);
-    studentlist.push_back(s7);
-    studentlist.push_back(s8);
-    studentlist.push_back(s9);
-    studentlist.push_back(s10);
+    std::ifstream read(filename,ios::in);
+    std::string line;
+    std::string name;
+    int age;
+    std::string usn;
+    std::string phone;
 
-    return studentlist;
+    if(read.is_open()){
+        while(getline(read,line)){
+
+            std::istringstream data(line);
+
+            if(getline(data , name,',') &&  (data >> age) && (data.get() == ',') && getline(data , usn,',')  && getline(data , phone,',')){
+
+                std::cout<<"name :"<<name<<" "<<"age :"<<age<<" "<<"usn :"<<usn<< " " << "phone :"<<phone<<std::endl;
+            }
+        }
+        std::cout<<"data read successfully"<<std::endl;
+        read.close();
+    }
+    else{
+        std::cout<<"file is not opened"<<std::endl;
+    }
 }

@@ -12,7 +12,8 @@ add_executable(Student_file_task main.cpp
     readjson.h readjson.cpp
     fileoperation.h fileoperation.cpp
     studentmanager.h studentmanager.cpp
-    ui.h ui.cpp)
+    ui.h ui.cpp
+    readtxt.h readtxt.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS Student_file_task
