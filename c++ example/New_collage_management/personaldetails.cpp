@@ -1,10 +1,11 @@
 #include "personaldetails.h"
 
-PersonalDetails::PersonalDetails(std::string name, int id, std::string address) {
+PersonalDetails::PersonalDetails(std::string name, int id, std::string address, std::string department) {
     std::cout<<"personal details constructor called"<<std::endl;
     m_name = name;
     m_id = id;
     m_address = address;
+    m_department = department;
 }
 
 PersonalDetails::~PersonalDetails()
@@ -31,6 +32,12 @@ std::string PersonalDetails::GetAdderss()
     return m_address;
 }
 
+std::string PersonalDetails::GetDepartment()
+{
+    std::cout<<"get department function called"<<std::endl;
+    return m_department;
+}
+
 void PersonalDetails::SetName(std::string name)
 {
     std::cout<<"set name function called"<<std::endl;
@@ -47,4 +54,10 @@ void PersonalDetails::SetAddress(std::string address)
 {
     std::cout<<"set address function called"<<std::endl;
     m_address = address;
+}
+
+void PersonalDetails::SetDepartment(std::string department)
+{
+    std::cout<<"set department function called"<<std::endl;
+    m_department = department;
 }
