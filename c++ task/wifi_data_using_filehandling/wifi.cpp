@@ -43,7 +43,10 @@ std::string Wifi::GetWifiPassword()
     return m_wifiPassword;
 }
 
-// // Helper function to determine the priority of WiFi status
+
+
+// // Helper function to determine the priority of WiFi     void sortData();
+//status
 // int Wifi::getStatusPriority(const std::string& status) {
 //     if (status == "Connected") return 0;
 //     if (status == "Saved") return 1;
@@ -79,8 +82,35 @@ void Wifi::display() {
         std::cout<<"signal strength :"<<i->GetSignalStrength()<<std::endl;
         std::cout<<"status :"<<i->GetWifiStatus()<<std::endl;
         std::cout<<"password :"<<i->GetWifiPassword()<<std::endl;
-
-
-
     }
 }
+
+std::list<Wifi> Wifi::sort(std::list<Wifi> m_wifilist)
+{
+    std::cout<<"sort function called"<<std::endl;
+    for(auto i = m_wifilist.begin(); i!= m_wifilist.end(); i++)
+    {
+        for(auto j = next(i); j!=m_wifilist.end();j++)
+        {
+            if(i->GetWifiStatus()!="connected" && j->GetWifiStatus() == "saved")
+            {
+                std::iter_swap(i,j);
+            }
+            if(i->GetWifiStatus()=="available" &&j->GetWifiStatus() == "saved")
+            {
+                std:: iter_swap(i,j);
+
+            }
+            if(i->GetWifiStatus() == j->GetWifiStatus() &&i->GetSignalStrength()< j->GetSignalStrength())
+            {
+                std::iter_swap(i,j);
+
+            }
+        }
+    }
+    return m_wifilist;
+}
+
+
+
+

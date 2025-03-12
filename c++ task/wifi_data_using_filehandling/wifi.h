@@ -2,8 +2,8 @@
 #define WIFI_H
 #include<iostream>
 #include<list>
-#include<algorithm>
-
+#include<fstream>
+using namespace std;
 class Wifi
 {
 public:
@@ -15,12 +15,12 @@ public:
     int GetSignalStrength();
     std::string GetWifiStatus();
     std::string GetWifiPassword();
-
     void display();
  // void sortWifiList();  // New method to sort the wifi list
  //    bool compareWifi( Wifi& a,  Wifi& b);
 
     std::list<Wifi> m_wifilist;
+    std::list<Wifi> sort(std::list<Wifi> m_wifilist);
 
 private:
     std::string m_wifiName;
