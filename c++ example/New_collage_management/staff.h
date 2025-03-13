@@ -6,6 +6,7 @@ class Staff:public PersonalDetails
 {
 public:
     Staff(float salary , int experiance);
+    Staff();
     ~Staff();
 
     float GetSalary();

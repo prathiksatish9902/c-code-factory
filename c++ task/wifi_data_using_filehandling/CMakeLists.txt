@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(wifi_data_using_filehandling main.cpp
     readdatafromfile.h readdatafromfile.cpp
-    wifi.h wifi.cpp)
+    wifi.h wifi.cpp
+    wifimanager.h wifimanager.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS wifi_data_using_filehandling

@@ -6,6 +6,7 @@ class Collage
 {
 public:
     Collage(std::string collageName , int collageId , std::string collageAddress);
+    Collage();
     ~Collage();
 
     std::string GetcollageName();

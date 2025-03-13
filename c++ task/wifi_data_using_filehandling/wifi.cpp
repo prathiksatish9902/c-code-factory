@@ -1,5 +1,4 @@
 #include "wifi.h"
-// #include <algorithm>
 
 Wifi::Wifi(std::string wifiName, int signalStrength, std::string wifiStatus, std::string wifiPassword) {
     std::cout<<"wifi constructor called"<<std::endl;
@@ -45,71 +44,20 @@ std::string Wifi::GetWifiPassword()
 
 
 
-// // Helper function to determine the priority of WiFi     void sortData();
-//status
-// int Wifi::getStatusPriority(const std::string& status) {
-//     if (status == "Connected") return 0;
-//     if (status == "Saved") return 1;
-//     if (status == "Available") return 2;
-//     return 3; // Lowest priority for unknown statuses
-// }
 
-// void Wifi::sortWifiList() {
-//     m_wifilist.sort([](const Wifi& a, const Wifi& b) {
-//         int priorityA = Wifi::getStatusPriority(a.m_wifiStatus);
-//         int priorityB = Wifi::getStatusPriority(b.m_wifiStatus);
 
-//         // Always place "Connected" networks first
-//         if (priorityA != priorityB) {
-//             return priorityA < priorityB;
-//         }
-
-//         // For "Saved" and "Available" networks, sort by signal strength (higher first)
-//         return a.m_signalStrength > b.m_signalStrength;
-//     });
-// }
-
-void Wifi::display() {
-    // for (const auto& wifi : m_wifilist) {
-    //     std::cout << wifi.GetWifiName() << "\n"
-    //               << wifi.GetSignalStrength() << "\n"
-    //               << wifi.GetWifiStatus() << "\n"
-    //               << wifi.GetWifiPassword() << std::endl;
-    // }
-
-    for(auto i = m_wifilist.begin(); i!=m_wifilist.end(); i++){
-        std::cout<<"name :"<<i->GetWifiName()<<std::endl;
-        std::cout<<"signal strength :"<<i->GetSignalStrength()<<std::endl;
-        std::cout<<"status :"<<i->GetWifiStatus()<<std::endl;
-        std::cout<<"password :"<<i->GetWifiPassword()<<std::endl;
-    }
-}
-
-std::list<Wifi> Wifi::sort(std::list<Wifi> m_wifilist)
+void Wifi::setWifiStatus(string wifiStatus)
 {
-    std::cout<<"sort function called"<<std::endl;
-    for(auto i = m_wifilist.begin(); i!= m_wifilist.end(); i++)
-    {
-        for(auto j = next(i); j!=m_wifilist.end();j++)
-        {
-            if(i->GetWifiStatus()!="connected" && j->GetWifiStatus() == "saved")
-            {
-                std::iter_swap(i,j);
-            }
-            if(i->GetWifiStatus()=="available" &&j->GetWifiStatus() == "saved")
-            {
-                std:: iter_swap(i,j);
-
-            }
-            if(i->GetWifiStatus() == j->GetWifiStatus() &&i->GetSignalStrength()< j->GetSignalStrength())
-            {
-                std::iter_swap(i,j);
-
-            }
-        }
-    }
-    return m_wifilist;
+    std::cout<<"set wifi status function called"<<std::endl;
+    m_wifiStatus = wifiStatus;
+    std::cout<<"parameter value"<<wifiStatus<<std::endl;
+    std::cout<<"member variable value"<<m_wifiStatus<<std::endl;
 }
+
+
+
+
+
 
 
 

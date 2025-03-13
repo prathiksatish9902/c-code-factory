@@ -7,6 +7,12 @@ Collage::Collage(std::string collageName, int collageId, std::string collageAddr
     m_collageAddress = collageAddress;
 }
 
+Collage::Collage()
+{
+    std::cout<<"collage default constructor called"<<std::endl;
+
+}
+
 Collage::~Collage()
 {
     std::cout<<"collage destructor called"<<std::endl;

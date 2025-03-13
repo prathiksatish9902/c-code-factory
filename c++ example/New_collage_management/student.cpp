@@ -6,6 +6,12 @@ Student::Student(int standard, std::string section) {
     m_section = section;
 }
 
+Student::Student()
+{
+    std::cout<<"student default constructor called"<<std::endl;
+
+}
+
 Student::~Student()
 {
     std::cout<<"student destructor called"<<std::endl;

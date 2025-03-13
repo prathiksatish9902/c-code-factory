@@ -6,6 +6,7 @@ class Student:public PersonalDetails
 {
 public:
     Student(int standard , std::string section);
+    Student();
     ~Student();
 
     int GetStandard();

@@ -8,6 +8,12 @@ PersonalDetails::PersonalDetails(std::string name, int id, std::string address, 
     m_department = department;
 }
 
+PersonalDetails::PersonalDetails()
+{
+    std::cout<<"personal details default constructor called"<<std::endl;
+
+}
+
 PersonalDetails::~PersonalDetails()
 {
     std::cout<<"personal details destructor called"<<std::endl;

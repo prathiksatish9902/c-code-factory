@@ -7,6 +7,7 @@ class PersonalDetails
 {
 public:
     PersonalDetails(std::string name , int id , std::string address , std::string department);
+    PersonalDetails();
     ~PersonalDetails();
 
     std::string GetName();
@@ -21,7 +22,7 @@ public:
 
 private:
     std::string m_name;
-    int id;
+    int m_id;
     std::string m_address;
     std::string m_department;
 };

@@ -6,6 +6,12 @@ Staff::Staff(float salary, int experiance) {
     m_experiance = experiance;
 }
 
+Staff::Staff()
+{
+    std::cout<<"staff default constructor called"<<std::endl;
+
+}
+
 Staff::~Staff()
 {
     std::cout<<"staff destructor called"<<std::endl;
