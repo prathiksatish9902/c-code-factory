@@ -20,25 +20,25 @@ Wifi::~Wifi()
 
 std::string Wifi::GetWifiName()
 {
-    std::cout<<"get wifi name function called"<<std::endl;
+    // std::cout<<"get wifi name function called"<<std::endl;
     return m_wifiName;
 }
 
 int Wifi::GetSignalStrength()
 {
-    std::cout<<"get signal strength function called"<<std::endl;
+    // std::cout<<"get signal strength function called"<<std::endl;
     return m_signalStrength;
 }
 
 std::string Wifi::GetWifiStatus()
 {
-    std::cout<<"get wifi status function called"<<std::endl;
+    // std::cout<<"get wifi status function called"<<std::endl;
     return m_wifiStatus;
 }
 
 std::string Wifi::GetWifiPassword()
 {
-    std::cout<<"get wifi password function called"<<std::endl;
+    // std::cout<<"get wifi password function called"<<std::endl;
     return m_wifiPassword;
 }
 
@@ -48,7 +48,7 @@ std::string Wifi::GetWifiPassword()
 
 void Wifi::setWifiStatus(string wifiStatus)
 {
-    std::cout<<"set wifi status function called"<<std::endl;
+    // std::cout<<"set wifi status function called"<<std::endl;
     m_wifiStatus = wifiStatus;
     std::cout<<"parameter value"<<wifiStatus<<std::endl;
     std::cout<<"member variable value"<<m_wifiStatus<<std::endl;

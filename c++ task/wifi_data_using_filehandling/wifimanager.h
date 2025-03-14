@@ -2,6 +2,8 @@
 #define WIFIMANAGER_H
 #include"wifi.h"
 #include "readdatafromfile.h"
+#include<list>
+#include<fstream>
 class WifiManager
 {
 public:

@@ -35,6 +35,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 #include <iostream>
 using namespace std;
 
@@ -53,8 +63,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
             arr[index++] = arr[i];
+            //arr[i] = 0;
         }
     }
+
     while (index < n) {
         arr[index++] = 0;
     }

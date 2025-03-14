@@ -17,15 +17,28 @@ WifiManager::~WifiManager()
 void WifiManager::display()
 {
     for(auto i = m_wifilist.begin(); i!=m_wifilist.end(); i++){
-        std::cout<<"-----------------------------------------------------------------------------------------------"<<std::endl;
-        std::cout<<"name :"<<i->GetWifiName()<<std::endl;
+        // std::cout<<"-----------------------------------------------------------------------------------------------"<<std::endl;
+        cout.width(10);
+        std::cout<<"NAME :";
+        cout.width(20);
 
-        std::cout<<"signal strength :"<<i->GetSignalStrength()<<std::endl;
+        std::cout<<"SIGNAL STRENGTH :";
+        cout.width(30);
 
-        std::cout<<"status :"<<i->GetWifiStatus()<<std::endl;
+        std::cout<<"STATUS :";
+        cout.width(40);
 
-        std::cout<<"password :"<<i->GetWifiPassword()<<std::endl;
-        std::cout<<"-----------------------------------------------------------------------------------------------"<<std::endl;
+        std::cout<<"PASSWORD :\n";
+
+        cout.width(10);
+        std::cout<<i->GetWifiName();
+        cout.width(20);
+        std::cout<<i->GetSignalStrength();
+        cout.width(30);
+        std::cout<<i->GetWifiStatus();
+        cout.width(40);
+        std::cout<<i->GetWifiPassword()<<"\n";
+        // std::cout<<"-----------------------------------------------------------------------------------------------"<<std::endl;
 
     }
 }
@@ -39,7 +52,7 @@ void WifiManager::ConnectWifi()
     std::cin>>name;
     for(auto &i : m_wifilist)
     {
-        std::cout<<i.GetWifiStatus()<<"................................................\n";
+        // std::cout<<i.GetWifiStatus()<<"................................................\n";
 
         if(i.GetWifiStatus()=="connected" && i.GetWifiName() == name)
         {
@@ -48,10 +61,10 @@ void WifiManager::ConnectWifi()
         }
         if(i.GetWifiStatus()=="connected"&&i.GetWifiName()!=name)
         {
-            std::cout<<"status changed to before saved*******************************"<<i.GetWifiStatus()<<std::endl;
+            // std::cout<<"status changed to before saved*******************************"<<i.GetWifiStatus()<<std::endl;
 
             i.setWifiStatus("saved");
-            std::cout<<"status changed to after saved..##############################33."<<i.GetWifiStatus()<<std::endl;
+            // std::cout<<"status changed to after saved..##############################33."<<i.GetWifiStatus()<<std::endl;
 
         }
 
@@ -67,15 +80,15 @@ void WifiManager::ConnectWifi()
                 {
                     if(j.GetWifiStatus()=="connected"&&j.GetWifiName()!=name)
                     {
-                        std::cout<<"status changed to before saved*******************************"<<j.GetWifiStatus()<<std::endl;
+                        // std::cout<<"status changed to before saved*******************************"<<j.GetWifiStatus()<<std::endl;
 
                         j.setWifiStatus("saved");
-                        std::cout<<"status changed to after saved..##############################33."<<j.GetWifiStatus()<<std::endl;
+                        // std::cout<<"status changed to after saved..##############################33."<<j.GetWifiStatus()<<std::endl;
 
                     }
 
                 }
-                sort();
+                //sort();
                 // return;
             }
             else if(i.GetWifiStatus()=="available")
@@ -89,15 +102,15 @@ void WifiManager::ConnectWifi()
                     {
                         if(j.GetWifiStatus()=="connected"&&j.GetWifiName()!=name)
                         {
-                            std::cout<<"status changed to before saved*******************************"<<j.GetWifiStatus()<<std::endl;
+                            // std::cout<<"status changed to before saved*******************************"<<j.GetWifiStatus()<<std::endl;
 
                             j.setWifiStatus("saved");
-                            std::cout<<"status changed to after saved..##############################33."<<j.GetWifiStatus()<<std::endl;
+                            // std::cout<<"status changed to after saved..##############################33."<<j.GetWifiStatus()<<std::endl;
 
                         }
 
                     }
-                    sort();
+                    //sort();
 
                 }
                 else{
@@ -105,6 +118,7 @@ void WifiManager::ConnectWifi()
                 }
             }
         }
+         sort();
 
     }
 }
@@ -138,13 +152,13 @@ std::list<Wifi> WifiManager::sort()
 
 void WifiManager::setWifiList(std::list<Wifi> wifiList)
 {
-    std::cout<<"set wifi list function called"<<std::endl;
+    // std::cout<<"set wifi list function called"<<std::endl;
     m_wifilist = wifiList;
 }
 
 std::list<Wifi> WifiManager::getWifiList()
 {
-    std::cout<<"get wifi list function called"<<std::endl;
+    // std::cout<<"get wifi list function called"<<std::endl;
 
     return m_wifilist;
 }

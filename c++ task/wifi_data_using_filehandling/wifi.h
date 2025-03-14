@@ -1,8 +1,7 @@
 #ifndef WIFI_H
 #define WIFI_H
 #include<iostream>
-#include<list>
-#include<fstream>
+
 using namespace std;
 class Wifi
 {
