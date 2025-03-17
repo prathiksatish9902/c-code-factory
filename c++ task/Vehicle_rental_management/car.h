@@ -4,7 +4,7 @@
 class Car:public Vehicle
 {
 public:
-    Car();
+    Car(std::string name , std::string fuel , int seatcapacity , std::string vehiclenumber , std::string cartype , std::string carrentTime , std::string carstatus , float carrentcost);
     ~Car();
 
     void SetCarType(std::string cartype);
@@ -14,7 +14,7 @@ public:
     std::string GetCarRentTime();
 
     void SetCarStatus(std::string carstatus);
-    std::string GetCarStattus();
+    std::string GetCarStatus();
 
     void SetCarRentCost(float carrentcost);
     float GetCarRentCost();

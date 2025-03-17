@@ -10,11 +10,11 @@ Vehicle::~Vehicle()
 
 }
 
-void Vehicle::SetVehicleName(std::string name){
+void Vehicle::SetName(std::string name){
     m_name = name;
 }
 
-std::string Vehicle::GetVehicleName(){
+std::string Vehicle::GetName(){
     return m_name;
 }
 

@@ -7,8 +7,8 @@ public:
     Vehicle();
     ~Vehicle();
 
-    void SetVehicleName(std::string name);
-    std::string GetVehicleName();
+    void SetName(std::string name);
+    std::string GetName();
 
     void SetFuel(std::string fuel);
     std::string GetFuel();

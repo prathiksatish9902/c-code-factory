@@ -4,7 +4,7 @@
 class Bike:public Vehicle
 {
 public:
-    Bike();
+    Bike(std::string name , std::string fuel , int seatcapacity , std::string vehiclenumber , int cc , std:: string bikerentTime , std::string bikestatus , float bikerentcost);
     ~Bike();
 
     void SetCC(int cc);
