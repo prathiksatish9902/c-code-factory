@@ -32,7 +32,6 @@ private:
     std::string m_amountstatus;
     std::string m_bookingid;
 
-    //Vehicle *m_vehicle;
 };
 
 #endif // BOOKINGREPORT_H

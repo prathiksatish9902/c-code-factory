@@ -137,7 +137,7 @@ void FileOperation::WriteBikeData(std::list<Bike> bikelist)
     write.close();
 }
 
-void FileOperation::WrieCarData(std::list<Car> carlist)
+void FileOperation::WriteCarData(std::list<Car> carlist)
 {
     std::cout<<"write car data function called"<<std::endl;
     std::ofstream write("carfile.csv" , ios::out);

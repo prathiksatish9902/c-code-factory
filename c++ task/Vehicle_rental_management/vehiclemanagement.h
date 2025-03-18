@@ -10,6 +10,7 @@ class VehicleManagement
 {
 public:
     VehicleManagement();
+
     ~VehicleManagement();
 
     void SetBikeList(std::list<Bike> bikelist);
@@ -28,14 +29,28 @@ public:
 
     void displayBike();
     void displayCar();
+    void displayBookingData();
+
+    void updateBikeDetails(string &vehiclenumber);
+    void updateCarDetails(string &vehiclenumber);
+
+    void rentBike(std::string &vehiclename );
+    void rentCar(string &vehiclename );
+
+    void returnBike(string &vehiclename );
+    void returnCar(string &vehiclename);
+
+    void bikeOperations();
+    void carOperation();
 
 
 private:
     std::list<Bike> m_bikelist;
     std::list<Car> m_carlist;
     std::list<BookingReport> m_bookingreportlist;
-
     FileOperation *fp;
+    // Bike *bike;
+    // Car *car;
 };
 
 #endif // VEHICLEMANAGEMENT_H

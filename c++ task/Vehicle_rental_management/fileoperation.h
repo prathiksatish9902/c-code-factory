@@ -22,7 +22,7 @@ public:
     std::list<BookingReport> ReadBookingData(const std::string &bookingfilename);
 
     void WriteBikeData(std::list<Bike> bikelist);
-    void WrieCarData(std::list<Car> carlist);
+    void WriteCarData(std::list<Car> carlist);
     void WriteBookingData(std::list<BookingReport> bookinglist);
 };
 
