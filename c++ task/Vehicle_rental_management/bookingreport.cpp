@@ -1,18 +1,21 @@
 #include "bookingreport.h"
 
-BookingReport::BookingReport(std::string customername, std::string DLnumber, std::string customeraddress, std::string vehiclename, std::string amountstatus, std::string bookingid) {
-    std::cout<<"booking report constructor called"<<std::endl;
+BookingReport::BookingReport(std::string customername, std::string phonenumber , std::string DLnumber, std::string customeraddress, std::string vehiclename, std::string amountstatus, std::string bookingid, std::string vehicalType , std::string vehicalnumber) {
+    // std::cout<<"booking report constructor called"<<std::endl;
     m_customername = customername;
+    m_phonenumber = phonenumber;
     m_DLnumber = DLnumber;
     m_customeraddress = customeraddress;
     m_vehiclename = vehiclename;
     m_amountstatus = amountstatus;
     m_bookingid = bookingid;
+    m_vehicalType = vehicalType;
+    m_vehicalNumber = vehicalnumber;
 }
 
 BookingReport::~BookingReport()
 {
-    std::cout<<"booking report destructor called"<<std::endl;
+    // std::cout<<"booking report destructor called"<<std::endl;
 
 }
 
@@ -24,6 +27,16 @@ void BookingReport::SetCustomerName(std::string customername)
 std::string BookingReport::GetCustomerName()
 {
     return m_customername;
+}
+
+void BookingReport::SetPhoneNumber(std::string phonenumber)
+{
+    m_phonenumber = phonenumber;
+}
+
+std::string BookingReport::GetPhoneNumber()
+{
+    return m_phonenumber;
 }
 
 void BookingReport::SetDLNumber(std::string DLnumber)
@@ -74,6 +87,26 @@ void BookingReport::SetBookId(std::string bookingid)
 std::string BookingReport::GetBookId()
 {
     return m_bookingid;
+}
+
+void BookingReport::SetVehicalType(std::string vehicaltype)
+{
+    m_vehicalType = vehicaltype;
+}
+
+std::string BookingReport::GetVehicalType()
+{
+    return m_vehicalType;
+}
+
+void BookingReport::SetVehicalNumber(std::string vehicalnumber)
+{
+    m_vehicalNumber = vehicalnumber;
+}
+
+std::string BookingReport::GetVehicalNumber()
+{
+    return m_vehicalNumber;
 }
 
 

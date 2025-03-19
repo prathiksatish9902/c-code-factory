@@ -1,18 +1,18 @@
 #include "fileoperation.h"
 
 FileOperation::FileOperation() {
-    std::cout<<"file operation constructor called"<<std::endl;
+    // std::cout<<"file operation constructor called"<<std::endl;
 }
 
 FileOperation::~FileOperation()
 {
-    std::cout<<"file operation destructor called"<<std::endl;
+    // std::cout<<"file operation destructor called"<<std::endl;
 
 }
 
 std::list<Bike> FileOperation::ReadBikeData(const std::string &bikefilename)
 {
-    std::cout<<"read bike data function called"<<std::endl;
+    // std::cout<<"read bike data function called"<<std::endl;
     std::ifstream read(bikefilename,ios::in);
     std::string line;
 
@@ -49,7 +49,7 @@ std::list<Bike> FileOperation::ReadBikeData(const std::string &bikefilename)
 
 std::list<Car> FileOperation::ReadCarData(const std::string &carfilename)
 {
-    std::cout<<"read car data function called"<<std::endl;
+    // std::cout<<"read car data function called"<<std::endl;
     std::ifstream read(carfilename , ios :: in);
     std::string line;
 
@@ -86,15 +86,18 @@ std::list<Car> FileOperation::ReadCarData(const std::string &carfilename)
 
 std::list<BookingReport> FileOperation::ReadBookingData(const std::string &bookingfilename)
 {
-    std::cout<<"read booking data function called"<<std::endl;
+    // std::cout<<"read booking data function called"<<std::endl;
     std::ifstream read(bookingfilename , ios::in);
     std::string line;
     std::string customername;
+    std::string phonenumber;
     std::string DLnumber;
     std::string customeraddress;
     std::string vehiclename;
     std::string amountstatus;
     std::string bookingid;
+    std::string vehicaltype;
+    std::string vehicalnumber;
 
     std::list<BookingReport> bookingreportlist;
 
@@ -103,10 +106,10 @@ std::list<BookingReport> FileOperation::ReadBookingData(const std::string &booki
         while(getline(read , line)){
             std::istringstream data(line);
 
-            if(getline(data , customername , ',') && getline(data , DLnumber , ',') && getline(data , customeraddress , ',') && getline(data , vehiclename , ',') && getline(data , amountstatus ,',') && getline(data , bookingid ,','))
+            if(getline(data , customername , ',')&& getline(data , phonenumber ,',')  && getline(data , DLnumber , ',') && getline(data , customeraddress , ',') /*&& getline(data , vehiclename , ',')*/ && getline(data , amountstatus ,',') && getline(data , bookingid ,',') /*&& getline(data , vehicaltype ,',') && getline(data , vehicalnumber)*/)
             {
-                std::cout<< "customer name :"<<customername<< "DL number :"<<DLnumber<< "customer address :"<<customeraddress<<"vehicle name"<<vehiclename<<"amount status :"<<amountstatus<<"booking id :" << bookingid<<std::endl;
-                bookingreportlist.push_back(BookingReport(customername , DLnumber , customeraddress , vehiclename , amountstatus , bookingid));
+                std::cout<< "customer name :"<<customername<< "DL number :"<<DLnumber<< "customer address :"<<customeraddress<<"vehicle name"<<vehiclename<<"amount status :"<<amountstatus<<"booking id :" << bookingid<<"vehical type :"<< vehicaltype<<"vehical number :"<<vehicalnumber<<std::endl;
+                bookingreportlist.push_back(BookingReport(customername ,phonenumber, DLnumber , customeraddress , vehiclename , amountstatus , bookingid , vehicaltype , vehicalnumber));
             }
         }
         std::cout<<"data read successfully"<<std::endl;
@@ -121,7 +124,7 @@ std::list<BookingReport> FileOperation::ReadBookingData(const std::string &booki
 
 void FileOperation::WriteBikeData(std::list<Bike> bikelist)
 {
-    std::cout<<"write bike data function called"<<std::endl;
+    // std::cout<<"write bike data function called"<<std::endl;
     std::ofstream write("bikefile.csv" , ios::out);
     for(auto &i : bikelist)
     {
@@ -139,7 +142,7 @@ void FileOperation::WriteBikeData(std::list<Bike> bikelist)
 
 void FileOperation::WriteCarData(std::list<Car> carlist)
 {
-    std::cout<<"write car data function called"<<std::endl;
+    // std::cout<<"write car data function called"<<std::endl;
     std::ofstream write("carfile.csv" , ios::out);
     for(auto &i : carlist)
     {
@@ -157,7 +160,7 @@ void FileOperation::WriteCarData(std::list<Car> carlist)
 
 void FileOperation::WriteBookingData(std::list<BookingReport> bookinglist)
 {
-    std::cout<<"write booking data function called"<<std::endl;
+    // std::cout<<"write booking data function called"<<std::endl;
     std::ofstream write("bookingfile.csv" , ios::out);
     for(auto &i : bookinglist)
     {
@@ -166,7 +169,9 @@ void FileOperation::WriteBookingData(std::list<BookingReport> bookinglist)
               <<i.GetCustomerAddress() << ","
               <<i.GetVehicleName() << ","
               <<i.GetAmountStatus() << ","
-              <<i.GetBookId()<<std::endl;
+              <<i.GetBookId() << ","
+              <<i.GetVehicalType() << ","
+              <<i.GetVehicalNumber() <<std::endl;
     }
     write.close();
 }

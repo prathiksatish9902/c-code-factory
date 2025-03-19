@@ -1,12 +1,12 @@
 #include "vehicle.h"
 
 Vehicle::Vehicle() {
-    std::cout<<"vehicle constructor called"<<std::endl;
+    // std::cout<<"vehicle constructor called"<<std::endl;
 }
 
 Vehicle::~Vehicle()
 {
-    std::cout<<"vehicle destructor called"<<std::endl;
+    // std::cout<<"vehicle destructor called"<<std::endl;
 
 }
 

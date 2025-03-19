@@ -1,7 +1,7 @@
 #include "car.h"
 
 Car::Car(std::string name , std::string fuel , int seatcapacity , std::string vehiclenumber , std::string cartype , std::string carrentTime , std::string carstatus , float carrentcost) {
-    std::cout<<"car constructor is called"<<std::endl;
+    // std::cout<<"car constructor is called"<<std::endl;
     m_name = name;
     m_fuel = fuel;
     m_seatcapacity = seatcapacity;
@@ -14,7 +14,7 @@ Car::Car(std::string name , std::string fuel , int seatcapacity , std::string ve
 
 Car::~Car()
 {
-    std::cout<<"car destructor is called"<<std::endl;
+    // std::cout<<"car destructor is called"<<std::endl;
 
 }
 

@@ -25,7 +25,25 @@ public:
     void addBike();
     void addCar();
 
-    void addBookingData();
+    void deleteBike(string &vehiclenumber);
+    void deleteCar(std::string &vehiclenumber);
+
+    void searchBike(std::string &vehiclename);
+    void searchCar(std::string &vehiclename);
+    // void searchBikeCustomer(std::string &customername);
+    // void searchCarCustomer(std::string &customername);
+
+    std::list<Bike> sortByBikeStatus();
+    std::list<Car> sortByCarStatus();
+
+    std::list<Bike> sortByBikePrice();
+    std::list<Car> sortByCarPrice();
+
+    std::list<Bike> sortByBikeName();
+    std::list<Car> sortByCarName();
+
+
+    void addBookingData(string vehicalName, string vehicalType, string vehicalnumber);
 
     void displayBike();
     void displayCar();
@@ -40,8 +58,13 @@ public:
     void returnBike(string &vehiclename );
     void returnCar(string &vehiclename);
 
-    void bikeOperations();
-    void carOperation();
+    void bikeManagement();
+    void carManagement();
+
+    void bikeDisplayMenu();
+    void carDisplayMenu();
+
+    void menu();
 
 
 private:
@@ -49,8 +72,6 @@ private:
     std::list<Car> m_carlist;
     std::list<BookingReport> m_bookingreportlist;
     FileOperation *fp;
-    // Bike *bike;
-    // Car *car;
 };
 
 #endif // VEHICLEMANAGEMENT_H

@@ -1,7 +1,7 @@
 #include "bike.h"
 
 Bike::Bike(std::string name, std::string fuel, int seatcapacity, std::string vehiclenumber, int cc, std::string bikerentTime, std::string bikestatus, float bikerentcost) {
-    std::cout<<"bike constructor called"<<std::endl;
+    // std::cout<<"bike constructor called"<<std::endl;
     m_name = name;
     m_fuel = fuel;
     m_seatcapacity = seatcapacity;
@@ -14,7 +14,7 @@ Bike::Bike(std::string name, std::string fuel, int seatcapacity, std::string veh
 
 Bike::~Bike()
 {
-    std::cout<<"bike destructor called"<<std::endl;
+    // std::cout<<"bike destructor called"<<std::endl;
 
 }
 
