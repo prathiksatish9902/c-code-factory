@@ -34,7 +34,7 @@ std::list<Bike> FileOperation::ReadBikeData(const std::string &bikefilename)
 
             if(getline(data , name , ',') && getline(data , fuel , ',') && (data>>seatcapacity) && (data.get() == ',') && getline(data , vehiclenumber , ',') && (data>>cc) && (data.get()==',') && getline(data , bikerenttime ,',') && getline(data , bikestatus ,',') && (data>>bikerentcost))
             {
-                std::cout<<"name :"<<name<<"fuel :"<<fuel<<"seat capacity :"<<seatcapacity<<"vehicle number :"<<vehiclenumber<<"cc :"<<cc<<"rent time :"<<bikerenttime<<"status :"<<bikestatus<<"rent cost :"<<bikerentcost<<std::endl;
+                std::cout<<"name :"<<name<<" "<<"fuel :"<<fuel<<" "<<"seat capacity :"<<seatcapacity<<" "<<"vehicle number :"<<vehiclenumber<<" "<<"cc :"<<cc<<" "<<"rent time :"<<bikerenttime<<" "<<"status :"<<bikestatus<<" "<<"rent cost :"<<bikerentcost<<std::endl;
                 bikelist.push_back(Bike(name , fuel , seatcapacity , vehiclenumber , cc , bikerenttime , bikestatus , bikerentcost));
             }
         }
@@ -71,7 +71,7 @@ std::list<Car> FileOperation::ReadCarData(const std::string &carfilename)
 
             if(getline(data , name , ',') && getline(data , fuel , ',') && (data>>seatcapacity) && (data.get() == ',') && getline(data , vehiclenumber , ',') && getline(data , cartype ,',') && getline(data , carrentTime , ',') && getline(data , carstatus ,',')&&(data>>carrentcost))
             {
-                std::cout<<"name :"<<name<<"fuel :"<<fuel<<"seat capacity :"<<seatcapacity<<"vehicle number :"<<vehiclenumber<<"car type : "<<cartype<<"rent time :"<<carrentTime<<"status :"<<carstatus<<"rent cost :"<<carrentcost<<std::endl;
+                std::cout<<"name :"<<name<<" "<<"fuel :"<<fuel<<" "<<"seat capacity :"<<seatcapacity<<" "<<"vehicle number :"<<vehiclenumber<<" "<<"car type : "<<cartype<<" "<<"rent time :"<<carrentTime<<" "<<"status :"<<carstatus<<" "<<"rent cost :"<<carrentcost<<std::endl;
                carlist.push_back(Car(name , fuel , seatcapacity , vehiclenumber , cartype , carrentTime , carstatus , carrentcost));
             }
         }
@@ -98,6 +98,8 @@ std::list<BookingReport> FileOperation::ReadBookingData(const std::string &booki
     std::string bookingid;
     std::string vehicaltype;
     std::string vehicalnumber;
+    std::string paymentmode;
+    std::string paymentReferenceNumber;
 
     std::list<BookingReport> bookingreportlist;
 
@@ -106,11 +108,15 @@ std::list<BookingReport> FileOperation::ReadBookingData(const std::string &booki
         while(getline(read , line)){
             std::istringstream data(line);
 
-            if(getline(data , customername , ',')&& getline(data , phonenumber ,',')  && getline(data , DLnumber , ',') && getline(data , customeraddress , ',') /*&& getline(data , vehiclename , ',')*/ && getline(data , amountstatus ,',') && getline(data , bookingid ,',') /*&& getline(data , vehicaltype ,',') && getline(data , vehicalnumber)*/)
+            if(getline(data , customername , ',')&& getline(data , phonenumber ,',')  && getline(data , DLnumber , ',') && getline(data , customeraddress , ',') && getline(data , vehiclename , ',') && getline(data , amountstatus ,',') && getline(data , bookingid ,',') && getline(data , vehicaltype ,',') && getline(data , vehicalnumber,',') && getline(data , paymentmode,',') && getline(data , paymentReferenceNumber))
             {
-                std::cout<< "customer name :"<<customername<< "DL number :"<<DLnumber<< "customer address :"<<customeraddress<<"vehicle name"<<vehiclename<<"amount status :"<<amountstatus<<"booking id :" << bookingid<<"vehical type :"<< vehicaltype<<"vehical number :"<<vehicalnumber<<std::endl;
-                bookingreportlist.push_back(BookingReport(customername ,phonenumber, DLnumber , customeraddress , vehiclename , amountstatus , bookingid , vehicaltype , vehicalnumber));
+                std::cout<< "customer name :"<<customername<<" "<<"phone number :"<<phonenumber<<" "<< "DL number :"<<DLnumber<<" "<< "customer address :"<<customeraddress<<" "<<"vehicle name"<<vehiclename<<" "<<"amount status :"<<amountstatus<<" "<<"booking id :" << bookingid<<" "<<"vehical type :"<< vehicaltype<<" "<<"vehical number :"<<vehicalnumber<<" "<<"payment mode :"<<paymentmode<<" "<<"payment ref number :"<<paymentReferenceNumber<<std::endl;
+                bookingreportlist.push_back(BookingReport(customername ,phonenumber, DLnumber , customeraddress , vehiclename , amountstatus , bookingid , vehicaltype , vehicalnumber , paymentmode,paymentReferenceNumber));
             }
+            // else{
+            //     std::cout<< "customer name :"<<customername<<"phone number :"<<phonenumber<< "DL number :"<<DLnumber<< "customer address :"<<customeraddress<<"vehicle name"<<vehiclename<<"amount status :"<<amountstatus<<"booking id :" << bookingid<<"vehical type :"<< vehicaltype<<"vehical number :"<<vehicalnumber<</*"payment mode :"<<paymentmode<<*/std::endl;
+
+            // }
         }
         std::cout<<"data read successfully"<<std::endl;
         read.close();
@@ -165,13 +171,16 @@ void FileOperation::WriteBookingData(std::list<BookingReport> bookinglist)
     for(auto &i : bookinglist)
     {
         write << i.GetCustomerName() << ","
+              <<i.GetPhoneNumber()<<","
               <<i.GetDLNumber() << ","
               <<i.GetCustomerAddress() << ","
               <<i.GetVehicleName() << ","
               <<i.GetAmountStatus() << ","
               <<i.GetBookId() << ","
               <<i.GetVehicalType() << ","
-              <<i.GetVehicalNumber() <<std::endl;
+              <<i.GetVehicalNumber()<<","
+              <<i.GetPaymentMode()<<","
+            <<i.GetPaymentReferenceNumber()<<std::endl;
     }
     write.close();
 }

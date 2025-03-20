@@ -30,8 +30,8 @@ public:
 
     void searchBike(std::string &vehiclename);
     void searchCar(std::string &vehiclename);
-    // void searchBikeCustomer(std::string &customername);
-    // void searchCarCustomer(std::string &customername);
+    void searchBikeCustomer(std::string &vehicalnumber);
+    void searchCarCustomer(std::string &vehicalnumber);
 
     std::list<Bike> sortByBikeStatus();
     std::list<Car> sortByCarStatus();
@@ -43,7 +43,7 @@ public:
     std::list<Car> sortByCarName();
 
 
-    void addBookingData(string vehicalName, string vehicalType, string vehicalnumber);
+    void addBookingData(string vehicalName, string vehicalType, string vehicalnumber, string amountstatus, string paymentmode, string paymentReferenceNumber);
 
     void displayBike();
     void displayCar();
@@ -72,6 +72,7 @@ private:
     std::list<Car> m_carlist;
     std::list<BookingReport> m_bookingreportlist;
     FileOperation *fp;
+    BookingReport *report;
 };
 
 #endif // VEHICLEMANAGEMENT_H

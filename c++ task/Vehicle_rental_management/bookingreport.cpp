@@ -1,6 +1,6 @@
 #include "bookingreport.h"
 
-BookingReport::BookingReport(std::string customername, std::string phonenumber , std::string DLnumber, std::string customeraddress, std::string vehiclename, std::string amountstatus, std::string bookingid, std::string vehicalType , std::string vehicalnumber) {
+BookingReport::BookingReport(std::string customername, std::string phonenumber , std::string DLnumber, std::string customeraddress, std::string vehiclename, std::string amountstatus, std::string bookingid, std::string vehicalType , std::string vehicalnumber, std::string paymentMode/*, std::string utrnumber, std::string cardNumber*/, std::string paymentReferenceNumber) {
     // std::cout<<"booking report constructor called"<<std::endl;
     m_customername = customername;
     m_phonenumber = phonenumber;
@@ -11,6 +11,10 @@ BookingReport::BookingReport(std::string customername, std::string phonenumber ,
     m_bookingid = bookingid;
     m_vehicalType = vehicalType;
     m_vehicalNumber = vehicalnumber;
+    m_paymentMode = paymentMode;
+    m_paymentRefernceNumber = paymentReferenceNumber;
+    // m_utrnumber = utrnumber;
+    // m_cardNumber = cardNumber;
 }
 
 BookingReport::~BookingReport()
@@ -108,6 +112,46 @@ std::string BookingReport::GetVehicalNumber()
 {
     return m_vehicalNumber;
 }
+
+void BookingReport::setPaymentMode(std::string paymentMode)
+{
+    m_paymentMode = paymentMode;
+}
+
+std::string BookingReport::GetPaymentMode()
+{
+    return m_paymentMode;
+}
+
+void BookingReport::SetPaymentReferenceNumber(std::string paymentReferenceNumber)
+{
+    m_paymentRefernceNumber = paymentReferenceNumber;
+}
+
+std::string BookingReport::GetPaymentReferenceNumber()
+{
+    return m_paymentRefernceNumber;
+}
+
+// void BookingReport::SetUtrNumber(Vehicle *vehicle)
+// {
+//     m_utrnumber = vehicle->GetPaymentNumber();
+// }
+
+// std::string BookingReport::GetUtrNumber()
+// {
+//     return m_utrnumber;
+// }
+
+// void BookingReport::SetCardNumber(Vehicle *vehicle)
+// {
+//     m_cardNumber = vehicle->GetCardNumber();
+// }
+
+// std::string BookingReport::GetCardNumber()
+// {
+//     return m_cardNumber;
+// }
 
 
 

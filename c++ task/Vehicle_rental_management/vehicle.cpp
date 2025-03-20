@@ -41,3 +41,43 @@ void Vehicle::SetVehicleNumber(std::string vehiclenumber){
 std::string Vehicle::GetVehicleNumber(){
     return m_vehiclenumber;
 }
+
+// void Vehicle::SetPaymentStatus(std::string paymentstatus)
+// {
+//     m_paymentstatus = paymentstatus;
+// }
+
+// std::string Vehicle::GetPaymentStatus()
+// {
+//     return m_paymentstatus;
+// }
+
+// void Vehicle::SetPaymentMethod(std::string paymentmethod)
+// {
+//     m_paymentmethod = paymentmethod;
+// }
+
+// std::string Vehicle::GetPaymentMethod()
+// {
+//     return m_paymentmethod;
+// }
+
+// void Vehicle::SetPaymentNumber(std::string paymentnumber)
+// {
+//     m_paymentnumber = paymentnumber;
+// }
+
+// std::string Vehicle::GetPaymentNumber()
+// {
+//     return m_paymentnumber;
+// }
+
+// void Vehicle::SetCardNumber(std::string cardnumber)
+// {
+//     m_cardnumber = cardnumber;
+// }
+
+// std::string Vehicle::GetCardNumber()
+// {
+//     return m_cardnumber;
+// }

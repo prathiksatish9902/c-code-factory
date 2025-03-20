@@ -4,7 +4,7 @@
 class BookingReport
 {
 public:
-    BookingReport(std::string customername , std::string phonenumber , std::string DLnumber , std::string customeraddress , std::string vehiclename , std::string amountstatus , std::string bookingid, std::string vehicalType , std::string vehicalnumber);
+    BookingReport(std::string customername , std::string phonenumber , std::string DLnumber , std::string customeraddress , std::string vehiclename , std::string amountstatus , std::string bookingid, std::string vehicalType , std::string vehicalnumber , std::string paymentMode , std::string paymentReferenceNumber /*, std::string utrnumber , std::string cardNumber*/);
     ~BookingReport();
 
     void SetCustomerName(std::string customername);
@@ -33,6 +33,18 @@ public:
 
     void SetVehicalNumber(std::string vehicalnumber);
     std::string GetVehicalNumber();
+
+    void setPaymentMode(std::string paymentMode);
+    std::string GetPaymentMode();
+
+    void SetPaymentReferenceNumber(std::string paymentReferenceNumber);
+    std::string GetPaymentReferenceNumber();
+
+    // void SetUtrNumber(Vehicle *vehicle);
+    // std::string GetUtrNumber();
+
+    // void SetCardNumber(Vehicle *vehicle);
+    // std::string GetCardNumber();
 private:
     std::string m_customername;
     std::string m_phonenumber;
@@ -43,6 +55,10 @@ private:
     std::string m_bookingid;
     std::string m_vehicalType;
     std::string m_vehicalNumber;
+    std::string m_paymentMode;
+    std::string m_paymentRefernceNumber;
+    //std::string m_utrnumber;
+    // std::string m_cardNumber;
 
 };
 

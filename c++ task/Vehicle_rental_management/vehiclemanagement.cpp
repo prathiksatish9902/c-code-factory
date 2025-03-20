@@ -155,7 +155,7 @@ void VehicleManagement::deleteCar(string &vehiclenumber)
 
 void VehicleManagement::searchBike(string &vehiclename)
 {
-    std::cout<<"enter the vehicle name you want to search: "<<std::endl;
+    std::cout<<"enter the bike name you want to search: "<<std::endl;
     std::cin>>vehiclename;
 
     for(auto i = m_bikelist.begin(); i!=m_bikelist.end(); i++)
@@ -173,7 +173,7 @@ void VehicleManagement::searchBike(string &vehiclename)
 
 void VehicleManagement::searchCar(string &vehiclename)
 {
-    std::cout<<"enter the vehicle name you want to search: "<<std::endl;
+    std::cout<<"enter the car name you want to search: "<<std::endl;
     std::cin>>vehiclename;
 
     for(auto i = m_carlist.begin(); i!=m_carlist.end(); i++)
@@ -191,21 +191,25 @@ void VehicleManagement::searchCar(string &vehiclename)
 
 std::list<Bike> VehicleManagement::sortByBikeStatus()
 {
-    for(auto i = m_bikelist.begin(); i!=m_bikelist.end();i++)
+
+
+    for(auto &i : m_bikelist)
     {
-        for(auto j = next(i);j!= m_bikelist.end();i++)
+        for(auto &j : m_bikelist)
         {
-            if(i->GetBikeStatus()!= "available" && j->GetBikeStatus() == "available")
+            if(i.GetBikeStatus() != "available" && j.GetBikeStatus() == "available")
             {
-                std::iter_swap(i , j);
+                std::iter_swap (&i , &j);
             }
-            if(i->GetBikeStatus() == "available" && j->GetBikeStatus() == "booked")
+
+            if(i.GetBikeStatus() == "available" && j.GetBikeStatus() == "booked")
             {
-                std::iter_swap(i , j);
+                std::iter_swap (&i , &j);
             }
-            if(i->GetBikeStatus() == j->GetBikeStatus() && i->GetCC()<j->GetCC())
+
+            if(i.GetBikeStatus() == j.GetBikeStatus() && i.GetCC() < j.GetCC())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
@@ -214,36 +218,40 @@ std::list<Bike> VehicleManagement::sortByBikeStatus()
 
 std::list<Car> VehicleManagement::sortByCarStatus()
 {
-    for(auto i = m_carlist.begin(); i!=m_carlist.end();i++)
+    for(auto &i : m_carlist)
     {
-        for(auto j = next(i);j!= m_carlist.end();i++)
+        for(auto &j : m_carlist)
         {
-            if(i->GetCarStatus()!= "available" && j->GetCarStatus() == "available")
+            if(i.GetCarStatus() != "available" && j.GetCarStatus() == "available")
             {
-                std::iter_swap(i , j);
+                std::iter_swap (&i , &j);
             }
-            if(i->GetCarStatus() == "available" && j->GetCarStatus() == "booked")
+
+            if(i.GetCarStatus() == "available" && j.GetCarStatus() == "booked")
             {
-                std::iter_swap(i , j);
+                std::iter_swap (&i , &j);
             }
-            if(i->GetCarStatus() == j->GetCarStatus() && i->GetCarRentCost()<j->GetCarRentCost())
+
+            if(i.GetCarStatus() == j.GetCarStatus() && i.GetCarRentCost() < j.GetCarRentCost())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
     return m_carlist;
 }
 
+
 std::list<Bike> VehicleManagement::sortByBikePrice()
 {
-    for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
+
+    for(auto &i : m_bikelist)
     {
-        for(auto j = next(i); j!= m_bikelist.end();i++)
+        for(auto &j : m_bikelist)
         {
-            if(i->GetBikeRentCost() < j->GetBikeRentCost())
+            if(i.GetBikeRentCost() < j.GetBikeRentCost())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
@@ -252,13 +260,13 @@ std::list<Bike> VehicleManagement::sortByBikePrice()
 
 std::list<Car> VehicleManagement::sortByCarPrice()
 {
-    for(auto i = m_carlist.begin(); i!= m_carlist.end();i++)
+    for(auto &i : m_carlist)
     {
-        for(auto j = next(i); j!= m_carlist.end();i++)
+        for(auto &j : m_carlist)
         {
-            if(i->GetCarRentCost() < j->GetCarRentCost())
+            if(i.GetCarRentCost() < j.GetCarRentCost())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
@@ -267,13 +275,13 @@ std::list<Car> VehicleManagement::sortByCarPrice()
 
 std::list<Bike> VehicleManagement::sortByBikeName()
 {
-    for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
+    for(auto &i : m_bikelist)
     {
-        for(auto j = next(i); j!= m_bikelist.end();i++)
+        for(auto &j : m_bikelist)
         {
-            if(i->GetName() < j->GetName())
+            if(i.GetName() < j.GetName())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
@@ -282,13 +290,13 @@ std::list<Bike> VehicleManagement::sortByBikeName()
 
 std::list<Car> VehicleManagement::sortByCarName()
 {
-    for(auto i = m_carlist.begin(); i!= m_carlist.end();i++)
+    for(auto &i : m_carlist)
     {
-        for(auto j = next(i); j!= m_carlist.end();i++)
+        for(auto &j : m_carlist)
         {
-            if(i->GetName() < j->GetName())
+            if(i.GetName() < j.GetName())
             {
-                std::iter_swap(i , j);
+                std::iter_swap(&i , &j);
             }
         }
     }
@@ -297,44 +305,44 @@ std::list<Car> VehicleManagement::sortByCarName()
 
 
 
-// void VehicleManagement::searchBikeCustomer(string &customername)
-// {
-//     std::cout<<"enter the customer name you want to search: "<<std::endl;
-//     std::cin>>customername;
-//     for(auto i=m_bookingreportlist.begin(); i!=m_bookingreportlist.end();i++)
-//     {
-//         if(i->GetCustomerName() == customername && i->GetVehicalType() == "bike")
-//         {
-//             std::cout<<"customer with name"<<customername<<"found"<<std::endl;
-//             std::cout<<"phone :"<<i->GetPhoneNumber()<<"DL num: "<<i->GetDLNumber()<<"address :"<<i->GetCustomerAddress()<<std::endl;
-//             return;
-//         }
-//     }
-//     std::cout<<"customer with name"<<customername<<"not found"<<std::endl;
+void VehicleManagement::searchBikeCustomer(string &vehicalnumber)
+{
+    std::cout<<"enter the customer name you want to search: "<<std::endl;
+    std::cin>>vehicalnumber;
+    for(auto i=m_bookingreportlist.begin(); i!=m_bookingreportlist.end();i++)
+    {
+        if(i->GetVehicalNumber() == vehicalnumber && i->GetVehicalType() == "Bike")
+        {
+            std::cout<<"customer of vehical"<<vehicalnumber<<"found"<<std::endl;
+            std::cout<<"name: "<<i->GetCustomerName()<<"phone :"<<i->GetPhoneNumber()<<"DL num: "<<i->GetDLNumber()<<"address :"<<i->GetCustomerAddress()<<std::endl;
+            return;
+        }
+    }
+    std::cout<<"customer of"<<vehicalnumber<<"not found"<<std::endl;
 
-// }
+}
 
-// void VehicleManagement::searchCarCustomer(string &customername)
-// {
-//     std::cout<<"enter the customer name you want to search: "<<std::endl;
-//     std::cin>>customername;
-//     for(auto i=m_bookingreportlist.begin(); i!=m_bookingreportlist.end();i++)
-//     {
-//         if(i->GetCustomerName() == customername && i->GetVehicalType() == "car")
-//         {
-//             std::cout<<"customer with name"<<customername<<"found"<<std::endl;
-//             std::cout<<"phone :"<<i->GetPhoneNumber()<<"DL num: "<<i->GetDLNumber()<<"address :"<<i->GetCustomerAddress()<<std::endl;
-//             return;
-//         }
-//     }
-//     std::cout<<"customer with name"<<customername<<"not found"<<std::endl;
-// }
+void VehicleManagement::searchCarCustomer(string &vehicalnumber)
+{
+    std::cout<<"enter the customer name you want to search: "<<std::endl;
+    std::cin>>vehicalnumber;
+    for(auto i=m_bookingreportlist.begin(); i!=m_bookingreportlist.end();i++)
+    {
+        if(i->GetVehicalNumber() == vehicalnumber && i->GetVehicalType() == "Bike")
+        {
+            std::cout<<"customer of vehical"<<vehicalnumber<<"found"<<std::endl;
+            std::cout<<"name: "<<i->GetCustomerName()<<"phone :"<<i->GetPhoneNumber()<<"DL num: "<<i->GetDLNumber()<<"address :"<<i->GetCustomerAddress()<<std::endl;
+            return;
+        }
+    }
+    std::cout<<"customer of"<<vehicalnumber<<"not found"<<std::endl;
+}
 
-void VehicleManagement::addBookingData(std::string vehicalName,std::string vehicalType  , std::string vehicalnumber)
+void VehicleManagement::addBookingData(std::string vehicalName,std::string vehicalType  , std::string vehicalnumber ,std::string amountstatus , std::string paymentmode , std::string paymentReferenceNumber)
 {
     // std::cout<<"add booking data function called"<<std::endl;
     //report = new BookingReport;
-    std::string customername , phonenumber , DLnumber , customeraddress ,  amountstatus , bookingid ;
+    std::string customername , phonenumber , DLnumber , customeraddress ,  /*amountstatus ,*/ bookingid /*, paymentmode*/;
 
     std::cout<<"enter customer name : "<<std::endl;
     std::cin>>customername;
@@ -351,13 +359,16 @@ void VehicleManagement::addBookingData(std::string vehicalName,std::string vehic
     // std::cout<<"enter vehicle name : "<<std::endl;
     // std::cin>>vehiclename;
 
-    std::cout<<"enter amount status : "<<std::endl;
-    std::cin>>amountstatus;
+    // std::cout<<"enter amount status : "<<std::endl;
+    // std::cin>>amountstatus;
 
     std::cout<<"enter booking id : "<<std::endl;
     std::cin>>bookingid;
 
-    m_bookingreportlist.push_back(BookingReport(customername ,phonenumber, DLnumber , customeraddress , vehicalName , amountstatus , bookingid,vehicalType , vehicalnumber));
+    // std::cout<<"enter payment mode :"<<std::endl;
+    // std::cin>>paymentmode;
+
+    m_bookingreportlist.push_back(BookingReport(customername ,phonenumber, DLnumber , customeraddress , vehicalName , amountstatus , bookingid,vehicalType , vehicalnumber,paymentmode,paymentReferenceNumber));
     //fp->WriteBookingData(m_bookingreportlist);
 
 }
@@ -478,61 +489,67 @@ void VehicleManagement::displayCar()
 void VehicleManagement::displayBookingData()
 {
     // std::cout<<"display booking data function called"<<std::endl;
-    cout.width(20);
+    cout.width(15);
     std::cout<<" CUSTOMER NAME :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"PHONE NUMBER :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"DL NUMBER :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"ADDRESS :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"VEHICLE NAME :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"AMOUNT STATUS :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"BOOKING ID :";
 
-    cout.width(20);
+    cout.width(15);
     std::cout<<"VEHICAL TYPE :";
 
-    cout.width(20);
-    std::cout<<"VEHICAL NUMBER :\n";
+    cout.width(15);
+    std::cout<<"VEHICAL NUMBER :";
+
+    cout.width(15);
+    std::cout<<"PAYMENT MODE :\n";
 
     for(auto i = m_bookingreportlist.begin(); i!= m_bookingreportlist.end() ; i++)
     {
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetCustomerName();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetPhoneNumber();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetDLNumber();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetCustomerAddress();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetVehicleName();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetAmountStatus();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetBookId();
 
-        cout.width(20);
+        cout.width(15);
         std::cout<<i->GetVehicalType();
 
-        cout.width(20);
-        std::cout<<i->GetVehicalNumber()<<"\n";
+        cout.width(15);
+        std::cout<<i->GetVehicalNumber();
+
+        cout.width(15);
+        std::cout<<i->GetPaymentMode() << "\n";
 
     }
 }
@@ -662,9 +679,62 @@ void VehicleManagement::rentBike(string &vehiclename)
 
         if(i.GetName() == vehiclename && i.GetBikeStatus() == "available")
         {
-            i.SetBikeStatus("booked");
+            addBookingData(i.GetName(),"Bike" , i.GetVehicleNumber() , report->GetAmountStatus() , report->GetPaymentMode() , report->GetPaymentReferenceNumber());
+
+            std::string customername;
+            std::string phonenumber;
+            std::string DLnumber;
+            std::string customeraddress;
+            std::string vehiclename;
+            std::string amountstatus;
+            std::string bookingid;
+            std::string vehicalType;
+            std::string vehicalNumber;
+            std::string paymentMode;
+            std::string paymentRefernceNumber;
             //fp->WriteBikeData(m_bikelist);
-            addBookingData(i.GetName(),"Bike" , i.GetVehicleNumber());
+            report = new BookingReport(customername , phonenumber , DLnumber , customeraddress , vehiclename , amountstatus , bookingid , vehicalType , vehicalNumber , paymentMode , paymentRefernceNumber);
+            int choice;
+            //std::string paymentRefernceNumber;
+            // std::string cardnumber;
+            std::cout<<"1.cash"<<std::endl;
+            std::cout<<"2.upi"<<std::endl;
+            std::cout<<"3.card"<<std::endl;
+
+            std::cout<<"enter your choice :"<<std::endl;
+            std::cin>>choice;
+            switch(choice)
+            {
+            case 1:
+                report->setPaymentMode("cash");
+                report->SetPaymentReferenceNumber("Null");
+                // report->SetPaymentReferenceNumber("Null");
+                break;
+            case 2:
+                report->setPaymentMode("upi");
+                std::cout<<"enter payment number: "<<std::endl;
+                std::cin>>paymentRefernceNumber;
+
+                report->SetPaymentReferenceNumber(paymentRefernceNumber);
+                break;
+            case 3:
+                report->setPaymentMode("card");
+                // std::cout<<"enter card number: "<<std::endl;
+                // std::cin>>cardnumber;
+                // i.SetCardNumber(cardnumber);
+                std::cout<<"enter payment number: "<<std::endl;
+                std::cin>>paymentRefernceNumber;
+
+                report->SetPaymentReferenceNumber(paymentRefernceNumber);
+                break;
+
+            default:
+                std::cout<<"invalid payment mode"<<std::endl;
+                break;
+            }
+            report->SetAmountStatus("paid");
+            i.SetBikeStatus("booked");
+
             return;
 
         }
@@ -683,9 +753,58 @@ void VehicleManagement::rentCar(string &vehiclename)
     {
         if(i.GetName() == vehiclename && i.GetCarStatus() == "available")
         {
+            addBookingData(i.GetName(),"Car" , i.GetVehicleNumber() , report->GetAmountStatus() , report->GetPaymentMode() , report->GetPaymentReferenceNumber());
+
+            std::string customername;
+            std::string phonenumber;
+            std::string DLnumber;
+            std::string customeraddress;
+            std::string vehiclename;
+            std::string amountstatus;
+            std::string bookingid;
+            std::string vehicalType;
+            std::string vehicalNumber;
+            std::string paymentMode;
+            std::string paymentRefernceNumber;
+
+            report = new BookingReport(customername , phonenumber , DLnumber , customeraddress , vehiclename , amountstatus , bookingid , vehicalType , vehicalNumber , paymentMode , paymentRefernceNumber );
+            int choice;
+            // std::string paymentnumber;
+            std::cout<<"1.cash"<<std::endl;
+            std::cout<<"2.upi"<<std::endl;
+            std::cout<<"3.card"<<std::endl;
+
+
+            std::cout<<"enter your choice :"<<std::endl;
+            std::cin>>choice;
+            switch(choice)
+            {
+            case 1:
+                report->setPaymentMode("cash");
+                report->SetPaymentReferenceNumber("Null");
+                break;
+            case 2:
+                report->setPaymentMode("upi");
+                std::cout<<"enter payment number: "<<std::endl;
+                std::cin>>paymentRefernceNumber;
+
+                report->SetPaymentReferenceNumber(paymentRefernceNumber);
+                break;
+
+            case 3:
+                report->setPaymentMode("card");
+                std::cout<<"enter payment number: "<<std::endl;
+                std::cin>>paymentRefernceNumber;
+
+                report->SetPaymentReferenceNumber(paymentRefernceNumber);
+                break;
+
+            default:
+                std::cout<<"invalid payment mode"<<std::endl;
+                break;
+            }
+            report->SetAmountStatus("paid");
             i.SetCarStatus("booked");
-            //fp->WriteCarData(m_carlist);
-            addBookingData(i.GetName(),"Car" , i.GetVehicleNumber());
             return;
         }
     }
@@ -927,11 +1046,14 @@ void VehicleManagement::carDisplayMenu()
 void VehicleManagement::menu()
 {
     int choice;
+    std::string vehicalnumber;
     while(1){
         std::cout<<"1.bike: "<<std::endl;
         std::cout<<"2.car: "<<std::endl;
         std::cout<<"3.booking details: "<<std::endl;
-        std::cout<<"4.exit: "<<std::endl;
+        std::cout<<"4.search bike customer: "<<std::endl;
+        std::cout<<"5. search car customer :"<<std::endl;
+        std::cout<<"6.exit: "<<std::endl;
 
         std::cout<<"enter your choice: "<<std::endl;
         std::cin>>choice;
@@ -954,6 +1076,14 @@ void VehicleManagement::menu()
             break;
 
         case 4:
+            this->searchBikeCustomer(vehicalnumber);
+            break;
+
+        case 5:
+            this->searchCarCustomer(vehicalnumber);
+            break;
+
+        case 6:
             fp->WriteBikeData(m_bikelist);
             fp->WriteCarData(m_carlist);
             fp->WriteBookingData(m_bookingreportlist);
