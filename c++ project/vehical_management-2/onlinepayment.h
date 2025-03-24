@@ -5,6 +5,7 @@ class OnlinePayment : public PaymentMethod
 {
 public:
     OnlinePayment(std::string onlinePaymentId , std::string onlinePaymentRefNumber);
+    OnlinePayment();
     ~OnlinePayment();
 };
 

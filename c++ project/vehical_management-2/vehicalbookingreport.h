@@ -50,10 +50,10 @@ public:
     void SetPaymentMode(std::string paymentMode);
     std::string GetPaymentMode();
 
-    void SetPaymentId(PaymentMethod *payment);
+    void SetPaymentId();
     std::string GetPaymentId();
 
-    void SetPaymentNumber(std::string paymentNumber);
+    void SetPaymentNumber();
     std::string GetPaymentNumber();
 
 private:

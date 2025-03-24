@@ -5,6 +5,11 @@ OnlinePayment::OnlinePayment(std::string onlinePaymentId, std::string onlinePaym
     m_uniquePaymentRefNumber = onlinePaymentRefNumber;
 }
 
+OnlinePayment::OnlinePayment()
+{
+
+}
+
 OnlinePayment::~OnlinePayment()
 {
 

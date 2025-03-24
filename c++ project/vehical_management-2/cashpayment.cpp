@@ -5,6 +5,11 @@ CashPayment::CashPayment(std::string cashId, std::string cashRefNumber) {
     m_uniquePaymentRefNumber = cashRefNumber;
 }
 
+CashPayment::CashPayment()
+{
+
+}
+
 CashPayment::~CashPayment()
 {
 

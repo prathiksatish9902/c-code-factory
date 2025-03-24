@@ -5,6 +5,7 @@ class CashPayment : public PaymentMethod
 {
 public:
     CashPayment(std::string cashId , std::string cashRefNumber);
+    CashPayment();
     ~CashPayment();
 };
 

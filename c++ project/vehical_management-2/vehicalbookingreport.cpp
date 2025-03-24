@@ -149,7 +149,7 @@ std::string vehicalBookingReport::GetPaymentMode()
     return m_paymentMode;
 }
 
-void vehicalBookingReport::SetPaymentId(PaymentMethod *payment)
+void vehicalBookingReport::SetPaymentId()
 {
     m_paymentId = payment->GetUniqueId();
    // m_paymentId = paymentId;
@@ -160,10 +160,12 @@ std::string vehicalBookingReport::GetPaymentId()
     return m_paymentId;
 }
 
-void vehicalBookingReport::SetPaymentNumber(std::string paymentNumber)
+void vehicalBookingReport::SetPaymentNumber()
 {
-    paymentNumber = payment->GetUniqueRefrence();
-    m_paymentReferenceNumber = paymentNumber;
+    // paymentNumber = payment->GetUniqueRefrence();
+    //m_paymentReferenceNumber = paymentNumber;
+
+    m_paymentReferenceNumber = payment->GetUniqueRefrence();
 }
 
 std::string vehicalBookingReport::GetPaymentNumber()
