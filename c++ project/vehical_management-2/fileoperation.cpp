@@ -1,5 +1,7 @@
 #include "fileoperation.h"
-
+#include"adminmanager.h"
+#include"rentalvehicalmanger.h"
+#include"vehicalbookingreport.h"
 FileOperation::FileOperation() {
     std::cout<<"file operation constructor called"<<std::endl;
 }
@@ -117,6 +119,67 @@ std::list<vehicalBookingReport *> FileOperation::ReadBookingData(const string &b
     return bookinglist;
 }
 
+std::list<Admin *> FileOperation::ReadAdminData(const string &adminfile)
+{
+    std::ifstream read(adminfile,ios::in);
+    std::string line;
+
+    std::string adminUsername;
+    std::string adminPassword;
+
+    std::list<Admin*> adminlist;
+
+    if(read.is_open()){
+        while(getline(read , line)){
+            std::istringstream data(line);
+
+            if(getline(data , adminUsername , ',') && getline(data , adminPassword))
+            {
+                std::cout<<"username :"<<adminUsername<<" "<<"password :"<<adminPassword<<std::endl;
+                adminlist.push_back(new Admin(adminUsername , adminPassword));
+            }
+        }
+
+        std::cout<<"data read successfully"<<std::endl;
+        read.close();
+    }
+    else{
+        std::cout<<"file not opened"<<std::endl;
+    }
+    return adminlist;
+
+}
+
+std::list<User *> FileOperation::ReadUserData(const string &userfile)
+{
+    std::ifstream read(userfile,ios::in);
+    std::string line;
+
+    std::string userName;
+    std::string userPassword;
+
+    std::list<User*> userlist;
+
+    if(read.is_open()){
+        while(getline(read , line)){
+            std::istringstream data(line);
+
+            if(getline(data , userName , ',') && getline(data , userPassword))
+            {
+                std::cout<<"username :"<<userName<<" "<<"password :"<<userPassword<<std::endl;
+                userlist.push_back(new User(userName , userPassword));
+            }
+        }
+
+        std::cout<<"data read successfully"<<std::endl;
+        read.close();
+    }
+    else{
+        std::cout<<"file not opened"<<std::endl;
+    }
+    return userlist;
+}
+
 void FileOperation::WriteBikeData(std::list<RentalBikeDetails *> bikelist)
 {
     std::ofstream write("bikefile.csv" , ios::out);
@@ -170,4 +233,26 @@ void FileOperation::WriteBookingData(std::list<vehicalBookingReport *> bookingli
         << booking->GetPaymentNumber()<<std::endl;
     }
 write.close();
+}
+
+void FileOperation::WriteAdminData(std::list<Admin *> adminlist)
+{
+    std::ofstream write("adminfile.csv", ios::out);
+    for(auto &admin:adminlist)
+    {
+        write << admin->GetAdminUserName()<<","
+              <<admin->GetAdminPassword()<<std::endl;
+    }
+    write.close();
+}
+
+void FileOperation::WriteUserData(std::list<User *> userlist)
+{
+    std::ofstream write("userfile.csv", ios::out);
+    for(auto &user:userlist)
+    {
+        write << user->GetUsername()<<","
+              <<user->GetUserPassword()<<std::endl;
+    }
+    write.close();
 }

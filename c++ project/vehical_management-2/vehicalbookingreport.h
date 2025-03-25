@@ -1,7 +1,9 @@
 #ifndef VEHICALBOOKINGREPORT_H
 #define VEHICALBOOKINGREPORT_H
-#include"rentalvehicaldetails.h"
+#include<iostream>
+// #include"rentalvehicaldetails.h"
 #include"paymentmethod.h"
+class RentalVehicalDetails;
 class vehicalBookingReport
 {
 public:

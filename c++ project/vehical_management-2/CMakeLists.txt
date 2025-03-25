@@ -14,7 +14,11 @@ add_executable(vehical_management-2 main.cpp
     rentalvehicalmanger.h rentalvehicalmanger.cpp
     paymentmethod.h paymentmethod.cpp
     cashpayment.h cashpayment.cpp
-    onlinepayment.h onlinepayment.cpp)
+    onlinepayment.h onlinepayment.cpp
+    admin.h admin.cpp
+    user.h user.cpp
+    adminmanager.h adminmanager.cpp
+usermanager.h usermanager.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS vehical_management-2

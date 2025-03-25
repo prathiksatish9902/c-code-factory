@@ -1,4 +1,5 @@
 #include "vehicalbookingreport.h"
+#include"rentalvehicaldetails.h"
 
 vehicalBookingReport::vehicalBookingReport(std::string customerName , std::string DLNumber , std::string customerPhoneNumber , std::string customerAddress ,std::string bookingId , std::string vehicalType , std::string rentedVehicalName , std::string rentedVehicalNumber , float rentedVehicalCost,
                                            std::string rentalDuration,

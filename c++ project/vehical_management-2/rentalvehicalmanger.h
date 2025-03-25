@@ -1,14 +1,18 @@
 #ifndef RENTALVEHICALMANGER_H
 #define RENTALVEHICALMANGER_H
-#include"rentalvehicaldetails.h"
-#include"rentalbikedetails.h"
-#include"rentalcardetails.h"
-#include"vehicalbookingreport.h"
-#include"fileoperation.h"
-#include"paymentmethod.h"
-#include"cashpayment.h"
-#include"onlinepayment.h"
+#include<iostream>
 #include<list>
+#include"rentalbikedetails.h"
+// #include"vehicalbookingreport.h"
+#include"rentalcardetails.h"
+// #include"fileoperation.h"
+#include"onlinepayment.h"
+#include"cashpayment.h"
+using namespace  std;
+// class FileOperation;
+// class AdminManager;
+class FileOperation;
+class vehicalBookingReport;
 class RentalVehicalManger
 {
 public:
@@ -44,6 +48,17 @@ public:
     void rentBike();
     void rentCar();
 
+    void returnBike();
+    void returnCar();
+
+    void bikeDisplayMenu();
+    void carDisplayMenu();
+
+    void bikeManagement();
+    void carManagement();
+
+    void menu();
+
 
 
 
@@ -51,6 +66,7 @@ private:
     std::list<RentalBikeDetails*> m_bikelist;
     std::list<RentalCarDetails*> m_carlist;
     std::list<vehicalBookingReport*> m_bookinglist;
+    std::list<User*> m_userlist;
     FileOperation *fileobject;
     PaymentMethod *payment;
     vehicalBookingReport *report;
