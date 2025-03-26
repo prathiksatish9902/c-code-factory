@@ -3,8 +3,7 @@
 #include<list>
 #include<iostream>
 #include"admin.h"
-// #include"fileoperation.h"
-// #include"rentalvehicalmanger.h"
+
 class RentalVehicalManger;
 class FileOperation;
 class AdminManager

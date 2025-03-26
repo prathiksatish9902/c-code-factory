@@ -22,6 +22,9 @@ vehicalBookingReport::vehicalBookingReport(std::string customerName , std::strin
     m_paymentMode = paymentMode;
     m_paymentId = paymentId;
     m_paymentReferenceNumber = paymentReferenceNumber;
+
+
+
 }
 
 vehicalBookingReport::~vehicalBookingReport()
@@ -83,31 +86,34 @@ std::string vehicalBookingReport::GetBookingId()
 void vehicalBookingReport::SetRentedVehicalName(std::string vehicalName)
 {
     vehicalName = m_vehicalDetails->GetVehicalName();
+    m_rentedVehicalName = vehicalName;
 }
 
 std::string vehicalBookingReport::GetRentedVehicalName()
 {
-    return m_vehicalDetails->GetVehicalName();
+    return m_rentedVehicalName;
 }
 
 void vehicalBookingReport::SetRentedVehicalNumber(std::string vehicalNumber)
 {
     vehicalNumber = m_vehicalDetails->GetVehicalNumber();
+    m_rentedVehicalNumber = vehicalNumber;
 }
 
 std::string vehicalBookingReport::GetRentedVehicalNumber()
 {
-    return m_vehicalDetails->GetVehicalNumber();
+    return m_rentedVehicalNumber;
 }
 
 void vehicalBookingReport::SetRentedVehicalCost(float vehicalCost)
 {
     vehicalCost = m_vehicalDetails->GetVehicalCost();
+    m_rentedVehicalcost = vehicalCost;
 }
 
 float vehicalBookingReport::GetRentedVehicalCost()
 {
-    return m_vehicalDetails->GetVehicalCost();
+    return m_rentedVehicalcost;
 }
 
 void vehicalBookingReport::SetVehicalType(std::string vehicalType)
@@ -153,7 +159,6 @@ std::string vehicalBookingReport::GetPaymentMode()
 void vehicalBookingReport::SetPaymentId()
 {
     m_paymentId = payment->GetUniqueId();
-   // m_paymentId = paymentId;
 }
 
 std::string vehicalBookingReport::GetPaymentId()
@@ -163,8 +168,7 @@ std::string vehicalBookingReport::GetPaymentId()
 
 void vehicalBookingReport::SetPaymentNumber()
 {
-    // paymentNumber = payment->GetUniqueRefrence();
-    //m_paymentReferenceNumber = paymentNumber;
+
 
     m_paymentReferenceNumber = payment->GetUniqueRefrence();
 }

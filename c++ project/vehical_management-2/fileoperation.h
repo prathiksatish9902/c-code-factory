@@ -5,15 +5,6 @@
 #include<sstream>
 #include<iostream>
 #include<functional>
-#pragma once
-// // #include"rentalvehicaldetails.h"
-// // #include"rentalbikedetails.h"
-// // #include"rentalcardetails.h"
-// #include"vehicalbookingreport.h"
-// // #include"admin.h"
-// #include"adminmanager.h"
-// // #include"user.h"
-// #include"usermanager.h"
 #include<list>
 using namespace std;
 #include"rentalvehicalmanger.h"

@@ -8,11 +8,11 @@ public:
     CashPayment();
     ~CashPayment();
 
-     void SetUniqueId(std::string uniquePaymentId) override ;
-     std::string GetUniqueId() override;
+    void SetUniqueId(std::string uniquePaymentId) override ;
+    std::string GetUniqueId() override;
 
-     void SetUniqueRefrence(std::string uniqueRefNumber) override ;
-     std::string GetUniqueRefrence() override;
+    void SetUniqueRefrence(std::string uniqueRefNumber) override ;
+    std::string GetUniqueRefrence() override;
 };
 
 #endif // CASHPAYMENT_H

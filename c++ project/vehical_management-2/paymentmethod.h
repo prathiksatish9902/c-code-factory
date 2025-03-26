@@ -6,7 +6,7 @@ class PaymentMethod
 public:
     PaymentMethod(std::string uniquePaymentId , std::string uniqueRefNumber);
     PaymentMethod();
-   virtual ~PaymentMethod();
+    virtual ~PaymentMethod();
 
     virtual void SetUniqueId(std::string uniquePaymentId) = 0;
     virtual std::string GetUniqueId() = 0;

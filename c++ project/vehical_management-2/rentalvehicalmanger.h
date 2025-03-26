@@ -3,14 +3,10 @@
 #include<iostream>
 #include<list>
 #include"rentalbikedetails.h"
-// #include"vehicalbookingreport.h"
 #include"rentalcardetails.h"
-// #include"fileoperation.h"
 #include"onlinepayment.h"
 #include"cashpayment.h"
 using namespace  std;
-// class FileOperation;
-// class AdminManager;
 class FileOperation;
 class vehicalBookingReport;
 class RentalVehicalManger
@@ -66,7 +62,6 @@ private:
     std::list<RentalBikeDetails*> m_bikelist;
     std::list<RentalCarDetails*> m_carlist;
     std::list<vehicalBookingReport*> m_bookinglist;
-    std::list<User*> m_userlist;
     FileOperation *fileobject;
     PaymentMethod *payment;
     vehicalBookingReport *report;

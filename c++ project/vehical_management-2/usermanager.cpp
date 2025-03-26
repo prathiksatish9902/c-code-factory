@@ -1,12 +1,14 @@
 #include "usermanager.h"
 UserManager::UserManager() {
     fileobject = new FileOperation;
-    fileobject->ReadUserData("userfile.csv");
+    m_userList = fileobject->ReadUserData("userfile.csv");
+
+
 }
 
 UserManager::~UserManager()
 {
-    // delete fileobject;
+    delete fileobject;
 }
 
 void UserManager::addUser()
@@ -29,85 +31,129 @@ void UserManager::addUser()
 void UserManager::userLogin()
 {
     std::string Username , userPassword;
+    bool loop = true;
+    bool mainloop=true;
 
     std::cout<<"enter user username"<<std::endl;
     std::cin>>Username;
 
     std::cout<<"enter user password"<<std::endl;
     std::cin>>userPassword;
-    // manager = new RentalVehicalManger;
+    manager = new RentalVehicalManger;
     for( auto *user : m_userList)
     {
         if((*user).GetUsername() == Username && (*user).GetUserPassword() == userPassword){
             std::cout<<"login success"<<std::endl;
             int choice;
-            std::cout<<"1.bike"<<std::endl;
-            std::cout<<"2.car"<<std::endl;
+            while(true)
+            {
+                std::cout<<"1.bike"<<std::endl;
+                std::cout<<"2.car"<<std::endl;
+                std::cout<<"3.exit"<<std::endl;
 
-            std::cout<<"enter your choice"<<std::endl;
-            std::cin>>choice;
 
-            // switch(choice)
-            // {
-            // case 1:
-            //     int option1;
-            //     std::cout<<"1.display"<<std::endl;
-            //     std::cout<<"2.search"<<std::endl;
-            //     std::cout<<"3.book bike"<<std::endl;
+                std::cout<<"enter your choice"<<std::endl;
+                std::cin>>choice;
 
-            //     std::cout<<"enter option"<<std::endl;
-            //     std::cin>>option1;
+                switch(choice)
+                {
+                case 1:
+                {
 
-            //     switch(option1)
-            //     {
-            //     case 1:
-            //         manager->bikeDisplayMenu();
-            //         break;
+                    int option1;
+                    while(loop)
+                    {
+                        std::cout<<"1.display"<<std::endl;
+                        std::cout<<"2.search"<<std::endl;
+                        std::cout<<"3.book bike"<<std::endl;
+                        std::cout<<"4.return bike"<<std::endl;
+                        std::cout<<"5.return"<<std::endl;
 
-            //     case 2:
-            //         manager->SearchBike();
-            //         break;
+                        std::cout<<"enter option"<<std::endl;
+                        std::cin>>option1;
 
-            //     case 3:
-            //         manager->rentBike();
-            //         break;
-            //     default:
-            //         std::cout<<"invalid option"<<std::endl;
-            //         break;
-            //     }
-            //     break;
+                        switch(option1)
+                        {
+                        case 1:
+                            manager->bikeDisplayMenu();
+                            break;
 
-            // case 2:
-            //     int option2;
-            //     std::cout<<"1.display"<<std::endl;
-            //     std::cout<<"2.search"<<std::endl;
-            //     std::cout<<"3.book car"<<std::endl;
+                        case 2:
+                            manager->SearchBike();
+                            break;
 
-            //     std::cout<<"enter option"<<std::endl;
-            //     std::cin>>option2;
+                        case 3:
+                            manager->rentBike();
+                            break;
 
-            //     switch(option2)
-            //     {
-            //     case 1:
-            //         manager->carDisplayMenu();
-            //         break;
+                        case 4:
+                            manager->returnBike();
+                            break;
+                        case 5:{
+                            loop = false;
+                            //mainloop=false;
+                            break;
+                        }
+                        default:
+                            std::cout<<"invalid option"<<std::endl;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case 2:
+                    int option2;
+                    while(mainloop)
+                    {
+                        std::cout<<"1.display"<<std::endl;
+                        std::cout<<"2.search"<<std::endl;
+                        std::cout<<"3.book car"<<std::endl;
+                        std::cout<<"4.return car"<<std::endl;
+                        std::cout<<"5.return"<<std::endl;
 
-            //     case 2:
-            //         manager->SearchCar();
-            //         break;
+                        std::cout<<"enter option"<<std::endl;
+                        std::cin>>option2;
 
-            //     case 3:
-            //         manager->rentCar();
-            //         break;
-            //     default:
-            //         std::cout<<"invalid option"<<std::endl;
-            //         break;
-            //     }
-            //     break;
-            // default:
-            //     std::cout<<"invalid choice"<<std::endl;
-            //     break;
-            // }
+                        switch(option2)
+                        {
+                        case 1:
+                            manager->carDisplayMenu();
+                            break;
+
+                        case 2:
+                            manager->SearchCar();
+                            break;
+
+                        case 3:
+                            manager->rentCar();
+                            break;
+
+                        case 4:
+                            manager->returnCar();
+                            break;
+
+                        case 5:
+                            // loop = false;
+                            mainloop=false;
+                            break;
+                        default:
+                            std::cout<<"invalid option"<<std::endl;
+                            break;
+                        }
+                        break;
+
+                    case 3:
+                        exit(0);
+                        break;
+                    default:
+                        std::cout<<"invalid choice"<<std::endl;
+                        break;
+                    }
+
+                }
+
+            }
+
 
         }
     }

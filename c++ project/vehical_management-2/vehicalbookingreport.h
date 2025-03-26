@@ -1,19 +1,18 @@
 #ifndef VEHICALBOOKINGREPORT_H
 #define VEHICALBOOKINGREPORT_H
 #include<iostream>
-// #include"rentalvehicaldetails.h"
 #include"paymentmethod.h"
 class RentalVehicalDetails;
 class vehicalBookingReport
 {
 public:
     vehicalBookingReport(std::string customerName , std::string DLNumber , std::string customerPhoneNumber , std::string customerAddress ,std::string bookingId , std::string vehicalType , std::string rentedVehicalName , std::string rentedVehicalNumber , float rentedVehicalCost,
-                   std::string rentalDuration,
+                         std::string rentalDuration,
                          std::string amountStatus,
                          std::string paymentMode,
                          std::string paymentId,
                          std::string paymentReferenceNumber
-      );
+                         );
     ~vehicalBookingReport();
 
     void SetCustomerName(std::string customerName);

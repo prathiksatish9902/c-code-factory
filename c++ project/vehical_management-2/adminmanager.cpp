@@ -10,7 +10,7 @@ AdminManager::AdminManager() {
 
 AdminManager::~AdminManager()
 {
-    // delete fileobject;
+    delete fileobject;
 }
 
 void AdminManager::addAdmin()

@@ -63,7 +63,7 @@ std::list<RentalCarDetails *> FileOperation::ReadCarData(const string &carfile)
 
             if(getline(data , carNumber , ',') && getline(data , carName , ',') && getline(data , carModelName , ',') && getline(data , carStatus , ',') && (data >> carCost))
             {
-                std::cout<<"car number :" << carNumber <<" "<<"car name :" << carName <<" "<< "car model name :" << carModelName <<" "<< "car status :" << carStatus <<" "<< "cabiker cost :" << carCost <<std::endl;
+                std::cout<<"car number :" << carNumber <<" "<<"car name :" << carName <<" "<< "car model name :" << carModelName <<" "<< "car status :" << carStatus <<" "<< "car cost :" << carCost <<std::endl;
                 carlist.push_back(new RentalCarDetails(carNumber , carName , carModelName , carStatus ,carCost));
             }
         }
@@ -217,22 +217,24 @@ void FileOperation::WriteBookingData(std::list<vehicalBookingReport *> bookingli
     std::ofstream write("bookingfile.csv" , ios::out);
     for(auto &booking : bookinglist)
     {
+
+        std::cout<<"write booking data"<<std::endl;
         write << booking->GetCustomerName()<<","
-        << booking->GetDLNumber()<<","
-        << booking->GetPhoneNumber()<<","
-        << booking->GetCustomerAddress()<<","
-        << booking->GetBookingId()<<","
-        << booking->GetVehicalType()<<","
-        << booking->GetRentedVehicalName()<<","
-        << booking->GetRentedVehicalNumber()<<","
-        << booking->GetRentedVehicalCost()<<","
-        << booking->GetRentalDuration()<<","
-        << booking->GetAmountStatus()<<","
-        << booking->GetPaymentMode()<<","
+              << booking->GetDLNumber()<<","
+              << booking->GetPhoneNumber()<<","
+              << booking->GetCustomerAddress()<<","
+              << booking->GetBookingId()<<","
+              << booking->GetVehicalType()<<","
+              << booking->GetRentedVehicalName()<<","
+              << booking->GetRentedVehicalNumber()<<","
+              << booking->GetRentedVehicalCost()<<","
+              << booking->GetRentalDuration()<<","
+              << booking->GetAmountStatus()<<","
+              << booking->GetPaymentMode()<<","
               <<booking->GetPaymentId()<<","
-        << booking->GetPaymentNumber()<<std::endl;
+              << booking->GetPaymentNumber()<<std::endl;
     }
-write.close();
+    write.close();
 }
 
 void FileOperation::WriteAdminData(std::list<Admin *> adminlist)

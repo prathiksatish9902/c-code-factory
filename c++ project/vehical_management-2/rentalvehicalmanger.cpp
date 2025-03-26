@@ -1,7 +1,6 @@
 #include "rentalvehicalmanger.h"
 #include"fileoperation.h"
 #include"vehicalbookingreport.h"
-// #include"adminmanager.h"
 
 RentalVehicalManger::RentalVehicalManger() {
     std::cout<<"rental manager constructor called"<<std::endl;
@@ -9,14 +8,19 @@ RentalVehicalManger::RentalVehicalManger() {
     m_bikelist = fileobject->ReadBikeData("bikefile.csv");
     m_carlist = fileobject->ReadCarData("carfile.csv");
     m_bookinglist = fileobject->ReadBookingData("bookingfile.csv");
-m_
+
 
 }
 
 RentalVehicalManger::~RentalVehicalManger()
 {
     std::cout<<"rental manager destructor called"<<std::endl;
+    fileobject->WriteBikeData(m_bikelist);
+    fileobject->WriteCarData(m_carlist);
+    fileobject->WriteBookingData(m_bookinglist);
     delete fileobject;
+    delete payment;
+    delete report;
 
 }
 
@@ -94,8 +98,8 @@ void RentalVehicalManger::addBookingData(string vehicalType, string VehicalNumbe
 
     std::cout<<"enter payment ref number: "<<std::endl;
     std::cin>>paymentRefNumber;
-
     m_bookinglist.push_back(new vehicalBookingReport(customerName , DLNumber , customerPhoneNumber , customerAddress , bookingId , vehicalType,vehicalName, VehicalNumber , vehicalRentCost , rentDuration , amountStatus , paymentMode , paymentId , paymentRefNumber));
+    return ;
 
 }
 
@@ -129,13 +133,13 @@ void RentalVehicalManger::deleteCar()
         if((*i)->GetVehicalNumber() == vehicalNumber)
         {
             m_carlist.erase(i);
-            std::cout<<"bike with vehical number"<<vehicalNumber<<"deleted"<<std::endl;
+            std::cout<<"car with vehical number"<<vehicalNumber<<"deleted"<<std::endl;
 
             return;
 
         }
     }
-    std::cout<<"bike with vehical number"<<vehicalNumber<<"not found"<<std::endl;
+    std::cout<<"car with vehical number"<<vehicalNumber<<"not found"<<std::endl;
 
 }
 
@@ -558,87 +562,13 @@ void RentalVehicalManger::rentBike()
     std::cout<<"enter the bike name you want to rent :"<<std::endl;
     std::cin>>vehicalName;
 
-    for(auto i = m_bikelist.begin();i!=m_bikelist.end();i++)
+    for(auto i : m_bikelist)
     {
-        if((*i)->GetVehicalName() == vehicalName && (*i)->GetVehicalStatus() == "available")
+        std::cout<<i->GetVehicalNumber()<<std::endl;
+        std::cout<<i->GetVehicalStatus()<<std::endl;
+        if(i->GetVehicalName() == vehicalName && i->GetVehicalStatus() == "available")
         {
-            addBookingData("bike" , (*i)->GetVehicalNumber() , (*i)->GetVehicalName() , (*i)->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
 
-            std::string customerName;
-            std::string DLNumber;
-            std::string customerPhoneNumber;
-            std::string customerAddress;
-            std::string bookingId;
-            std::string vehicalType;
-            std::string rentedVehicalName;
-            std::string rentedVehicalNumber;
-            float rentedVehicalcost;
-            std::string rentalDuration;
-            std::string amountStatus;
-            std::string paymentMode;
-            std::string paymentId;
-            std::string paymentReferenceNumber;
-
-            report = new vehicalBookingReport(customerName , DLNumber , customerPhoneNumber , customerAddress , bookingId, vehicalType , rentedVehicalName,
-rentedVehicalNumber , rentedVehicalcost , rentalDuration , amountStatus , paymentMode , paymentId , paymentReferenceNumber);
-
-            int choice;
-            std::cout<<"1.cash"<<std::endl;
-            std::cout<<"2.upi"<<std::endl;
-
-            std::cout<<"enter your choice :"<<std::endl;
-            std::cin>>choice;
-
-            switch(choice)
-            {
-            case 1:
-            {
-                payment = new CashPayment;
-                report->SetPaymentMode("cash");
-                payment->SetUniqueId("Null");
-                payment->SetUniqueRefrence("Null");
-                break;
-            }
-
-            case 2:
-            {
-                std::string upiId , upiRefNumber;
-                payment = new OnlinePayment;
-                report->SetPaymentMode("upi");
-
-                std::cout<<"enter upi id:"<<std::endl;
-                std::cin>>upiId;
-                payment->SetUniqueId(upiId);
-
-                std::cout<<"enter upi ref number: "<<std::endl;
-                std::cin>>upiRefNumber;
-                payment->SetUniqueRefrence(upiRefNumber);
-                break;
-            }
-
-            default:
-                std::cout<<"invalid choice"<<std::endl;
-                break;
-
-
-            }
-        }
-        report->SetAmountStatus("paid");
-        (*i)->SetVehicalStatus("booked");
-    }
-}
-
-void RentalVehicalManger::rentCar()
-{
-    std::string vehicalName;
-    std::cout<<"enter the car name you want to rent :"<<std::endl;
-    std::cin>>vehicalName;
-
-    for(auto i = m_carlist.begin();i!=m_carlist.end();i++)
-    {
-        if((*i)->GetVehicalName() == vehicalName && (*i)->GetVehicalStatus() == "available")
-        {
-            addBookingData("car" , (*i)->GetVehicalNumber() , (*i)->GetVehicalName() , (*i)->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
 
             std::string customerName;
             std::string DLNumber;
@@ -673,22 +603,22 @@ void RentalVehicalManger::rentCar()
                 report->SetPaymentMode("cash");
                 payment->SetUniqueId("Null");
                 payment->SetUniqueRefrence("Null");
+                report->SetAmountStatus("paid");
+                i->SetVehicalStatus("booked");
+                addBookingData("bike" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
+
                 break;
             }
 
             case 2:
             {
-                std::string upiId , upiRefNumber;
                 payment = new OnlinePayment;
                 report->SetPaymentMode("upi");
+                report->SetAmountStatus("paid");
+                i->SetVehicalStatus("booked");
+                addBookingData("bike" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
 
-                std::cout<<"enter upi id:"<<std::endl;
-                std::cin>>upiId;
-                payment->SetUniqueId(upiId);
 
-                std::cout<<"enter upi ref number: "<<std::endl;
-                std::cin>>upiRefNumber;
-                payment->SetUniqueRefrence(upiRefNumber);
                 break;
             }
 
@@ -696,17 +626,100 @@ void RentalVehicalManger::rentCar()
                 std::cout<<"invalid choice"<<std::endl;
                 break;
 
+
             }
+
         }
-        report->SetAmountStatus("paid");
-        (*i)->SetVehicalStatus("booked");
+
     }
+
+    return ;
+}
+
+void RentalVehicalManger::rentCar()
+{
+    std::string vehicalName;
+    std::cout<<"enter the car name you want to rent :"<<std::endl;
+    std::cin>>vehicalName;
+
+    for(auto i : m_carlist)
+    {
+        std::cout<<i->GetVehicalNumber()<<std::endl;
+        std::cout<<i->GetVehicalStatus()<<std::endl;
+        if(i->GetVehicalName() == vehicalName && i->GetVehicalStatus() == "available")
+        {
+
+
+            std::string customerName;
+            std::string DLNumber;
+            std::string customerPhoneNumber;
+            std::string customerAddress;
+            std::string bookingId;
+            std::string vehicalType;
+            std::string rentedVehicalName;
+            std::string rentedVehicalNumber;
+            float rentedVehicalcost;
+            std::string rentalDuration;
+            std::string amountStatus;
+            std::string paymentMode;
+            std::string paymentId;
+            std::string paymentReferenceNumber;
+
+            report = new vehicalBookingReport(customerName , DLNumber , customerPhoneNumber , customerAddress , bookingId, vehicalType , rentedVehicalName,
+                                              rentedVehicalNumber , rentedVehicalcost , rentalDuration , amountStatus , paymentMode , paymentId , paymentReferenceNumber);
+
+            int choice;
+            std::cout<<"1.cash"<<std::endl;
+            std::cout<<"2.upi"<<std::endl;
+
+            std::cout<<"enter your choice :"<<std::endl;
+            std::cin>>choice;
+
+            switch(choice)
+            {
+            case 1:
+            {
+                payment = new CashPayment;
+                report->SetPaymentMode("cash");
+                payment->SetUniqueId("Null");
+                payment->SetUniqueRefrence("Null");
+                report->SetAmountStatus("paid");
+                i->SetVehicalStatus("booked");
+                addBookingData("car" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
+
+                break;
+            }
+
+            case 2:
+            {
+                payment = new OnlinePayment;
+                report->SetPaymentMode("upi");
+                report->SetAmountStatus("paid");
+                i->SetVehicalStatus("booked");
+                addBookingData("car" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
+
+
+                break;
+            }
+
+            default:
+                std::cout<<"invalid choice"<<std::endl;
+                break;
+
+
+            }
+
+        }
+
+    }
+
+    return ;
 }
 
 void RentalVehicalManger::returnBike()
 {
     std::string vehicalName;
-    std::cout<<"enter the bike name you want to rent :"<<std::endl;
+    std::cout<<"enter the bike name you want to return :"<<std::endl;
     std::cin>>vehicalName;
     bool found = false;
 
@@ -733,7 +746,7 @@ void RentalVehicalManger::returnBike()
 void RentalVehicalManger::returnCar()
 {
     std::string vehicalName;
-    std::cout<<"enter the bike name you want to rent :"<<std::endl;
+    std::cout<<"enter the car name you want to return :"<<std::endl;
     std::cin>>vehicalName;
     bool found = false;
 
@@ -969,10 +982,9 @@ void RentalVehicalManger::menu()
 
 
         case 4:
-            fileobject->WriteBikeData(m_bikelist);
-            fileobject->WriteCarData(m_carlist);
-            fileobject->WriteBookingData(m_bookinglist);
+
             exit(0);
+            break;
 
         default:
             std::cout<<"invalid choice"<<std::endl;
