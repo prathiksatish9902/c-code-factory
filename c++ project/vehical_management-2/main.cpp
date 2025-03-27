@@ -7,7 +7,23 @@ std::string carfile = "carfile.csv";
 std::string bookingreportfile = "bookingfile.csv";
 std::string adminfile = "adminfile.csv";
 std::string userfile = "userfile.csv";
+enum{
+    Admin_operation = 1,
+    User_operation,
+    Exit
+};
 
+enum{
+    admin_login = 1,
+    add_admin,
+    exit_admin
+};
+
+enum{
+    user_login = 1,
+    add_user,
+    exit_user
+};
 int main()
 {
     while(1)
@@ -21,7 +37,7 @@ int main()
         std::cin>>choice;
         switch(choice)
         {
-        case 1:
+        case Admin_operation:
             int option1;
             AdminManager *admin;
             admin = new AdminManager;
@@ -34,20 +50,20 @@ int main()
             std::cin>>option1;
             switch(option1)
             {
-            case 1:
+            case admin_login:
             {
                 admin->AdminLogin();
                 RentalVehicalManger manager;
                 manager.menu();
                 break;
             }
-            case 2:
+            case add_admin:
             {
                 admin->addAdmin();
                 break;
             }
 
-            case 3:
+            case exit_admin:
                 delete admin;
                 exit(0);
                 break;
@@ -62,7 +78,7 @@ int main()
             }
             break;
 
-        case 2:
+        case User_operation:
             int option2;
             UserManager *user;
             user = new UserManager;
@@ -75,17 +91,17 @@ int main()
             std::cin>>option2;
             switch(option2)
             {
-            case 1:
+            case user_login:
 
                 user->userLogin();
 
                 break;
 
-            case 2:
+            case add_user:
                 user->addUser();
                 break;
 
-            case 3:
+            case exit_user:
                 delete user;
                 exit(0);
                 break;
@@ -98,7 +114,7 @@ int main()
                 break;
             }
             break;
-        case 3:
+        case Exit:
         {
             exit(0);
             break;

@@ -108,8 +108,10 @@ void RentalVehicalManger::deleteBike()
     std::string vehicalNumber;
     std::cout<<"enter the vehical number you want to delete :"<<std::endl;
     std::cin>>vehicalNumber;
+
     for(auto i = m_bikelist.begin(); i!=m_bikelist.end(); i++)
     {
+        // auto start =std::chrono::high_resolution_clock::now();
         if((*i)->GetVehicalNumber() == vehicalNumber)
         {
             m_bikelist.erase(i);
@@ -118,6 +120,10 @@ void RentalVehicalManger::deleteBike()
             return;
 
         }
+        // auto end =std::chrono::high_resolution_clock::now();
+
+        // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
+        // std::cout<<"duration of the loop "<<duration.count();
     }
     std::cout<<"bike with vehical number"<<vehicalNumber<<"not found"<<std::endl;
 
@@ -128,6 +134,7 @@ void RentalVehicalManger::deleteCar()
     std::string vehicalNumber;
     std::cout<<"enter the vehical number you want to delete :"<<std::endl;
     std::cin>>vehicalNumber;
+
     for(auto i = m_carlist.begin(); i!=m_carlist.end();i++)
     {
         if((*i)->GetVehicalNumber() == vehicalNumber)
@@ -139,6 +146,7 @@ void RentalVehicalManger::deleteCar()
 
         }
     }
+
     std::cout<<"car with vehical number"<<vehicalNumber<<"not found"<<std::endl;
 
 }
@@ -311,6 +319,10 @@ void RentalVehicalManger::displayBookingData()
 
 }
 
+enum {
+    rent_status = 1,
+    rent_cost
+};
 void RentalVehicalManger::updateBikeDetails()
 {
     bool bikeFound = false;
@@ -335,13 +347,13 @@ void RentalVehicalManger::updateBikeDetails()
             float newrentcost;
 
             switch(choice){
-            case 1:
+            case rent_status:
                 std::cout<<"enter new rent status :"<<std::endl;
                 std::cin>>newrentstatus;
                 (*i)->SetVehicalStatus(newrentstatus);
                 break;
 
-            case 2:
+            case rent_cost:
                 std::cout<<"enter new rent cost :"<<std::endl;
                 std::cin>>newrentcost;
                 (*i)->SetVehicalCost(newrentcost);
@@ -384,13 +396,13 @@ void RentalVehicalManger::updateCarDetails()
             float newrentcost;
 
             switch(choice){
-            case 1:
+            case rent_status:
                 std::cout<<"enter new rent status :"<<std::endl;
                 std::cin>>newrentstatus;
                 (*i)->SetVehicalStatus(newrentstatus);
                 break;
 
-            case 2:
+            case rent_cost:
                 std::cout<<"enter new rent cost :"<<std::endl;
                 std::cin>>newrentcost;
                 (*i)->SetVehicalCost(newrentcost);
@@ -437,6 +449,8 @@ void RentalVehicalManger::SearchCar()
 
     for(auto i = m_carlist.begin(); i!=m_carlist.end(); i++)
     {
+        // auto start =std::chrono::high_resolution_clock::now();
+
         if((*i)->GetVehicalName() == vehicalName)
         {
             std::cout<<"vehicle with name "<<vehicalName<<"found"<<std::endl;
@@ -444,7 +458,10 @@ void RentalVehicalManger::SearchCar()
             return;
         }
         std::cout<<"vehicle with name "<<vehicalName<<"not found"<<std::endl;
+        // auto end =std::chrono::high_resolution_clock::now();
 
+        // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
+        // std::cout<<"duration of the loop "<<duration.count();
     }
 }
 
@@ -452,6 +469,8 @@ void RentalVehicalManger::sortByBikeName()
 {
     for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
     {
+        // auto start =std::chrono::high_resolution_clock::now();
+
         for(auto j = next(i);j!= m_bikelist.end();j++)
         {
             if((*i)->GetVehicalName() < (*j)->GetVehicalName())
@@ -459,7 +478,10 @@ void RentalVehicalManger::sortByBikeName()
                 std::iter_swap(i , j);
             }
         }
+        // auto end =std::chrono::high_resolution_clock::now();
 
+        // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
+        // std::cout<<"duration of the loop "<<duration.count();
     }
 }
 
@@ -556,6 +578,11 @@ void RentalVehicalManger::sortByCarPrice()
     }
 }
 
+enum{
+    cash_payment = 1,
+    upi_payment
+};
+
 void RentalVehicalManger::rentBike()
 {
     std::string vehicalName;
@@ -597,7 +624,7 @@ void RentalVehicalManger::rentBike()
 
             switch(choice)
             {
-            case 1:
+            case cash_payment:
             {
                 payment = new CashPayment;
                 report->SetPaymentMode("cash");
@@ -610,7 +637,7 @@ void RentalVehicalManger::rentBike()
                 break;
             }
 
-            case 2:
+            case upi_payment:
             {
                 payment = new OnlinePayment;
                 report->SetPaymentMode("upi");
@@ -677,7 +704,7 @@ void RentalVehicalManger::rentCar()
 
             switch(choice)
             {
-            case 1:
+            case cash_payment:
             {
                 payment = new CashPayment;
                 report->SetPaymentMode("cash");
@@ -690,7 +717,7 @@ void RentalVehicalManger::rentCar()
                 break;
             }
 
-            case 2:
+            case upi_payment:
             {
                 payment = new OnlinePayment;
                 report->SetPaymentMode("upi");
@@ -768,7 +795,12 @@ void RentalVehicalManger::returnCar()
 
     }
 }
-
+enum{
+    display = 1,
+    sort_by_status,
+    sort_by_price,
+    sort_by_name
+};
 void RentalVehicalManger::bikeDisplayMenu()
 {
     int choice;
@@ -782,19 +814,19 @@ void RentalVehicalManger::bikeDisplayMenu()
 
     switch(choice)
     {
-    case 1:
+    case display:
         displayBike();
         break;
 
-    case 2:
+    case sort_by_status:
         sortByBikeStatus();
         break;
 
-    case 3:
+    case sort_by_price:
         sortByBikePrice();
         break;
 
-    case 4:
+    case sort_by_name:
         sortByBikeName();
         break;
 
@@ -818,19 +850,19 @@ void RentalVehicalManger::carDisplayMenu()
 
     switch(choice)
     {
-    case 1:
+    case display:
         displayCar();
         break;
 
-    case 2:
+    case sort_by_status:
         sortByCarStatus();
         break;
 
-    case 3:
+    case sort_by_price:
         sortByCarPrice();
         break;
 
-    case 4:
+    case sort_by_name:
         sortByCarName();
         break;
 
@@ -841,6 +873,15 @@ void RentalVehicalManger::carDisplayMenu()
 
 }
 
+enum{
+    add = 1,
+    Display,
+    update,
+    rent,
+    Return,
+    Delete,
+    Search
+};
 void RentalVehicalManger::bikeManagement()
 {
     int choice;
@@ -858,34 +899,34 @@ void RentalVehicalManger::bikeManagement()
 
     switch(choice)
     {
-    case 1:
+    case add:
         addBike();
         break;
 
-    case 2:
+    case Display:
         bikeDisplayMenu();
         break;
 
-    case 3:
+    case update:
 
         updateBikeDetails();
         break;
 
-    case 4:
+    case rent:
 
         rentBike();
         break;
 
-    case 5:
+    case Return:
 
         returnBike();
         break;
 
-    case 6:
+    case Delete:
         deleteBike();
         break;
 
-    case 7:
+    case Search:
         SearchBike();
         break;
 
@@ -898,8 +939,7 @@ void RentalVehicalManger::bikeManagement()
 void RentalVehicalManger::carManagement()
 {
     int choice;
-    std::string vehiclenumber;
-    std::string vehiclename;
+
     std::cout<<"1.add car: "<<std::endl;
     std::cout<<"2.display menu: "<<std::endl;
     std::cout<<"3.update car: "<<std::endl;
@@ -914,34 +954,34 @@ void RentalVehicalManger::carManagement()
 
     switch(choice)
     {
-    case 1:
+    case add:
         addCar();
         break;
 
-    case 2:
+    case Display:
         carDisplayMenu();
         break;
 
-    case 3:
+    case update:
 
         updateCarDetails();
         break;
 
-    case 4:
+    case rent:
 
         rentCar();
         break;
 
-    case 5:
+    case Return:
 
         returnCar();
         break;
 
-    case 6:
+    case Delete:
         deleteCar();
         break;
 
-    case 7:
+    case Search:
         SearchCar();
         break;
 
@@ -950,7 +990,12 @@ void RentalVehicalManger::carManagement()
         break;
     }
 }
-
+enum{
+    bike = 1,
+    car ,
+    booking_details,
+    Exit
+};
 void RentalVehicalManger::menu()
 {
     int choice;
@@ -965,23 +1010,23 @@ void RentalVehicalManger::menu()
 
         switch(choice)
         {
-        case 1:
+        case bike:
 
             this->bikeManagement();
             break;
 
-        case 2:
+        case car:
 
             this->carManagement();
             break;
 
-        case 3:
+        case booking_details:
 
             this->displayBookingData();
             break;
 
 
-        case 4:
+        case Exit:
 
             exit(0);
             break;

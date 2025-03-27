@@ -7,12 +7,12 @@ class Wire;
 class Light
 {
 public:
-    Light(const std::string& name);
+    Light(std::string &name);
     ~Light();
 
     void SetWireObject(Wire *wireobject);
     void LightON();
-    std::string GetName() const;
+    std::string GetName();
 
 private:
     Wire *m_wireobject;

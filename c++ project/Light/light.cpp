@@ -1,8 +1,9 @@
 #include "light.h"
 #include "wire.h"
 
-Light::Light(const std::string& name) : m_name(name) {
+Light::Light( std::string& name)  {
     std::cout << "light constructor called for " << m_name << std::endl;
+    m_name = name;
 }
 
 Light::~Light()
@@ -22,7 +23,7 @@ void Light::LightON()
     std::cout << "light on: " << m_name << std::endl;
 }
 
-std::string Light::GetName() const
+std::string Light::GetName()
 {
     return m_name;
 }

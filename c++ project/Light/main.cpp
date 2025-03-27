@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include "wire.h"
 #include "switch.h"
 #include "light.h"
@@ -6,32 +8,39 @@ using namespace std;
 
 int main()
 {
+    int numLights;
+
+    std::cout << "Enter the number of lights you want to create: ";
+    std::cin >> numLights;
+
+    if (numLights <= 0) {
+        std::cout << "Invalid number of lights. Please enter a positive number." << endl;
+        return 1;
+    }
+
     Wire *wireobject = new Wire;
 
-     int light = 3;
-    // std::cout<<"enter the number of lights"<<std::endl;
-    //  std::cin>>light;
+    std::vector<Light*> lightobjects;
 
+    for(int i = 0; i < numLights; i++) {
+        string lightName;
+        std::cout << "Enter a name for Light " << (i+1) << ": ";
+        std::cin >> lightName;
 
-    Light* lightobjects[light] = {
-        new Light("Living Room Light"),
-        new Light("Kitchen Light"),
-        new Light("Bedroom Light")
-    };
+        Light* newLight = new Light(lightName);
+        lightobjects.push_back(newLight);
 
-
-
-    for(int i = 0; i < light; i++) {
-        lightobjects[i]->SetWireObject(wireobject);
+        newLight->SetWireObject(wireobject);
     }
 
     Switch *switchobject = new Switch;
     switchobject->SetWireObject(wireobject);
+
     switchobject->SwitchON();
 
     delete wireobject;
-    for(int i = 0; i < light; i++) {
-        delete lightobjects[i];
+    for(auto* light : lightobjects) {
+        delete light;
     }
     delete switchobject;
 

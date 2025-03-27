@@ -91,7 +91,6 @@ void UserManager::userLogin()
                             break;
                         case 5:{
                             loop = false;
-                            //mainloop=false;
                             break;
                         }
                         default:
@@ -133,7 +132,6 @@ void UserManager::userLogin()
                             break;
 
                         case 5:
-                            // loop = false;
                             mainloop=false;
                             break;
                         default:
