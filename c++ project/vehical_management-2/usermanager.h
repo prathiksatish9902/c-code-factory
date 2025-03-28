@@ -14,6 +14,9 @@ public:
     void userLogin();
 private:
     std::list<User*> m_userList;
+    std::list<RentalBikeDetails*> m_bikelist;
+    std::list<RentalCarDetails*> m_carlist;
+    std::list<vehicalBookingReport*> m_bookinglist;
     FileOperation *fileobject;
     RentalVehicalManger *manager;
 

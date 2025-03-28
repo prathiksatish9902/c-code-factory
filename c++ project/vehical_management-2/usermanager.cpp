@@ -2,12 +2,18 @@
 UserManager::UserManager() {
     fileobject = new FileOperation;
     m_userList = fileobject->ReadUserData("userfile.csv");
+    // m_bikelist = fileobject->ReadBikeData("bikefile.csv");
+    // m_carlist = fileobject->ReadCarData("carfile.csv");
+    // m_bookinglist = fileobject->ReadBookingData("bookingfile.csv");
 
 
 }
 
 UserManager::~UserManager()
 {
+    fileobject->WriteBikeData(m_bikelist);
+    fileobject->WriteCarData(m_carlist);
+    fileobject->WriteBookingData(m_bookinglist);
     delete fileobject;
 }
 

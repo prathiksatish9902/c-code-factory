@@ -24,16 +24,19 @@ std::list<RentalBikeDetails *> FileOperation::ReadBikeData(const string &bikefil
     float bikeCost;
 
     std::list<RentalBikeDetails*> bikelist;
-
+    int count =0;
     if(read.is_open()){
         while(getline(read , line)){
-            std::istringstream data(line);
+            if(count==25000)
+                return bikelist;
+          std::istringstream data(line);
 
             if(getline(data , bikeNumber , ',') && getline(data , bikeName , ',') && getline(data , bikeModelName , ',') && getline(data , bikeStatus , ',') && (data >> bikeCost))
             {
                 std::cout<<"bike number :" << bikeNumber <<" "<<"bike name :" << bikeName <<" "<< "bike model name :" << bikeModelName <<" "<< "bike status :" << bikeStatus <<" "<< "bike cost :" << bikeCost <<std::endl;
                 bikelist.push_back(new RentalBikeDetails(bikeNumber , bikeName , bikeModelName , bikeStatus ,bikeCost));
             }
+            count++;
         }
         std::cout<<"data read successfully"<<std::endl;
         read.close();
