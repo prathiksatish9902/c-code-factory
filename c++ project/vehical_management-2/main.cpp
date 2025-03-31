@@ -106,9 +106,6 @@ int main()
                 exit(0);
                 break;
 
-
-
-
             default:
                 std::cout<<"invalid option"<<std::endl;
                 break;

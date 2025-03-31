@@ -27,7 +27,7 @@ std::list<RentalBikeDetails *> FileOperation::ReadBikeData(const string &bikefil
     int count =0;
     if(read.is_open()){
         while(getline(read , line)){
-            if(count==25000)
+            if(count==100000)
                 return bikelist;
           std::istringstream data(line);
 

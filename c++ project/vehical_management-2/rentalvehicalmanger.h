@@ -6,7 +6,7 @@
 #include"rentalcardetails.h"
 #include"onlinepayment.h"
 #include"cashpayment.h"
-#include<chrono>
+// #include<chrono>
 using namespace  std;
 class FileOperation;
 class vehicalBookingReport;
@@ -37,10 +37,13 @@ public:
     // void sortByBikeName();
     // std::list<RentalBikeDetails*> operator =(const std::list<RentalBikeDetails*> &bikelist);
         // std::list<RentalBikeDetails*> sortByBikeName(std::list<RentalBikeDetails*> &leftlist , std::list<RentalBikeDetails*> &rightlist);
-    std::list<RentalBikeDetails *> sortByBikeName();
+    //-----------------------------------------------------------------------------
+    // std::list<RentalBikeDetails *> sortByBikeName();
 
-    std::list<RentalBikeDetails*> mergeSort(std::list<RentalBikeDetails*>& bikes);
-    std::list<RentalBikeDetails*> merge(std::list<RentalBikeDetails*>& left, std::list<RentalBikeDetails*>& right);
+    // std::list<RentalBikeDetails*> mergeSort(std::list<RentalBikeDetails*>& bikes);
+    // std::list<RentalBikeDetails*> merge(std::list<RentalBikeDetails*>& left, std::list<RentalBikeDetails*>& right);
+
+    void sortByBikeName();
     void sortByCarName();
 
     void sortByBikeStatus();
@@ -65,11 +68,9 @@ public:
 
 
 
-    void displayme(const std::list<RentalBikeDetails*> & bike);
 
 private:
     std::list<RentalBikeDetails*> m_bikelist;
-    std::list<RentalBikeDetails*> m_sortedlist;
 
     std::list<RentalCarDetails*> m_carlist;
     std::list<vehicalBookingReport*> m_bookinglist;

@@ -28,6 +28,7 @@ int main()
         std::cin >> lightName;
 
         Light* newLight = new Light(lightName);
+        // Light newLight(lightName);
         lightobjects.push_back(newLight);
 
         newLight->SetWireObject(wireobject);
@@ -42,6 +43,7 @@ int main()
     for(auto* light : lightobjects) {
         delete light;
     }
+
     delete switchobject;
 
     return 0;

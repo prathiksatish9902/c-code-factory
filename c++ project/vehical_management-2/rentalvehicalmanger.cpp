@@ -187,41 +187,41 @@ void RentalVehicalManger::displayBikeData()
     }
 }
 
-void RentalVehicalManger::displaySortedBike()
-{
-    cout.width(20);
-    std::cout<<"BIKE NUMBER : ";
+// void RentalVehicalManger::displaySortedBike()
+// {
+//     cout.width(20);
+//     std::cout<<"BIKE NUMBER : ";
 
-    cout.width(20);
-    std::cout<<"BIKE NAME : ";
+//     cout.width(20);
+//     std::cout<<"BIKE NAME : ";
 
-    cout.width(20);
-    std::cout<<"BIKE MODEL NAME : ";
+//     cout.width(20);
+//     std::cout<<"BIKE MODEL NAME : ";
 
-    cout.width(20);
-    std::cout<<" BIKE STATUS : ";
+//     cout.width(20);
+//     std::cout<<" BIKE STATUS : ";
 
-    cout.width(20);
-    std::cout<<"BIKE RENT COST : \n";
-    for(auto i = m_sortedlist.begin(); i!= m_sortedlist.end(); i++ )
-    {
-        cout.width(20);
-        std::cout<<(*i)->GetVehicalNumber();
+//     cout.width(20);
+//     std::cout<<"BIKE RENT COST : \n";
+//     for(auto i = m_sortedlist.begin(); i!= m_sortedlist.end(); i++ )
+//     {
+//         cout.width(20);
+//         std::cout<<(*i)->GetVehicalNumber();
 
-        cout.width(20);
-        std::cout<<(*i)->GetVehicalName();
+//         cout.width(20);
+//         std::cout<<(*i)->GetVehicalName();
 
-        cout.width(20);
-        std::cout<<(*i)->GetVehicalModelName();
+//         cout.width(20);
+//         std::cout<<(*i)->GetVehicalModelName();
 
-        cout.width(20);
-        std::cout<<(*i)->GetVehicalStatus();
+//         cout.width(20);
+//         std::cout<<(*i)->GetVehicalStatus();
 
-        cout.width(20);
-        std::cout<<(*i)->GetVehicalCost()<<"\n";
+//         cout.width(20);
+//         std::cout<<(*i)->GetVehicalCost()<<"\n";
 
-    }
-}
+//     }
+// }
 
 void RentalVehicalManger::displayCar()
 {
@@ -266,7 +266,6 @@ void RentalVehicalManger::displayBookingData()
 
     cout.width(15);
     std::cout<<"DL NUMBER :";
-
 
     cout.width(15);
     std::cout<<"PHONE NUMBER :";
@@ -501,275 +500,101 @@ void RentalVehicalManger::SearchCar()
     }
 }
 
-// std::list<RentalBikeDetails*> RentalVehicalManger::sortByBikeName()
-// {
-//     std::cout<<"sort by bike name function1 called"<<std::endl;
+void RentalVehicalManger::sortByBikeName()
+{
+    m_bikelist.sort([](RentalBikeDetails *a , RentalBikeDetails *b){
+        return a->GetVehicalName() < b->GetVehicalName();
+    });
+}
 
 
-//     std::list<RentalBikeDetails*>& bikelist=m_bikelist;
-//     auto mid = bikelist.begin();
-//     std::advance(mid,bikelist.size()/2);
-//     std::list<RentalBikeDetails *>& leftlist=m_bikelist/*(bikelist.begin(),mid)*/;
-//     std::list<RentalBikeDetails *>& rightlist=m_bikelist/*(mid,bikelist.end())*/;
-//     // std::list<RentalBikeDetails *>& leftlist(bikelist.begin(),mid);
-//     // std::list<RentalBikeDetails *>& rightlist(mid,bikelist.end());
+//------------------------------------------------------------------------------------------------------------------------------------
+// std::list<RentalBikeDetails*> RentalVehicalManger::merge(std::list<RentalBikeDetails*>& left, std::list<RentalBikeDetails*>& right) {
+//     std::list<RentalBikeDetails*> sortedList;
+//     auto itL = left.begin(), itR = right.begin();
 
-//     // std::cout<<sizeof(m_bikelist)<<std::endl;
-//     std::cout<<m_bikelist.size()<<"size of bikelist......."<<std::endl;
-//     std::cout<<leftlist.size()<<"size of leftlist......."<<std::endl;
-//     std::cout<<rightlist.size()<<"size of rightlist......."<<std::endl;
-
-//     auto left = leftlist.begin();
-//     auto right = rightlist.begin();
-
-//     while(left != leftlist.end() && right != rightlist.end())
-//     {
-//         std::cout<<"sort by bike name function2 called"<<std::endl;
-//         if(*left < *right)
-//         {
-//             std::cout<<"sort by bike name function3 called"<<std::endl;
-
-//             m_bikelist.push_back(*left);
-//             ++left;
-//             ++right;
-
-
-//         }
-
-//         else
-//         {
-//             std::cout<<"sort by bike name function4 called"<<std::endl;
-
-//             m_bikelist.push_back(*right);
-//             ++right;
-//             ++left;
-
+//     while (itL != left.end() && itR != right.end()) {
+//         std::cout<<"\n vehicle name "<<(*itL)->GetVehicalName();
+//         if ((*itL)->GetVehicalName() < (*itR)->GetVehicalName()) {
+//             sortedList.push_back(*itL);
+//             ++itL;
+//         } else {
+//             sortedList.push_back(*itR);
+//             ++itR;
 //         }
 //     }
-//     m_bikelist.insert(m_bikelist.end(),left,leftlist.end());
-//     m_bikelist.insert(m_bikelist.end(),right,rightlist.end());
-//     // fileobject->WriteBikeData(m_bikelist);
-//     std::cout<<"sort by bike name function called5"<<std::endl;
-
-
-//     return m_bikelist;
-
-
-
-// }
-
-std::list<RentalBikeDetails*> RentalVehicalManger::merge(std::list<RentalBikeDetails*>& left, std::list<RentalBikeDetails*>& right) {
-    std::list<RentalBikeDetails*> sortedList;
-    auto itL = left.begin(), itR = right.begin();
-
-    while (itL != left.end() && itR != right.end()) {
-        std::cout<<"\n vehicle name "<<(*itL)->GetVehicalName();
-        if ((*itL)->GetVehicalName() < (*itR)->GetVehicalName()) {
-            sortedList.push_back(*itL);
-            ++itL;
-        } else {
-            sortedList.push_back(*itR);
-            ++itR;
-        }
-    }
-    sortedList.insert(sortedList.end(), itL, left.end());
-    sortedList.insert(sortedList.end(), itR, right.end());
-// std::cout<<"my display"<<<<std::endl;
-    for(auto &b:sortedList)
-    {
-        std::cout<<"my display"<<b->GetVehicalName()<<std::endl;
-    }
-    m_sortedlist=sortedList;
-    return sortedList;
-}
-
-// Merge Sort function
-std::list<RentalBikeDetails*> RentalVehicalManger::mergeSort(std::list<RentalBikeDetails*>& bikes) {
-    if (bikes.size() <= 1) return bikes;
-
-    auto mid = bikes.begin();
-    std::advance(mid, bikes.size() / 2);
-
-    std::list<RentalBikeDetails*> left(bikes.begin(), mid);
-    std::list<RentalBikeDetails*> right(mid, bikes.end());
-
-    left = mergeSort(left);
-    right = mergeSort(right);
-
-    return merge(left, right);
-}
-
-// Function to sort bikes by name
-std::list<RentalBikeDetails*> RentalVehicalManger::sortByBikeName() {
-    std::cout << "Sorting bikes by name..." << std::endl;
-    return mergeSort(m_bikelist);
-
-}
-void RentalVehicalManger::displayme(const std::list<RentalBikeDetails*> & bike){
-    for(auto &b:bike)
-    {
-        std::cout<<"my display"<<b->GetVehicalName()<<std::endl;
-    }
-}
-
-// std::list<RentalBikeDetails *> RentalVehicalManger::sortByBikeName(std::list<RentalBikeDetails *> &leftlist, std::list<RentalBikeDetails *> &rightlist)
-// {
-//     std::list<RentalBikeDetails*> m_bikelist;
-
-//     auto left = leftlist.begin();
-//     auto right = rightlist.begin();
-
-//     while((left != leftlist.end()) && (right != rightlist.end()))
+//     sortedList.insert(sortedList.end(), itL, left.end());
+//     sortedList.insert(sortedList.end(), itR, right.end());
+//     for(auto &b:sortedList)
 //     {
-//         if(*left < *right)
-//         {
-//             m_bikelist.push_back(*left);
-//             ++left;
-//         }
-
-//         else
-//         {
-//             m_bikelist.push_back(*right);
-//             ++right;
-//         }
+//         std::cout<<"my display"<<b->GetVehicalName()<<std::endl;
 //     }
-//     m_bikelist.insert(m_bikelist.end(),left,leftlist.end());
-//     m_bikelist.insert(m_bikelist.end(),right,rightlist.end());
-
-//     return m_bikelist;
+//     m_sortedlist=sortedList;
+//     return sortedList;
 // }
 
+// std::list<RentalBikeDetails*> RentalVehicalManger::mergeSort(std::list<RentalBikeDetails*>& bikes) {
+//     if (bikes.size() <= 1) return bikes;
 
+//     auto mid = bikes.begin();
+//     std::advance(mid, bikes.size() / 2);
 
-// void RentalVehicalManger::sortByBikeName()
-// {
-//     std::cout<<"sort by bike name function called once"<<std::endl;
-//     std::list<RentalBikeDetails*> m_bikelist;
+//     std::list<RentalBikeDetails*> left(bikes.begin(), mid);
+//     std::list<RentalBikeDetails*> right(mid, bikes.end());
 
-//     m_bikelist =  m_bikelist.sort();
-//     std::cout<<"sort by bike name function called twice"<<std::endl;
+//     left = mergeSort(left);
+//     right = mergeSort(right);
 
+//     return merge(left, right);
 // }
 
-// std::list<RentalBikeDetails *> RentalVehicalManger::operator =(const std::list<RentalBikeDetails *> &bikelist)
-// {
-//     std::list<RentalBikeDetails*> m_bikelist;
-//     m_bikelist.sort() = this->s
-// }
+// std::list<RentalBikeDetails*> RentalVehicalManger::sortByBikeName() {
+//     std::cout << "Sorting bikes by name..." << std::endl;
+//     return mergeSort(m_bikelist);
 
-// void RentalVehicalManger::sortByBikeName()
-// {
-//     for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
+// }
+// void RentalVehicalManger::displayme(const std::list<RentalBikeDetails*> & bike){
+//     for(auto &b:bike)
 //     {
-//         // auto start =std::chrono::high_resolution_clock::now();
-
-//         for(auto j = next(i);j!= m_bikelist.end();j++)
-//         {
-//             if((*i)->GetVehicalName() < (*j)->GetVehicalName())
-//             {
-//                 std::iter_swap(i , j);
-//             }
-//         }
-//         // auto end =std::chrono::high_resolution_clock::now();
-
-//         // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
-//         // std::cout<<"duration of the loop "<<duration.count();
+//         std::cout<<"my display"<<b->GetVehicalName()<<std::endl;
 //     }
 // }
+//-----------------------------------------------------------------------------------------------------------------------
 
 
 
 void RentalVehicalManger::sortByCarName()
-{
-    for(auto i = m_carlist.begin(); i!= m_carlist.end();i++)
-    {
-        for(auto j = next(i);j!= m_carlist.end();j++)
-        {
-            if((*i)->GetVehicalName() < (*j)->GetVehicalName())
-            {
-                std::iter_swap(i , j);
-            }
-        }
-
-    }
+{    m_carlist.sort([](RentalCarDetails *a , RentalCarDetails *b){
+        return a->GetVehicalName() < b->GetVehicalName();
+    });
 }
 
 void RentalVehicalManger::sortByBikeStatus()
 {
-    for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
-    {
-        for(auto j = next(i);j!= m_bikelist.end();j++)
-        {
-            if((*i)->GetVehicalStatus()!= "available" && (*j)->GetVehicalStatus()== "available")
-            {
-                std::iter_swap(i , j);
-            }
-
-            if((*i)->GetVehicalStatus()== "available" && (*j)->GetVehicalStatus()== "booked")
-            {
-                std::iter_swap(i , j);
-            }
-
-            if((*i)->GetVehicalStatus() ==(*j)->GetVehicalStatus() && (*i)->GetVehicalCost() < (*j)-> GetVehicalCost())
-            {
-                std::iter_swap(i , j);
-            }
-        }
-    }
+    m_bikelist.sort([](RentalBikeDetails *a , RentalBikeDetails *b){
+        return a->GetVehicalStatus() < b->GetVehicalStatus();
+    });
 }
 
 void RentalVehicalManger::sortByCarStatus()
 {
-    for(auto i = m_carlist.begin(); i!= m_carlist.end();i++)
-    {
-        for(auto j = next(i);j!= m_carlist.end();j++)
-        {
-            if((*i)->GetVehicalStatus()!= "available" && (*j)->GetVehicalStatus()== "available")
-            {
-                std::iter_swap(i , j);
-            }
-
-            if((*i)->GetVehicalStatus()== "available" && (*j)->GetVehicalStatus()== "booked")
-            {
-                std::iter_swap(i , j);
-            }
-
-            if((*i)->GetVehicalStatus() ==(*j)->GetVehicalStatus() && (*i)->GetVehicalCost() < (*j)-> GetVehicalCost())
-            {
-                std::iter_swap(i , j);
-            }
-        }
-    }
+    m_carlist.sort([](RentalCarDetails *a , RentalCarDetails *b){
+        return a->GetVehicalStatus() < b->GetVehicalStatus();
+    });
 }
 
 void RentalVehicalManger::sortByBikePrice()
 {
-    for(auto i = m_bikelist.begin(); i!= m_bikelist.end();i++)
-    {
-        for(auto j = next(i);j!= m_bikelist.end();j++)
-        {
-            if((*i)->GetVehicalCost() < (*j)->GetVehicalCost())
-            {
-                std::iter_swap(i , j);
-            }
-        }
-
-    }
+    m_bikelist.sort([](RentalBikeDetails *a , RentalBikeDetails *b){
+        return a->GetVehicalCost() < b->GetVehicalCost();
+    });
 }
 
 void RentalVehicalManger::sortByCarPrice()
 {
-    for(auto i = m_carlist.begin(); i!= m_carlist.end();i++)
-    {
-        for(auto j = next(i);j!= m_carlist.end();j++)
-        {
-            if((*i)->GetVehicalCost() < (*j)->GetVehicalCost())
-            {
-                std::iter_swap(i , j);
-            }
-        }
-
-    }
+    m_carlist.sort([](RentalCarDetails *a , RentalCarDetails *b){
+        return a->GetVehicalCost() < b->GetVehicalCost();
+    });
 }
 
 enum{
@@ -789,8 +614,6 @@ void RentalVehicalManger::rentBike()
         std::cout<<i->GetVehicalStatus()<<std::endl;
         if(i->GetVehicalName() == vehicalName && i->GetVehicalStatus() == "available")
         {
-
-
             std::string customerName;
             std::string DLNumber;
             std::string customerPhoneNumber;
@@ -838,8 +661,6 @@ void RentalVehicalManger::rentBike()
                 report->SetAmountStatus("paid");
                 i->SetVehicalStatus("booked");
                 addBookingData("bike" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
-
-
                 break;
             }
 
@@ -907,7 +728,6 @@ void RentalVehicalManger::rentCar()
                 report->SetAmountStatus("paid");
                 i->SetVehicalStatus("booked");
                 addBookingData("car" , i->GetVehicalNumber() , i->GetVehicalName() , i->GetVehicalCost() , report->GetAmountStatus() , report->GetPaymentMode());
-
                 break;
             }
 
@@ -1017,17 +837,21 @@ void RentalVehicalManger::bikeDisplayMenu()
 
     case sort_by_status:
         sortByBikeStatus();
+        displayBikeData();
+
         break;
 
     case sort_by_price:
         sortByBikePrice();
+        displayBikeData();
+
         break;
 
     case sort_by_name:{
         // std::list<RentalBikeDetails*>& sort=sortByBikeName();
         sortByBikeName();
-        displaySortedBike();
-        // displayme(sort);
+        displayBikeData();
+
         break;
     }
     default:
@@ -1056,14 +880,20 @@ void RentalVehicalManger::carDisplayMenu()
 
     case sort_by_status:
         sortByCarStatus();
+        displayCar();
+
         break;
 
     case sort_by_price:
         sortByCarPrice();
+        displayCar();
+
         break;
 
     case sort_by_name:
         sortByCarName();
+        displayCar();
+
         break;
 
     default:
