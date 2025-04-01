@@ -28,23 +28,61 @@ int main()
         std::cin >> lightName;
 
         Light* newLight = new Light(lightName);
-        // Light newLight(lightName);
         lightobjects.push_back(newLight);
 
         newLight->SetWireObject(wireobject);
+
     }
 
     Switch *switchobject = new Switch;
     switchobject->SetWireObject(wireobject);
 
+    std::cout << "\n=== Demonstrating Copy Constructors ===\n" << std::endl;
+
+    std::vector<Light*> copiedLights;
+    for(const auto* light : lightobjects) {
+        std::cout<<"hai.........................................................\n";
+       Light* copiedLight = new Light(*light);
+        // Light* copiedLight = new Light();
+
+        std::cout<<"bye............................................................\n";
+        std::cout << "Copied light name: " << copiedLight->GetName() << std::endl;
+
+
+        copiedLights.push_back(copiedLight);
+
+
+    }
+
+    Wire* copiedWire = new Wire(*wireobject);
+
+    Switch* copiedSwitch = new Switch(*switchobject);
+    copiedSwitch->SetWireObject(copiedWire);
+
+    std::cout << "\n=== Testing Original Objects ===\n" << std::endl;
     switchobject->SwitchON();
+
+    std::cout << "\n=== Testing Copied Objects ===\n" << std::endl;
+    for(auto* copiedLight : copiedLights) {
+        copiedLight->SetWireObject(copiedWire);
+
+        std::cout<<"address"<<copiedLight<<std::endl;
+
+
+    }
+    copiedSwitch->SwitchON();
 
     delete wireobject;
     for(auto* light : lightobjects) {
         delete light;
     }
-
     delete switchobject;
 
+    delete copiedWire;
+    delete copiedSwitch;
+    for(auto* copiedLight : copiedLights) {
+        delete copiedLight;
+
+    }
     return 0;
 }

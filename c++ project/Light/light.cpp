@@ -1,9 +1,22 @@
 #include "light.h"
 #include "wire.h"
 
-Light::Light( std::string& name)  {
-    std::cout << "light constructor called for " << m_name << std::endl;
+Light::Light(std::string& name)  {
+    std::cout << "light constructor called for " << name << std::endl;
     m_name = name;
+    m_wireobject = nullptr;
+}
+
+Light::Light()
+{
+    std::cout << "light default constructor called for " <<  std::endl;
+
+}
+
+Light::Light(const Light& other) {
+    std::cout << "light copy constructor called for " << other.m_name << std::endl;
+    m_name = other.m_name;
+    m_wireobject = nullptr;
 }
 
 Light::~Light()

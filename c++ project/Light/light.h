@@ -8,6 +8,8 @@ class Light
 {
 public:
     Light(std::string &name);
+    Light();
+    Light(const Light& other); // Copy constructor
     ~Light();
 
     void SetWireObject(Wire *wireobject);

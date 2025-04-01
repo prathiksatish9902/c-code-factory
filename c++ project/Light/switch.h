@@ -6,11 +6,12 @@ class Switch
 {
 public:
     Switch();
+    Switch(const Switch& other); // Copy constructor
     ~Switch();
 
     void SetWireObject(Wire *wireobject);
     void SwitchON();
-    private:
+private:
     Wire *m_wireobject;
 };
 

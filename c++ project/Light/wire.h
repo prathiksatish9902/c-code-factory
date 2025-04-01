@@ -8,6 +8,7 @@ class Wire
 {
 public:
     Wire();
+    Wire(const Wire& other); // Copy constructor
     ~Wire();
 
     void AddLight(Light *lightobject);
