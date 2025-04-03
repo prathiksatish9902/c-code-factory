@@ -1,10 +1,16 @@
 #include "student.h"
 
-Student::Student(int id, std::string name, std::string department) {
+Student::Student(PersonalDetails *personal_details) {
     std::cout<<"student constructor called"<<std::endl;
-   this->id = id;
-   this->name = name;
-   this->department = department;
+    personal_details->getId();
+    personal_details->getName();
+    personal_details->getDepartment();
+}
+
+Student::Student()
+{
+    std::cout<<"student default constructor called"<<std::endl;
+
 }
 
 Student::~Student()

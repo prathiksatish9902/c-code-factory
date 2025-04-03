@@ -10,9 +10,10 @@ using namespace std;
 int main()
 {
     vector<std::string> v1;
+    std::cout<<v1.emplace_back("hello")<<std::endl;;
 
     //push
-    v1.push_back("abc");
+    // std::cout<<v1.push_back("abc")<<std::endl;;
     v1.push_back("def");
     v1.push_back("ghi");
     v1.push_back("jkl");

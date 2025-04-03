@@ -1,5 +1,6 @@
 #include <iostream>
 #include "collage.h"
+#include"personaldetails.h"
 using namespace std;
 
 int main()

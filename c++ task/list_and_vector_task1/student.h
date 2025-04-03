@@ -1,14 +1,14 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 #include<iostream>
+#include"personaldetails.h"
 class Student
 {
 
 public:
-    int id;
-    std::string name;
-    std::string department;
-    Student(int id,std::string name,std::string department);
+    PersonalDetails *personal_details;
+    Student(PersonalDetails *personal_details);
+    Student();
     ~Student();
 
 };
