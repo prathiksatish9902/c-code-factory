@@ -24,3 +24,9 @@ void Wire::ConnectWire()
         light->LightON();
     }
 }
+
+Wire Wire::operator =(const Wire &wire)
+{
+    std::cout<<"wire operator overloading called"<<std::endl;
+    return wire;
+}

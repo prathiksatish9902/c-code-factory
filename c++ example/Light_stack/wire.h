@@ -13,6 +13,7 @@ public:
 
     void AddLight(Light* lightobject); // Keep as pointer to allow registration
     void ConnectWire();
+    Wire operator =(const Wire &wire);
 private:
     std::vector<Light*> m_lightobjects; // Keep as pointers to avoid ownership issues
 };

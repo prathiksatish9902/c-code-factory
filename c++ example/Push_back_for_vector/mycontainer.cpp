@@ -51,6 +51,8 @@ void MyContainer <T> :: Resize()
     delete m_array;
     m_array = newArray;
 }
+
+
 template class MyContainer<int>;
 template class MyContainer<float>;
 template class MyContainer<double>;

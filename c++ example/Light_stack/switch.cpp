@@ -22,3 +22,9 @@ void Switch::SwitchON()
 {
     m_wireobject->ConnectWire();
 }
+
+Switch Switch::operator =(const Switch &s_switch)
+{
+    std::cout<<"switch operator overloading called"<<std::endl;
+    return s_switch;
+}

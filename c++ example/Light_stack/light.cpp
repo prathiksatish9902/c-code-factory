@@ -30,3 +30,9 @@ std::string Light::GetName()
 {
     return m_name;
 }
+
+Light Light::operator =(const Light &light)
+{
+    std::cout<<"operator overloading function called"<<std::endl;
+    return light;
+}

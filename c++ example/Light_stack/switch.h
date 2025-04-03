@@ -11,6 +11,7 @@ public:
 
     void SetWireObject(Wire& wireobject); // Changed from pointer to reference
     void SwitchON();
+    Switch operator =(const Switch &s_switch);
 private:
     Wire* m_wireobject; // Keep as pointer to avoid ownership issues
 };

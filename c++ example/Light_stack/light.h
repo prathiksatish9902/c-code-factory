@@ -14,6 +14,7 @@ public:
     void SetWireObject(Wire& wireobject); // Changed from pointer to reference
     void LightON();
     std::string GetName();
+    Light operator =(const Light &light);
 
 private:
     Wire* m_wireobject; // Keep as pointer to avoid circular dependency
