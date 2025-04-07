@@ -9,5 +9,7 @@ int main()
     cout << "Hello World!" << endl;
     A *ptr = new C;
     delete ptr;
+    // C c1;
+    // c1.print();
     return 0;
 }

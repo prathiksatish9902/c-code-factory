@@ -6,6 +6,7 @@ class C:public B
 public:
     C();
     ~C();
+    void print();
 };
 
 #endif // C_H

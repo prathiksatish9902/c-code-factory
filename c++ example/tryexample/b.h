@@ -5,7 +5,7 @@ class B:public A
 {
 public:
     B();
-    ~B();
+     ~B();
 };
 
 #endif // B_H

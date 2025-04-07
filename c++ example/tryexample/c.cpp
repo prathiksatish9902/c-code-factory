@@ -10,3 +10,8 @@ C::~C(){
     std::cout<<"c des called"<<std::endl;
 
 }
+
+void C::print()
+{
+    std::cout<<"print function called"<<std::endl;
+}
