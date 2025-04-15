@@ -5,6 +5,12 @@ Librarian::Librarian(std::vector<Book> bookList) {
     m_bookList = bookList;
 }
 
+Librarian::Librarian()
+{
+    std::cout<<"default Librarian constructor called"<<std::endl;
+
+}
+
 
 Librarian::~Librarian()
 {
@@ -19,16 +25,16 @@ void Librarian::searchBook(std::string &bookTitle)
 
 void Librarian::issueBook(std::string &bookTitle, Student &student)
 {
-    std::cout << "Librarian issues the book '" << bookTitle << "' to " << student.m_name << std::endl;
+    std::cout << "Librarian issues the book " << bookTitle << " to " << student.m_name << std::endl;
 }
 
 void Librarian::updateBookList(std::string &bookTitle)
 {
-    std::cout << "Librarian updates the book list by removing '" << bookTitle << "' from available books." << std::endl;
+    std::cout << "Librarian updates the book list by removing " << bookTitle << " from available books." << std::endl;
 }
 
 void Librarian::updateStudentRecords(Student &student, std::string &bookTitle)
 {
-    std::cout << "Librarian adds record: " << student.m_name << " borrowed '" << bookTitle << "'." << std::endl;
+    std::cout << "Librarian adds record: " << student.m_name << " borrowed " << bookTitle << "." << std::endl;
 }
 

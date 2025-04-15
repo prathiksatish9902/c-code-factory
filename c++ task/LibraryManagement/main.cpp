@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-    std::vector<Book> books = {Book("abc", "def"),
-                          Book("1984", "xyz"),
-                          Book("hghj", "hvghj")};
+    // std::vector<Book> books = {Book("abc", "def"),
+    //                       Book("1984", "xyz"),
+    //                       Book("hghj", "hvghj")};
 
     Librarian librarian(books);
 

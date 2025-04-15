@@ -10,6 +10,7 @@ public:
     std::vector<Book> m_bookList;
     std::vector<std::string> m_studentRecords;
     Librarian(std::vector<Book> bookList);
+    Librarian();
     ~Librarian();
 
     void searchBook(std::string& bookTitle);

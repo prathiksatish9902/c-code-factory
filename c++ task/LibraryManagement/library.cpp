@@ -5,8 +5,13 @@ Library::Library(std::string name, Librarian& librarian)
 {
     std::cout<<"Library constructor called"<<std::endl;
     m_name = name ;
-    // librarian = librarian;
+    librarian = librarian;
+
+
+
 }
+
+
 
 Library::~Library()
 {
@@ -19,7 +24,7 @@ void Library::displayLibraryDetails()
     std::cout << "Welcome to the Library: " << m_name << std::endl;
 }
 
-void Library::processBookRequest(Student &student, std::string &bookTitle)
+void Library::processBookRequest(Student &student,  std::string bookTitle)
 {
    std:: cout << "Processing book request...\n";
     student.requestBook(bookTitle);
