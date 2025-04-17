@@ -1,54 +1,63 @@
-#include "date.h"
+#include "calender.h"
 
-Date::Date(int day, int month, int year) {
-    // std::cout<<"date constructor called"<<std::endl;
+Calender::Calender(int day, int month, int year) {
+    // std::cout<<"Calender constructor called"<<std::endl;
     m_day = day;
     m_month = month;
     m_year = year;
 }
 
-Date::~Date()
+
+Calender::~Calender()
 {
-    // std::cout<<"date destructor called"<<std::endl;
+    // std::cout<<"Calender destructor called"<<std::endl;
 
 }
 
-void Date::SetDay(int day)
+
+void Calender::SetDay(int day)
 {
     m_day = day;
 }
 
-int Date::GetDay()
+
+int Calender::GetDay()
 {
     return m_day;
 }
 
-void Date::SetMonth(int month)
+
+void Calender::SetMonth(int month)
 {
     m_month = month;
 }
 
-int Date::GetMonth()
+
+int Calender::GetMonth()
 {
     return m_month;
 }
 
-void Date::SetYear(int year)
+
+void Calender::SetYear(int year)
 {
     m_year = year;
 }
 
-int Date::GetYear()
+
+int Calender::GetYear()
 {
     return m_year;
 }
 
-bool Date::isLeapYear()
+
+bool Calender::isLeapYear()
 {
     return (m_year % 4 == 0 && m_year % 100 != 0) || (m_year % 400 == 0);
 }
 
-int Date::GetDaysInMonths()
+
+int Calender::GetDaysInMonths()
 {
     if(m_month == 2)
     {
@@ -70,7 +79,8 @@ int Date::GetDaysInMonths()
     }
 }
 
-int Date::GetStartingDay()
+
+int Calender::GetStartingDay()
 {
     int dayCount = 0;
     for(int i = 1900; i < m_year; i++)
@@ -87,12 +97,13 @@ int Date::GetStartingDay()
 
     for(int i=1; i<m_month;i++)
     {
-            dayCount = dayCount + Date(1, i, m_year).GetDaysInMonths();
+            dayCount = dayCount + Calender(1, i, m_year).GetDaysInMonths();
     }
     return dayCount % 7;
 }
 
-void Date::DisplayCalender()
+
+void Calender::DisplayCalender()
 {
     std::cout << "\n  Calendar for " << m_month << "/" << m_year << "\n";
     std::cout << "  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n";
@@ -115,7 +126,8 @@ void Date::DisplayCalender()
 
 }
 
-std::string Date::ToString() const
+
+std::string Calender::ToString() const
 {
     return std::to_string(m_day) + "/" + std::to_string(m_month) + "/" + std::to_string(m_year);
 

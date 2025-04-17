@@ -1,78 +1,64 @@
 #include "auditorium.h"
 
-Auditorium::Auditorium(std::string auditoriumName, int seatcapacity, std::string auditoriumStatus) {
-    // std::cout<<"auditorium constructor called"<<std::endl;
+Auditorium::Auditorium()
+{
+
+}
+
+Auditorium::Auditorium(std::string auditoriumId, std::string auditoriumName, int seatcapacity, std::string auditoriumStatus) {
+    m_auditoriumId = auditoriumId;
     m_auditoriumName = auditoriumName;
     m_seatcapaity = seatcapacity;
     m_auditoriumStatus = auditoriumStatus;
 }
 
-
 Auditorium::~Auditorium()
 {
     // std::cout<<"auditorium destructor called"<<std::endl;
-
 }
 
+void Auditorium::SetId(std::string auditoriumId)
+{
+    m_auditoriumId = auditoriumId;
+}
+
+std::string Auditorium::GetId() const
+{
+    return m_auditoriumId;
+}
 
 void Auditorium::SetName(std::string auditoriumName)
 {
     m_auditoriumName = auditoriumName;
 }
 
-
 std::string Auditorium::GetName()
 {
     return m_auditoriumName;
 }
-
 
 void Auditorium::SetSeatCapacity(int seatcapacity)
 {
     m_seatcapaity = seatcapacity;
 }
 
-
 int Auditorium::GetSeatCapacity()
 {
     return m_seatcapaity;
 }
-
 
 void Auditorium::SetStatus(std::string auditoriumStatus)
 {
     m_auditoriumStatus = auditoriumStatus;
 }
 
-
 std::string Auditorium::GetStatus()
 {
     return m_auditoriumStatus;
 }
 
-
-void Auditorium::AddBookedDate(const Calender &date)
+bool Auditorium::IsAvailableOnDate(const Calender &date)
 {
-    m_bookedDates.push_back(date);
-
-}
-
-
-bool Auditorium::IsAvailableOnDate(Calender &date)
-{
-    for (auto& bookedDate : m_bookedDates) {
-        if (bookedDate.GetDay() == date.GetDay() &&
-            bookedDate.GetMonth() == date.GetMonth() &&
-            bookedDate.GetYear() == date.GetYear()) {
-            return false;
-        }
-    }
+    // This function is now a placeholder as availability is checked in AuditoriumManagement
     return true;
-}
-
-
-std::vector<Calender> Auditorium::GetBookedDates()
-{
-    return m_bookedDates;
-
 }

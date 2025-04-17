@@ -1,12 +1,14 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef CALENDER_H
+#define CALENDER_H
 #include<iostream>
 #include<iomanip>
-class Date
+#include<string>
+
+class Calender
 {
 public:
-    Date(int day , int month , int year);
-    ~Date();
+    Calender(int day, int month , int year); // Default parameter values
+    ~Calender();
 
     void SetDay(int day);
     int GetDay();
@@ -27,6 +29,15 @@ public:
 
     std::string ToString() const;
 
+    // Add comparison operator for map key
+    bool operator<(const Calender& other) const ;
+
+
+
+    // Add equality operator
+    bool operator==(const Calender& other) const;
+
+
 
 private:
     int m_day;
@@ -34,4 +45,4 @@ private:
     int m_year;
 };
 
-#endif // DATE_H
+#endif // CALENDER_H

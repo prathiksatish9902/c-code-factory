@@ -30,16 +30,18 @@ void AuditoriumManagement::AddAuditorium()
 
 void AuditoriumManagement::DisplayAuditorium()
 {
+    std::cout<<"Auditorium Name "<<std::setw(20)<<"seat capacity "<<std::setw(15)<<"status "<<std::endl;
+    std::cout<<"---------------------------------------------------------------------------------"<<std::endl;
     for(auto i = m_auditoriums.begin(); i!= m_auditoriums.end();i++)
     {
         if(i->GetStatus() == "available")
         {
-            std::cout<<i->GetName()<<" "<<i->GetSeatCapacity()<<" "<<i->GetStatus()<<std::endl;
+            std::cout<<i->GetName()<<std::setw(20)<<i->GetSeatCapacity()<<std::setw(20)<<i->GetStatus()<<std::endl;
         }
     }
 }
 
-void AuditoriumManagement::DisplayAvailableAuditoriums(Date &date)
+void AuditoriumManagement::DisplayAvailableAuditoriums(Calender &date)
 {
     std::cout << "Auditoriums available on " << date.ToString() << ":" << std::endl;
 
@@ -47,7 +49,7 @@ void AuditoriumManagement::DisplayAvailableAuditoriums(Date &date)
     {
         if(auditorium.IsAvailableOnDate(date))
         {
-            std::cout << auditorium.GetName() << " - Capacity: " << auditorium.GetSeatCapacity() << std::endl;
+            std::cout << auditorium.GetName() << " - Capacity: " << auditorium.GetSeatCapacity() <<" - Status: " << auditorium.GetStatus()<< std::endl;
         }
     }
 }
@@ -59,9 +61,8 @@ void AuditoriumManagement::BookAuditorium()
     std::cout << "Enter booking date (DD MM YYYY): ";
     std::cin >> day >> month >> year;
 
-    Date bookingDate(day, month, year);
+    Calender bookingDate(day, month, year);
 
-    // Display available auditoriums on the selected date
     DisplayAvailableAuditoriums(bookingDate);
 
     std::cout << "Enter the auditorium name you want to book: ";
@@ -76,9 +77,8 @@ void AuditoriumManagement::BookAuditorium()
                 auditorium.AddBookedDate(bookingDate);
                 std::cout << auditorium.GetName() << " booked on " << bookingDate.ToString() << std::endl;
 
-                // Show all booking dates for this auditorium
                 std::cout << "All bookings for " << auditoriumName << ":" << std::endl;
-                for(const auto& date : auditorium.GetBookedDates())
+                for(auto& date : auditorium.GetBookedDates())
                 {
                     std::cout << "- " << date.ToString() << std::endl;
                 }

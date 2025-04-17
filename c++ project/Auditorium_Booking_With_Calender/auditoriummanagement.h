@@ -2,7 +2,8 @@
 #define AUDITORIUMMANAGEMENT_H
 #include"auditorium.h"
 #include<vector>
-#include"date.h"
+#include"calender.h"
+#include<iomanip>
 class AuditoriumManagement
 {
 public:
@@ -14,7 +15,7 @@ public:
 
     void DisplayAuditorium();
 
-    void DisplayAvailableAuditoriums(Date &date);
+    void DisplayAvailableAuditoriums(Calender &date);
 
 
     void BookAuditorium();
