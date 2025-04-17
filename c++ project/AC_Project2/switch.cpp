@@ -16,6 +16,7 @@ void Switch::Switch_on()
     std::cout<<"switch on"<<std::endl;
 w1->W_on();
 
+
 }
 
 void Switch::Setwire(Wire *w)
