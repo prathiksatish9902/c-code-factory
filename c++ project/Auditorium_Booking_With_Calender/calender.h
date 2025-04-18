@@ -2,36 +2,26 @@
 #define CALENDER_H
 #include<iostream>
 #include<iomanip>
+#include "month.h"
+#include<vector>
 class Calender
 {
 public:
-    Calender(int day , int month , int year);
+    Calender();
+    Calender(int year);
     ~Calender();
 
-    void SetDay(int day);
-    int GetDay();
+    Month GetMonth();
 
-    void SetMonth(int month);
-    int GetMonth();
-
-    void SetYear(int year);
     int GetYear();
 
-    bool isLeapYear();
-
-    int GetDaysInMonths();
-
-    int GetStartingDay();
-
-    void DisplayCalender();
-
-    std::string ToString() const;
-
+    void AddMonths();
 
 private:
-    int m_day;
-    int m_month;
     int m_year;
-};
+    Month *m_month;
+    std::vector<Month> m_monthList;
+
+ };
 
 #endif // CALENDER_H

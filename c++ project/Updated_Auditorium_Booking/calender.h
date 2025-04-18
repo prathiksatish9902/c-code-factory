@@ -7,7 +7,7 @@
 class Calender
 {
 public:
-    Calender(int day, int month , int year); // Default parameter values
+    Calender(int day, int month , int year);
     ~Calender();
 
     void SetDay(int day);
@@ -29,12 +29,8 @@ public:
 
     std::string ToString() const;
 
-    // Add comparison operator for map key
     bool operator<(const Calender& other) const ;
 
-
-
-    // Add equality operator
     bool operator==(const Calender& other) const;
 
 

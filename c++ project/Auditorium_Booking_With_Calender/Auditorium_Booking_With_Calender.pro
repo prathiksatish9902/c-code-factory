@@ -7,9 +7,13 @@ SOURCES += \
         auditorium.cpp \
         auditoriummanagement.cpp \
         calender.cpp \
-        main.cpp
+        calendermanager.cpp \
+        main.cpp \
+        month.cpp
 
 HEADERS += \
     auditorium.h \
     auditoriummanagement.h \
-    calender.h
+    calender.h \
+    calendermanager.h \
+    month.h

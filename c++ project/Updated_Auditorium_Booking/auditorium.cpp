@@ -2,10 +2,13 @@
 
 Auditorium::Auditorium()
 {
+    std::cout<<"auditorium default constructor called"<<std::endl;
 
 }
 
 Auditorium::Auditorium(std::string auditoriumId, std::string auditoriumName, int seatcapacity, std::string auditoriumStatus) {
+    std::cout<<"auditorium constructor called"<<std::endl;
+
     m_auditoriumId = auditoriumId;
     m_auditoriumName = auditoriumName;
     m_seatcapaity = seatcapacity;
@@ -14,7 +17,7 @@ Auditorium::Auditorium(std::string auditoriumId, std::string auditoriumName, int
 
 Auditorium::~Auditorium()
 {
-    // std::cout<<"auditorium destructor called"<<std::endl;
+    std::cout<<"auditorium destructor called"<<std::endl;
 }
 
 void Auditorium::SetId(std::string auditoriumId)
@@ -57,8 +60,4 @@ std::string Auditorium::GetStatus()
     return m_auditoriumStatus;
 }
 
-bool Auditorium::IsAvailableOnDate(const Calender &date)
-{
-    // This function is now a placeholder as availability is checked in AuditoriumManagement
-    return true;
-}
+
