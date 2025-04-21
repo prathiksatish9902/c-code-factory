@@ -5,15 +5,17 @@ CONFIG -= qt
 
 SOURCES += \
         auditorium.cpp \
-        auditoriummanagement.cpp \
+        auditoriummanager.cpp \
         calender.cpp \
-        calendermanager.cpp \
+        date.cpp \
         main.cpp \
-        month.cpp
+        month.cpp \
+        year.cpp
 
 HEADERS += \
     auditorium.h \
-    auditoriummanagement.h \
+    auditoriummanager.h \
     calender.h \
-    calendermanager.h \
-    month.h
+    date.h \
+    month.h \
+    year.h

@@ -1,41 +1,16 @@
 #include "calender.h"
 
 Calender::Calender() {
-    std::cout<<"Calender constructor1 called"<<std::endl;
-
+    std::cout<<"calender constructor called"<<std::endl;
 }
-
-Calender::Calender(int year)
-{
-    std::cout<<"Calender constructor2 called"<<std::endl;
-
-    m_month = new Month;
-    m_year = year;
-
-}
-
 
 Calender::~Calender()
 {
-    std::cout<<"Calender destructor called"<<std::endl;
-    delete m_month;
+    std::cout<<"calender destructor called"<<std::endl;
 
 }
 
-Month Calender::GetMonth()
+void Calender::AddYear(Year &year)
 {
-    return *m_month;
+    m_yearSet.push_back(year);
 }
-
-int Calender::GetYear()
-{
-    return m_year;
-}
-
-void Calender::AddMonths()
-{
-
-}
-
-
-

@@ -1,27 +1,19 @@
 #ifndef CALENDER_H
 #define CALENDER_H
 #include<iostream>
-#include<iomanip>
-#include "month.h"
-#include<vector>
+#include<list>
+#include"year.h"
 class Calender
 {
 public:
     Calender();
-    Calender(int year);
     ~Calender();
 
-    Month GetMonth();
-
-    int GetYear();
-
-    void AddMonths();
+    void AddYear(Year &year);
 
 private:
-    int m_year;
-    Month *m_month;
-    std::vector<Month> m_monthList;
+    std:: list<Year> m_yearSet;
 
- };
+};
 
 #endif // CALENDER_H
