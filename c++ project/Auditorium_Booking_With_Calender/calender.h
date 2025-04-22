@@ -6,14 +6,18 @@
 class Calender
 {
 public:
+
+
     Calender();
     ~Calender();
 
-    void AddYear(Year &year);
+    void AddYear();
+    Year* GetCurrentYear();
+
 
 private:
-    std:: list<Year> m_yearSet;
-
+    std:: list<Year*> m_yearList;
+    Year *year;
 };
 
 #endif // CALENDER_H
