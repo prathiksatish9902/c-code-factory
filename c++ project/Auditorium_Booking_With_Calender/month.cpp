@@ -59,29 +59,23 @@ void Month::PrintCalendar(int year)
     else if (m_month == "november") monthNum = 11;
     else if (m_month == "december") monthNum = 12;
 
-    // Get days in month (for simplicity using the vector size)
     int daysInMonth = m_dateList.size();
 
-    // Get the first day of the month (0 = Sunday, 1 = Monday, etc.)
     int firstDay = GetFirstDayOfMonth(monthNum, year);
 
-    // Print calendar header
     std::cout << " Calendar for " << monthNum << "/" << year << std::endl;
     std::cout << "  Sun  Mon  Tue  Wed  Thu  Fri  Sat" << std::endl;
 
-    // Print leading spaces
     int currentDay = 0;
     for (int i = 0; i < firstDay; i++) {
         std::cout << "     ";
         currentDay++;
     }
 
-    // Print days
     for (int i = 1; i <= daysInMonth; i++) {
         std::cout << std::setw(5) << i;
         currentDay++;
 
-        // Start a new line after Saturday
         if (currentDay % 7 == 0 || i == daysInMonth) {
             std::cout << std::endl;
         }

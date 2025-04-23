@@ -47,7 +47,6 @@ void Year::AddMonth()
     Month *month11 = new Month("november");
     Month *month12 = new Month("december");
 
-    // for(int i = 1; i<=12; i++){
     m_monthMap [1] = month1;
     m_monthMap [2] = month2;
     m_monthMap [3] = month3;
@@ -60,7 +59,6 @@ void Year::AddMonth()
     m_monthMap [10] = month10;
     m_monthMap [11] = month11;
     m_monthMap [12] = month12;
-    // }
 
 }
 

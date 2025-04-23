@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         auditorium.cpp \
         auditoriummanagement.cpp \
+        bookingdate.cpp \
         calender.cpp \
         calendermanager.cpp \
         date.cpp \
@@ -16,6 +17,7 @@ SOURCES += \
 HEADERS += \
     auditorium.h \
     auditoriummanagement.h \
+    bookingdate.h \
     calender.h \
     calendermanager.h \
     date.h \
