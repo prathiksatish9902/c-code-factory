@@ -1,37 +1,23 @@
 #ifndef CALENDER_H
 #define CALENDER_H
 #include<iostream>
-#include<iomanip>
+#include<list>
+#include"year.h"
 class Calender
 {
 public:
-    Calender(int day , int month , int year);
+
+
+    Calender();
     ~Calender();
 
-    void SetDay(int day);
-    int GetDay();
-
-    void SetMonth(int month);
-    int GetMonth();
-
-    void SetYear(int year);
-    int GetYear();
-
-    bool isLeapYear();
-
-    int GetDaysInMonths();
-
-    int GetStartingDay();
-
-    void DisplayCalender();
-
-    std::string ToString() const;
+    void AddYear();
+    Year* GetCurrentYear();
 
 
 private:
-    int m_day;
-    int m_month;
-    int m_year;
+    std:: list<Year*> m_yearList;
+    Year *year;
 };
 
 #endif // CALENDER_H
