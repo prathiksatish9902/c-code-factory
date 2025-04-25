@@ -2,21 +2,35 @@
 #include <ctime>
 
 Month::Month() {
-    std::cout<<"month empty constructor called"<<std::endl;
+    // std::cout<<"month empty constructor called"<<std::endl;
 }
 
 Month::Month(std::string month)
 {
     AddDate();
 
-    std::cout<<"month parameter constructor called"<<std::endl;
+    // std::cout << "month parameter constructor called" << std::endl;
     m_month = month;
     date = new Date;
+
+    if (m_month == "january") AddDate(31);
+    else if (m_month == "february") AddDate(28);
+    else if (m_month == "march") AddDate(31);
+    else if (m_month == "april") AddDate(30);
+    else if (m_month == "may") AddDate(31);
+    else if (m_month == "june") AddDate(30);
+    else if (m_month == "july") AddDate(31);
+    else if (m_month == "august") AddDate(31);
+    else if (m_month == "september") AddDate(30);
+    else if (m_month == "october") AddDate(31);
+    else if (m_month == "november") AddDate(30);
+    else if (m_month == "december") AddDate(31);
+    else AddDate(30); // Default
 }
 
 Month::~Month()
 {
-    std::cout<<"month destructor called"<<std::endl;
+    // std::cout<<"month destructor called"<<std::endl;
     delete date;
 }
 
@@ -30,9 +44,10 @@ std::string Month::GetMonth()
     return m_month;
 }
 
-void Month::AddDate()
+void Month::AddDate(int numDays)
 {
-    for(int i = 1; i < 31;i++){
+    m_dateList.clear();
+    for (int i = 1; i <= numDays; i++) {
         m_dateList.push_back(i);
     }
 }
@@ -40,10 +55,9 @@ void Month::AddDate()
 int Month::GetCurrentDate(int date)
 {
     return m_dateList[date-1];
-    return 10;
 }
 
-void Month::PrintCalendar(int year)
+void Month::PrintCalendar(int year, const std::map<int, int>* bookingCounts)
 {
     int monthNum = 0;
     if (m_month == "january") monthNum = 1;
@@ -59,7 +73,13 @@ void Month::PrintCalendar(int year)
     else if (m_month == "november") monthNum = 11;
     else if (m_month == "december") monthNum = 12;
 
-    int daysInMonth = m_dateList.size();
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (monthNum == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            daysInMonth[2] = 29;
+        }
+    }
 
     int firstDay = GetFirstDayOfMonth(monthNum, year);
 
@@ -72,11 +92,24 @@ void Month::PrintCalendar(int year)
         currentDay++;
     }
 
-    for (int i = 1; i <= daysInMonth; i++) {
-        std::cout << std::setw(5) << i;
+    for (int i = 1; i <= daysInMonth[monthNum]; i++) {
+        int bookingCount = 0;
+        if (bookingCounts != nullptr) {
+            auto it = bookingCounts->find(i);
+            if (it != bookingCounts->end()) {
+                bookingCount = it->second;
+            }
+        }
+
+        if (bookingCount == 0 || bookingCount > 0) {
+            std::cout << std::setw(2) << i << "/" << bookingCount << " ";
+        } else {
+            std::cout << std::setw(2) << i << "   ";
+        }
+
         currentDay++;
 
-        if (currentDay % 7 == 0 || i == daysInMonth) {
+        if (currentDay % 7 == 0 || i == daysInMonth[monthNum]) {
             std::cout << std::endl;
         }
     }

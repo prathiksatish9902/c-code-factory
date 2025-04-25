@@ -6,6 +6,7 @@
 #include<iomanip>
 #include<string>
 #include"date.h"
+#include "map"
 class Month
 {
 public:
@@ -16,18 +17,17 @@ public:
     void SetMonth(std::string month);
     std::string GetMonth();
 
-    void AddDate();
+void AddDate(int numDays = 30);
     int GetCurrentDate(int date);
 
-    // New function to print calendar
-    void PrintCalendar(int year);
+    void PrintCalendar(int year, const std::map<int, int>* bookingCounts = nullptr);
+
 
 private:
     Date *date;
     std::string m_month;
     std::vector<int> m_dateList;
 
-    // Helper function to determine the first day of the month
     int GetFirstDayOfMonth(int month, int year);
 };
 

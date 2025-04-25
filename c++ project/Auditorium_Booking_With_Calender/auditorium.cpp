@@ -1,12 +1,12 @@
 #include "auditorium.h"
 
 Auditorium::Auditorium() {
-    std::cout<<"auditorium empty constructor called"<<std::endl;
+    // std::cout<<"auditorium empty constructor called"<<std::endl;
 }
 
 Auditorium::Auditorium(std::string auditoriumId, std::string auditoriumName, int seatcapacity, std::string auditoriumStatus)
 {
-    std::cout<<"auditorium parameter constructor called"<<std::endl;
+    // std::cout<<"auditorium parameter constructor called"<<std::endl;
 
     m_auditoriumId = auditoriumId;
     m_auditoriumName = auditoriumName;
@@ -16,7 +16,7 @@ Auditorium::Auditorium(std::string auditoriumId, std::string auditoriumName, int
 
 Auditorium::~Auditorium()
 {
-    std::cout<<"auditorium destructor called"<<std::endl;
+    // std::cout<<"auditorium destructor called"<<std::endl;
 
 }
 

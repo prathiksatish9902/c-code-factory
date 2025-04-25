@@ -3,6 +3,7 @@
 #include"auditorium.h"
 #include<map>
 #include<list>
+#include <limits>
 #include<iomanip>
 #include"bookingdate.h"
 #include"calendermanager.h"
@@ -18,6 +19,10 @@ public:
     void DisplayAuditorium();
     void DisplayAvailableAuditoriums(BookingDate &bookingdate);
     void BookAuditorium();
+    void DisplayCalendarInterface();
+
+
+
 
 private:
     std::map<std::string, Auditorium*> m_auditoriumMap;
@@ -26,7 +31,9 @@ private:
 
     bool IsAuditoriumBooked(const std::string& auditoriumId, const BookingDate& bookingdate);
 
-    bool IsValidBookingDate(const BookingDate& bookingDate);
+    bool IsValidBookingDate(BookingDate &bookingDate);
+
+    bool IsValidDateForMonth(int day, int month, int year);
 
 };
 

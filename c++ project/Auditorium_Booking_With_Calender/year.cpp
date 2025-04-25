@@ -1,12 +1,12 @@
 #include "year.h"
 
 Year::Year() {
-    std::cout<<"year empty constructor called"<<std::endl;
+    // std::cout<<"year empty constructor called"<<std::endl;
 }
 
 Year::Year(int year)
 {
-    std::cout<<"year parameter constructor called"<<std::endl;
+    // std::cout<<"year parameter constructor called"<<std::endl;
     m_year = year;
     month = new Month;
     this->AddMonth();
@@ -16,9 +16,11 @@ Year::Year(int year)
 
 Year::~Year()
 {
-    std::cout<<"year destructor called"<<std::endl;
-    delete month;
-
+    // std::cout<<"year destructor called"<<std::endl;
+    // delete month;
+    for(auto &pair : m_monthMap){
+        delete pair.second;
+    }
 }
 
 void Year::SetYear(int year)
@@ -33,7 +35,7 @@ int Year::GetYear()
 
 void Year::AddMonth()
 {
-    std::cout<<"add month";
+    // std::cout<<"add month"<<std::endl;
     Month *month1 = new Month("january");
     Month *month2 = new Month("february");
     Month *month3 = new Month("march");

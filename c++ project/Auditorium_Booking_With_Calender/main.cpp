@@ -1,13 +1,23 @@
 #include <iostream>
 #include"auditoriummanagement.h"
-using namespace std;
+#include"bookingdate.h"
 
+#define True 1
+#define Success 0
+using namespace std;
+enum{
+    ADDAUDITORIUM = 1,
+    DISPLAYAUDITORIUM,
+    BOOKAUDITORIUM,
+    EXIT
+};
 int main()
 {
 
+    AuditoriumManagement *audmgmt = new AuditoriumManagement;
+    audmgmt->DisplayCalendarInterface();
 
-    AuditoriumManagement audmgmt;
-    while(1)
+    while(True)
     {
         int choice;
         std::cout<<"\n1.add auditorium"<<std::endl;
@@ -18,22 +28,23 @@ int main()
         std::cin>>choice;
         switch(choice)
         {
-        case 1:
-            audmgmt.AddAuditorium();
+        case ADDAUDITORIUM:
+            audmgmt->AddAuditorium();
             break;
 
-        case 2:
-            audmgmt.DisplayAuditorium();
+        case DISPLAYAUDITORIUM:
+            audmgmt->DisplayAuditorium();
             break;
 
-        case 3:
+        case BOOKAUDITORIUM:
+            audmgmt->BookAuditorium();
+            audmgmt->DisplayCalendarInterface();
 
-            audmgmt.BookAuditorium();
             break;
 
-        case 4:
-            exit(0);
-
+        case EXIT:
+            delete audmgmt;
+            exit(Success);
             break;
 
         default:
@@ -41,8 +52,6 @@ int main()
             break;
 
         }
-
     }
-
-    return 0;
+    return Success;
 }

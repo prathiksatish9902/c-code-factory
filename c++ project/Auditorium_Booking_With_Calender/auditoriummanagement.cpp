@@ -2,12 +2,12 @@
 #include <algorithm>
 
 AuditoriumManagement::AuditoriumManagement() {
-    std::cout<<"auditorium management constructor called"<<std::endl;
+    // std::cout<<"auditorium management constructor called"<<std::endl;
 }
 
 AuditoriumManagement::~AuditoriumManagement()
 {
-    std::cout<<"auditorium management destructor called"<<std::endl;
+    // std::cout<<"auditorium management destructor called"<<std::endl;
     for( auto &pair : m_auditoriumMap)
     {
         delete pair.second;
@@ -17,7 +17,7 @@ AuditoriumManagement::~AuditoriumManagement()
 
 void AuditoriumManagement::AddAuditorium()
 {
-    std::cout<<"add auditorium function called"<<std::endl;
+    // std::cout<<"add auditorium function called"<<std::endl;
     m_auditoriumMap["AUD001"] = new Auditorium("AUD001", "auditorium1", 300, "available");
     m_auditoriumMap["AUD002"] = new Auditorium("AUD002", "auditorium2", 300, "available");
     m_auditoriumMap["AUD003"] = new Auditorium("AUD003", "auditorium3", 300, "available");
@@ -57,22 +57,67 @@ bool AuditoriumManagement::IsAuditoriumBooked(const std::string& auditoriumId, c
     return false;
 }
 
-bool AuditoriumManagement::IsValidBookingDate(const BookingDate &bookingDate)
+bool AuditoriumManagement::IsValidBookingDate(BookingDate &bookingDate)
 {
-        time_t now = time(0);
-        struct tm* current = localtime(&now);
+    time_t now = time(0);
+    struct tm* current = localtime(&now);
 
-        int currentDay = current->tm_mday;
-        int currentMonth = current->tm_mon + 1;  // tm_mon is 0-indexed
-        int currentYear = current->tm_year + 1900;  // Years since 1900
+    int currentDay = current->tm_mday;
+    int currentMonth = current->tm_mon + 1;  // tm_mon is 0-indexed
+    int currentYear = current->tm_year + 1900;  // Years since 1900
 
-        BookingDate today(currentDay, currentMonth, currentYear);
+    int bookingDay = bookingDate.GetDay();
+    int bookingMonth = bookingDate.GetMonth();
+    int bookingYear = bookingDate.GetYear();
 
-        return bookingDate < today ? false : !(bookingDate == today);
+    if ((bookingMonth < 1) || (bookingMonth > 12))
+    {
+        std::cout << "Invalid month. Month must be between 1 and 12." << std::endl;
+        return false;
+    }
 
+    if (!IsValidDateForMonth(bookingDay, bookingMonth, bookingYear)) {
+        std::cout << "Invalid day for month " << bookingMonth << ". ";
+
+        int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        if (bookingMonth == 2) {
+            if ((bookingYear % 4 == 0 && bookingYear % 100 != 0) || (bookingYear % 400 == 0)) {
+                daysInMonth[2] = 29;
+            }
+        }
+
+        std::cout << "The day should be between 1 and " << daysInMonth[bookingMonth] << "." << std::endl;
+        return false;
+    }
+
+    BookingDate today(currentDay, currentMonth, currentYear);
+
+    if (bookingDate < today) {
+        std::cout << "Cannot book for past dates." << std::endl;
+        return false;
+    } else if (bookingDate == today) {
+        std::cout << "Cannot book for today. Please book for future dates." << std::endl;
+        return false;
+    }
+
+    return true;
 }
 
-void AuditoriumManagement::DisplayAvailableAuditoriums(BookingDate &bookingdate)
+bool AuditoriumManagement::IsValidDateForMonth (int day, int month, int year)
+{
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            daysInMonth[2] = 29;
+        }
+    }
+
+    return (day >= 1 && day <= daysInMonth[month]);
+}
+
+void AuditoriumManagement::DisplayAvailableAuditoriums (BookingDate &bookingdate)
 {
     std::cout << "Auditoriums available on " << bookingdate.ToString() << ":" << std::endl;
     std::cout << "Auditorium ID" << std::setw(15) << "Auditorium Name" << std::setw(20)
@@ -96,7 +141,6 @@ void AuditoriumManagement::BookAuditorium()
 {
     std::string auditoriumId;
     int day, month, year;
-
     time_t now = time(0);
     struct tm* current = localtime(&now);
     int currentDay = current->tm_mday;
@@ -111,22 +155,60 @@ void AuditoriumManagement::BookAuditorium()
 
     while (!validDate) {
         std::cout << "Enter booking date (DD MM YYYY): ";
-        std::cin >> day >> month >> year;
+        if (!(std::cin >> day >> month >> year)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter numbers in format DD MM YYYY." << std::endl;
+            continue;
+        }
+        // std::cin >> day >> month >> year;
 
         bookingdate = BookingDate(day, month, year);
 
         if (!IsValidBookingDate(bookingdate)) {
-            std::cout << "Error: Cannot book for today or past dates. Please enter a future date." << std::endl;
+            std::cout << "Cannot book for today or past dates. Please enter a future date." << std::endl;
         } else {
             validDate = true;
         }
     }
 
-    CalenderManager manager;
-    manager.PrintMonthCalendar(month);
+    // Display calendar for the selected date
+    // bookingdate.DisplayCalendar();
+
+    // int userinput = 1;
+    // int newMonth = month;
+    // int newYear = year;
+    // CalenderManager manager;
+
+    // while(userinput)
+    // {
+    //     std::cout << "Do you want to see upcoming month calender?" << std::endl;
+    //     std::cout << "1. next month" << std::endl;
+    //     std::cout << "2. previous month" << std::endl;
+    //     std::cout << "3. exit" << std::endl;
+    //     std::cin >> userinput;
+
+    //     switch(userinput)
+    //     {
+    //     case NEXTMONTH:
+
+    //         manager.NavigateCalendar(newMonth, newYear, true);
+    //         break;
+
+    //     case PREVIOUSMONTH:
+    //         manager.NavigateCalendar(newMonth, newYear, false);
+    //         break;
+
+    //     case EXIT:
+    //         userinput = 0;
+
+    //     default:
+    //         std::cout<<"invalid input"<<std::endl;
+    //         break;
+    //     }
+    // }
 
     DisplayAvailableAuditoriums(bookingdate);
-
     std::cout << "Enter the auditorium ID you want to book: ";
     std::cin >> auditoriumId;
 
@@ -151,3 +233,55 @@ void AuditoriumManagement::BookAuditorium()
     }
 
 }
+enum{
+    NEXTMONTH = 1,
+    PREVIOUSMONTH,
+    EXIT
+};
+void AuditoriumManagement::DisplayCalendarInterface()
+{
+    time_t now = time(0);
+    struct tm* current = localtime(&now);
+    int currentDay = current->tm_mday;
+    int currentMonth = current->tm_mon + 1;
+    int currentYear = current->tm_year + 1900;
+
+    std::cout << "Today's date is: " << currentDay << "/" << currentMonth << "/" << currentYear << std::endl;
+
+    CalenderManager manager;
+    manager.PrintMonthCalendar(currentMonth, currentYear, &m_bookingMap);
+
+    int userinput = 1;
+    int newMonth = currentMonth;
+    int newYear = currentYear;
+
+    while(userinput)
+    {
+        std::cout << "\nCalendar Navigation:" << std::endl;
+        std::cout << "1. Next month" << std::endl;
+        std::cout << "2. Previous month" << std::endl;
+        std::cout << "3. Return to main menu" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> userinput;
+
+        switch(userinput)
+        {
+        case NEXTMONTH:
+            manager.NavigateCalendar(newMonth, newYear, true, &m_bookingMap);
+            break;
+
+        case PREVIOUSMONTH :
+            manager.NavigateCalendar(newMonth, newYear, false, &m_bookingMap);
+            break;
+
+        case EXIT :
+            userinput = 0;
+            break;
+
+        default:
+            std::cout << "Invalid input" << std::endl;
+            break;
+        }
+    }
+}
+
