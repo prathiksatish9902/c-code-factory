@@ -14,6 +14,7 @@ int main()
     Log log;
     // log.SetLevel(log.logLevelWarning);
     log.Error("hello");
+    // Log::Error("hello");
     log.Info("hello");
     log.Warn("hello");
 
