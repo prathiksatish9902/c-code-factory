@@ -4,18 +4,23 @@ using namespace std;
 
 int main()
 {
-    // int i = 0;
-    // bool compare = true;
-    // // for(int i = 0; i < 5; i++)
+    int i = 0;
+    bool compare = true;
+    for(int i = 0; i < 5; i++)
     // for(;compare;)
-    // {
-    // cout << "Hello World!" << endl;
+    {
+        if(i%2 == 0)
+            // continue;
+
+    cout << "Hello World!" <<i<< endl;
+        // break;
+
     //     i++;
     // if(!(i < 5))
     //         compare = false;
-    // }
+    }
 
-    int i = 0;
+    // int i = 0;
     while(i < 5)
     {
         cout<<"hello"<<endl;
