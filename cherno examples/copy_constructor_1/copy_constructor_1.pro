@@ -9,6 +9,3 @@ SOURCES += \
 
 HEADERS += \
     entity.h
-
-DISTFILES += \
-    description.md

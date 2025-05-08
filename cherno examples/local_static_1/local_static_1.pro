@@ -4,11 +4,4 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        entity.cpp \
         main.cpp
-
-HEADERS += \
-    entity.h
-
-DISTFILES += \
-    description.md
