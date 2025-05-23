@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <employee.h>
-// class Employee;
+// #include <employee.h>
+class Employee;
 
 class Office
 {

@@ -14,7 +14,7 @@ public:
     Employee(const std::string& name, Employee* emp);
     ~Employee();
 
-    std::string GetName();
+    std::string GetName() const;
     void print();
     void printChildren();
     void addChild(Employee* child);
