@@ -22,7 +22,7 @@ Employee::~Employee()
     std::cout<<"employee destructor called"<<std::endl;
 }
 
-std::string Employee::GetName()
+std::string Employee::GetName() const
 {
     return name;
 }
