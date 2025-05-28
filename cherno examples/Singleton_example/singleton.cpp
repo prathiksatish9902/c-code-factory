@@ -1,5 +1,8 @@
 #include "singleton.h"
 
+
+// static Singleton* m_sptr=nullptr;
+
 // Singleton &Singleton::getInstance()
 // {
 //     static Singleton s;
@@ -25,6 +28,7 @@
 
 Singleton::Singleton()
 {
+   /* static Singleton**/ m_sptr=nullptr;
 
 }
 
