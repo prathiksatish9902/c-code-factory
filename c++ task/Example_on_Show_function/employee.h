@@ -3,26 +3,18 @@
 
 #include <string>
 #include <iostream>
-#include <vector>
+#include "baseobject.h"
 
 class Office;
 
-class Employee
+class Employee : public BaseObject
 {
 public:
     Employee(const std::string& name, Office* office);
     Employee(const std::string& name, Employee* emp);
     ~Employee();
 
-    std::string GetName() const;
-    void print();
-    void printChildren();
-    void addChild(Employee* child);
-private:
-    std::string name;
-    Office* officePtr;
-    Employee* empPtr;
-    std::vector<Employee*> children;
+    void print() override;
 };
 
 #endif // EMPLOYEE_H

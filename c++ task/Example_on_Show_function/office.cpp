@@ -1,6 +1,7 @@
 #include "office.h"
 #include "employee.h"
-Office::Office() {
+
+Office::Office(const std::string name) : BaseObject(name) {
     std::cout<<"office constructor called"<<std::endl;
 }
 
@@ -11,14 +12,10 @@ Office::~Office()
 
 void Office::addEmployee(Employee* emp) {
     std::cout<<"office constructor called"<<std::endl;
-
-    employees.push_back(emp);
+    addChild(emp);
 }
 
 void Office::print() {
     std::cout << "office print called" << std::endl;
-    for (auto emp : employees) {
-        emp->print();
-        std::cout<<emp->GetName()<<std::endl;
-    }
+    printChildren();
 }

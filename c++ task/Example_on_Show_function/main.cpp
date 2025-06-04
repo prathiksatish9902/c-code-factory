@@ -6,19 +6,19 @@ using namespace std;
 
 int main()
 {
-    Office off;
-    Employee e1("e1", &off);
-    Employee e2("e2", &off);
-    Employee e3("e3", &off);
-    Employee e4("e4", &off);
-    Employee e5("e5", &off);
-    Employee e6("e6", &off);
-    Employee e7("e7", &off);
-    Employee e8("e8", &off);
-    Employee e9("e9", &off);
-    Employee e10("e10", &off);
-    Employee e11("e11", &e1);
-    Employee e12("e12", &e11);
+    Office off("PthinkS");
+    Employee prathik("prathik", &off);
+    Employee darshan("darshan", &off);
+    Employee girish("girish", &off);
+    Employee anurag("anurag", &off);
+    Employee dhimanth("dhimanth", &off);
+    Employee hruthik("hruthik", &off);
+    Employee shashank("shashank", &off);
+    Employee suhas("suhas", &off);
+    Employee ranganath("ranganath", &off);
+    Employee harsha("harsha", &off);
+    Employee shankar("shankar", &prathik);
+    Employee amith("amith", &shankar);
     off.print();
 
     return 0;
