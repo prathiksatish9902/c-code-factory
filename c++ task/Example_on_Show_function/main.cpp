@@ -1,7 +1,6 @@
 #include <iostream>
 #include "office.h"
 #include "employee.h"
-
 using namespace std;
 
 int main()
@@ -20,6 +19,8 @@ int main()
     Employee shankar("shankar", &prathik);
     Employee amith("amith", &shankar);
     off.print();
-
+    off.getme();
+    prathik.getme();
+    off.findChild("PthinkS");
     return 0;
 }

@@ -8,6 +8,7 @@
 class BaseObject {
 public:
     BaseObject(const std::string name);
+    BaseObject();
     virtual ~BaseObject();
 
     std::string GetName() const;
@@ -15,6 +16,10 @@ public:
 
     void addChild(BaseObject* child);
     void printChildren();
+    std::vector<BaseObject*> findChild(const std::string name);
+
+
+    void getme();
 
 protected:
     std::string name;
